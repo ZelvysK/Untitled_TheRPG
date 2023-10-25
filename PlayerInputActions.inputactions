@@ -72,6 +72,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "UIElements",
+            "id": "189e2880-483e-48bf-87a3-d8b7d63ff590",
+            "actions": [
+                {
+                    "name": "ExperienceTest",
+                    "type": "Button",
+                    "id": "05f39b39-4b6c-45a3-8dbb-dacff07bbd9c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "828e1fe6-3c00-4b59-b599-598380ea1112",
+                    "path": "<Keyboard>/numpad1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExperienceTest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

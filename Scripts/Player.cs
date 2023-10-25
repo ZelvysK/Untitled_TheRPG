@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameInput gameInput;
 
     private bool isWalking;
-
+    
     private void Update() {
         Vector2 inputVector = gameInput.GetMovementNormalized();
 

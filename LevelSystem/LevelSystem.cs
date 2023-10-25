@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-public class LevelSystem
+public class LevelSystem : MonoBehaviour
 {
+    public static LevelSystem Instance { get; private set; }
+
 
     private int level = 1;
     private int experience = 0;
     private int maxLevel = 20;
 
 
+    private void Awake() {
+        Instance = this;
+
+    }
 
     public void AddExperience(int amount) {
         if (!IsMaxLevel())
@@ -22,6 +28,22 @@ public class LevelSystem
                 experience -= GetExperienceToNextLevel(level);
                 level++;
             }
+        }
+    }
+
+    public void RemoveExperience(int amount) {
+        if (level != 1)
+        {
+            experience -= amount;
+            while (level != 1 && experience <= 0)
+            {
+                level--;
+                experience += GetExperienceToNextLevel(level);
+            }
+            //if (experience <= 0)
+            //{
+            //    experience = 0;
+            //}
         }
     }
 
