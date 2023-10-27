@@ -7,25 +7,25 @@ public class LevelSystem : MonoBehaviour
 {
     public static LevelSystem Instance { get; private set; }
 
-
+    private int experiencePoints = 0;
     private int level = 1;
-    private int experience = 0;
     private int maxLevel = 20;
 
 
     private void Awake() {
         Instance = this;
 
+
     }
 
     public void AddExperience(int amount) {
         if (!IsMaxLevel())
         {
-            experience += amount;
-            while (!IsMaxLevel() && experience >= GetExperienceToNextLevel(level))
+            experiencePoints += amount;
+            while (!IsMaxLevel() && experiencePoints >= GetExperienceToNextLevel(level))
             {
                 //Enough experience to level
-                experience -= GetExperienceToNextLevel(level);
+                experiencePoints -= GetExperienceToNextLevel(level);
                 level++;
             }
         }
@@ -34,16 +34,23 @@ public class LevelSystem : MonoBehaviour
     public void RemoveExperience(int amount) {
         if (level != 1)
         {
-            experience -= amount;
-            while (level != 1 && experience <= 0)
+            experiencePoints -= amount;
+            while (level != 1 && experiencePoints <= 0)
             {
+
                 level--;
-                experience += GetExperienceToNextLevel(level);
+                experiencePoints += GetExperienceToNextLevel(level);
             }
-            //if (experience <= 0)
-            //{
-            //    experience = 0;
-            //}
+        }
+        else if (level == 1 && experiencePoints < 0)
+        {
+            experiencePoints = 0;
+        }
+        else
+        {
+            Debug.Log($"Level is set below required ammount: {level}. RESETING!");
+            level = 1;
+            experiencePoints = 0;
         }
     }
 
@@ -56,11 +63,11 @@ public class LevelSystem : MonoBehaviour
         }
         else
         {
-            return (float)experience / GetExperienceToNextLevel(level);
+            return (float)experiencePoints / GetExperienceToNextLevel(level);
         }
     }
 
-    public int GetExperience() { return experience; }
+    public int GetExperience() { return experiencePoints; }
 
     public int GetExperienceToNextLevel(int level) {
         if (level < maxLevel)

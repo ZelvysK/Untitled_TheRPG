@@ -13,6 +13,10 @@ public class HudUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI experienceText;
     [SerializeField] private TextMeshProUGUI levelText;
 
+    [SerializeField] private Image healthBarImage;
+    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private Image utilityBarImage;
+    [SerializeField] private TextMeshProUGUI utilityText;
 
     private void Awake() {
         Instance = this;
@@ -27,6 +31,8 @@ public class HudUI : MonoBehaviour
             SetLevelNumber();
             SetExperienceBarSize();
             SetExperienceText();
+            SetHealthBarSize();
+            SetUtilityBarSize();
         }
         else
         {
@@ -44,5 +50,13 @@ public class HudUI : MonoBehaviour
 
     private void SetExperienceText() {
         experienceText.text = LevelSystem.Instance.GetExperience().ToString() + "/" + LevelSystem.Instance.GetExperienceToNextLevel(LevelSystem.Instance.GetLevel()).ToString();
+    }
+
+    private void SetHealthBarSize() {
+
+    }
+
+    private void SetUtilityBarSize() {
+
     }
 }
