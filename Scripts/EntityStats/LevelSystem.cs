@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelSystem : MonoBehaviour
 {
-    public static LevelSystem Instance { get; private set; }
+    public static LevelSystem LevelInstance { get; private set; }
 
     private int experiencePoints = 0;
     private int level = 1;
@@ -13,7 +13,7 @@ public class LevelSystem : MonoBehaviour
 
 
     private void Awake() {
-        Instance = this;
+        LevelInstance = this;
 
 
     }

@@ -23,15 +23,15 @@ public class ExperienceTest : MonoBehaviour
     private void Awake() {
         Instance = this;
 
-        buttonAdd10.onClick.AddListener(() => { LevelSystem.Instance.AddExperience(10); HudUI.Instance.UpdateVisual(); });
-        buttonAdd100.onClick.AddListener(() =>{ LevelSystem.Instance.AddExperience(100); HudUI.Instance.UpdateVisual(); });
-        buttonAdd1000.onClick.AddListener(() =>{ LevelSystem.Instance.AddExperience(1000); HudUI.Instance.UpdateVisual(); });
-        buttonAdd5000.onClick.AddListener(() =>{ LevelSystem.Instance.AddExperience(5000); HudUI.Instance.UpdateVisual(); });
+        buttonAdd10.onClick.AddListener(() => { LevelSystem.LevelInstance.AddExperience(10); HudUI.Instance.UpdateVisual(); });
+        buttonAdd100.onClick.AddListener(() =>{ LevelSystem.LevelInstance.AddExperience(100); HudUI.Instance.UpdateVisual(); });
+        buttonAdd1000.onClick.AddListener(() =>{ LevelSystem.LevelInstance.AddExperience(1000); HudUI.Instance.UpdateVisual(); });
+        buttonAdd5000.onClick.AddListener(() =>{ LevelSystem.LevelInstance.AddExperience(5000); HudUI.Instance.UpdateVisual(); });
 
-        buttonRemove10.onClick.AddListener(() =>{ LevelSystem.Instance.RemoveExperience(10); HudUI.Instance.UpdateVisual(); });
-        buttonRemove100.onClick.AddListener(() =>{ LevelSystem.Instance.RemoveExperience(100); HudUI.Instance.UpdateVisual(); });
-        buttonRemove1000.onClick.AddListener(() =>{ LevelSystem.Instance.RemoveExperience(1000); HudUI.Instance.UpdateVisual(); });
-        buttonRemove5000.onClick.AddListener(() =>{ LevelSystem.Instance.RemoveExperience(5000); HudUI.Instance.UpdateVisual(); });
+        buttonRemove10.onClick.AddListener(() =>{ LevelSystem.LevelInstance.RemoveExperience(10); HudUI.Instance.UpdateVisual(); });
+        buttonRemove100.onClick.AddListener(() =>{ LevelSystem.LevelInstance.RemoveExperience(100); HudUI.Instance.UpdateVisual(); });
+        buttonRemove1000.onClick.AddListener(() =>{ LevelSystem.LevelInstance.RemoveExperience(1000); HudUI.Instance.UpdateVisual(); });
+        buttonRemove5000.onClick.AddListener(() =>{ LevelSystem.LevelInstance.RemoveExperience(5000); HudUI.Instance.UpdateVisual(); });
 
         closeButton.onClick.AddListener(() => { Hide(); });
 

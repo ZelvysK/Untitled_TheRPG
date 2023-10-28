@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterCreation : MonoBehaviour
+public class CharacterCreation : Entity
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Entity entity;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Start() {
+        entity = CreateNewEntity();
+
+
+        //Debug.Log($"{entity.CharacterName}" +
+        //    $"\nLevel: {entity.Level}" +
+        //    $"\nExperience: {entity.ExperiencePoints}" +
+        //    $"\nStrenght: {entity.Strength}" +
+        //    $"\nStamina: {entity.Stamina}" +
+        //    $"\nAgility: {entity.Agility}" +
+        //    $"\nDexterity: {entity.Dexterity}" +
+        //    $"\nStrenght: {entity.Strength}" +
+        //    $"\nStrenght: {entity.Strength}" +
+        //    $"\nHealth: {entity.HealthPoints}" +
+        //    $"\nMana: {entity.Mana}");
+
     }
+    
 }
