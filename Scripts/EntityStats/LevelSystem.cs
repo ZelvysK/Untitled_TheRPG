@@ -7,6 +7,9 @@ public class LevelSystem : MonoBehaviour
 {
     public static LevelSystem LevelInstance { get; private set; }
 
+    private float slope = 0.13f;
+    private int offset = 2;
+
     private int experiencePoints = 0;
     private int level = 1;
     private int maxLevel = 20;
@@ -14,8 +17,6 @@ public class LevelSystem : MonoBehaviour
 
     private void Awake() {
         LevelInstance = this;
-
-
     }
 
     public void AddExperience(int amount) {
@@ -72,7 +73,7 @@ public class LevelSystem : MonoBehaviour
     public int GetExperienceToNextLevel(int level) {
         if (level < maxLevel)
         {
-            return (int)Mathf.Pow((level / 0.13f), 2);
+            return (int)Mathf.Pow((level / slope), offset);
         }
         else
             //Invalid level

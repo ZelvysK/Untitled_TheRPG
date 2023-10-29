@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Entity : LevelSystem
+public class Entity : MonoBehaviour
 {
     public static Entity EntityInstance { get; private set; }
 
@@ -23,6 +23,7 @@ public class Entity : LevelSystem
     public string CharacterName { get; private set; }
     public int Level { get; private set; }
     public int ExperiencePoints { get; private set; }
+    public int StatPoints { get; set; } = 20;
     public int HealthPoints { get; private set; }
     public int MaxHealthPoints { get; private set; }
     public int Mana { get; private set; }
@@ -35,13 +36,13 @@ public class Entity : LevelSystem
 
     private void Awake() { EntityInstance = this; }
 
-    public Entity CreateNewEntity() {
+    public Entity CreateNewPlayer() {
 
         Entity player = this;
 
         player.CharacterName = "Charlie";
-        player.Level = LevelInstance.GetLevel();
-        player.ExperiencePoints = LevelInstance.GetExperience();
+        player.Level = LevelSystem.LevelInstance.GetLevel();
+        player.ExperiencePoints = LevelSystem.LevelInstance.GetExperience();
         player.MaxHealthPoints = maxHealth;
         player.HealthPoints = health;
         player.MaxMana = maxMana;

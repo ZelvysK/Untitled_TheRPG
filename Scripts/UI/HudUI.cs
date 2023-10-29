@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HudUI : MonoBehaviour
 {
-    public static HudUI Instance;
+    public static HudUI HudInstance;
 
     [SerializeField] private Entity entity;
 
@@ -24,14 +24,15 @@ public class HudUI : MonoBehaviour
     private Entity player;
 
     private void Awake() {
-        Instance = this;
-        player = entity.CreateNewEntity();
+        HudInstance = this;
+        Entity playerEntity = entity.CreateNewPlayer();
+        player = playerEntity;
 
         UpdateVisual();
     }
 
     public void UpdateVisual() {
-        if (Instance != null)
+        if (player != null)
         {
             SetLevelNumber();
             SetExperienceBarSize();
@@ -41,7 +42,7 @@ public class HudUI : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No Instance or Null");
+            Debug.LogError("No entity or Null");
         }
     }
 
@@ -50,7 +51,14 @@ public class HudUI : MonoBehaviour
     }
 
     private void SetLevelNumber() {
-        levelText.text = $"{LevelSystem.LevelInstance.GetLevel()}";
+        if (entity != null)
+        {
+            levelText.text = $"{LevelSystem.LevelInstance.GetLevel()}";
+        }
+        else
+        {
+            Debug.LogError("No entity instance");
+        }
     }
 
     private void SetExperienceText() {
@@ -63,7 +71,10 @@ public class HudUI : MonoBehaviour
     }
 
     private void SetUtilityBarSize() {
-        utilityText.text = $"{Entity.EntityInstance.GetMana(player)}/{Entity.EntityInstance.GetMaxMana(player)}";
+        utilityText.text = $"{Entity.EntityInstance.GetMana(player)} / {Entity.EntityInstance.GetMaxMana(player)}";
         utilityBarImage.fillAmount = Entity.EntityInstance.GetManaNormalized(player);
     }
+
+    public void Show() { gameObject.SetActive(true); }
+    public void Hide() { gameObject.SetActive(false); }
 }
