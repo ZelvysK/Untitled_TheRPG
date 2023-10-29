@@ -94,6 +94,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""UIElements"",
+            ""id"": ""189e2880-483e-48bf-87a3-d8b7d63ff590"",
+            ""actions"": [
+                {
+                    ""name"": ""ExperienceTest"",
+                    ""type"": ""Button"",
+                    ""id"": ""05f39b39-4b6c-45a3-8dbb-dacff07bbd9c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""828e1fe6-3c00-4b59-b599-598380ea1112"",
+                    ""path"": ""<Keyboard>/numpad1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExperienceTest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -101,6 +129,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        // UIElements
+        m_UIElements = asset.FindActionMap("UIElements", throwIfNotFound: true);
+        m_UIElements_ExperienceTest = m_UIElements.FindAction("ExperienceTest", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -204,8 +235,58 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UIElements
+    private readonly InputActionMap m_UIElements;
+    private List<IUIElementsActions> m_UIElementsActionsCallbackInterfaces = new List<IUIElementsActions>();
+    private readonly InputAction m_UIElements_ExperienceTest;
+    public struct UIElementsActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public UIElementsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ExperienceTest => m_Wrapper.m_UIElements_ExperienceTest;
+        public InputActionMap Get() { return m_Wrapper.m_UIElements; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIElementsActions set) { return set.Get(); }
+        public void AddCallbacks(IUIElementsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIElementsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIElementsActionsCallbackInterfaces.Add(instance);
+            @ExperienceTest.started += instance.OnExperienceTest;
+            @ExperienceTest.performed += instance.OnExperienceTest;
+            @ExperienceTest.canceled += instance.OnExperienceTest;
+        }
+
+        private void UnregisterCallbacks(IUIElementsActions instance)
+        {
+            @ExperienceTest.started -= instance.OnExperienceTest;
+            @ExperienceTest.performed -= instance.OnExperienceTest;
+            @ExperienceTest.canceled -= instance.OnExperienceTest;
+        }
+
+        public void RemoveCallbacks(IUIElementsActions instance)
+        {
+            if (m_Wrapper.m_UIElementsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIElementsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIElementsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIElementsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIElementsActions @UIElements => new UIElementsActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IUIElementsActions
+    {
+        void OnExperienceTest(InputAction.CallbackContext context);
     }
 }
