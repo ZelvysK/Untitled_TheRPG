@@ -5,25 +5,28 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public static Entity EntityInstance { get; private set; }
+    //public static Entity Instance { get; private set; }
+
+    [SerializeField] private EntitySO entitySO;
 
     //private string characterName;
     //private int level;
     //private int experiencePoints;
-    private int health = 100;
-    private int mana = 100;
-    private int maxHealth = 100;
-    private int maxMana = 100;
-    private int strength = 10;
-    private int stamina = 10;
-    private int agility = 10;
-    private int dexterity = 10;
+    //private int statPoints = 20;
+    //private int health = 100;
+    //private int mana = 100;
+    //private int maxHealth = 100;
+    //private int maxMana = 100;
+    //private int strength = 10;
+    //private int stamina = 10;
+    //private int agility = 10;
+    //private int dexterity = 10;
 
 
     public string CharacterName { get; private set; }
     public int Level { get; private set; }
     public int ExperiencePoints { get; private set; }
-    public int StatPoints { get; set; } = 20;
+    public int StatPoints { get; set; }
     public int HealthPoints { get; private set; }
     public int MaxHealthPoints { get; private set; }
     public int Mana { get; private set; }
@@ -34,45 +37,32 @@ public class Entity : MonoBehaviour
     public int Dexterity { get; private set; }
 
 
-    private void Awake() { EntityInstance = this; }
+    private void Awake() {
+        //Instance = this;
+    }
 
     public Entity CreateNewPlayer() {
 
         Entity player = this;
 
-        player.CharacterName = "Charlie";
-        player.Level = LevelSystem.LevelInstance.GetLevel();
-        player.ExperiencePoints = LevelSystem.LevelInstance.GetExperience();
-        player.MaxHealthPoints = maxHealth;
-        player.HealthPoints = health;
-        player.MaxMana = maxMana;
-        player.Mana = mana;
-        player.Strength = strength;
-        player.Stamina = stamina;
-        player.Agility = agility;
-        player.Dexterity = dexterity;
+        player.CharacterName = entitySO.entityName;
+        player.Level = entitySO.entityLevel;
+        player.ExperiencePoints = entitySO.entityExperiencePoints;
+        player.MaxHealthPoints = entitySO.entityMaxHealth;
+        player.HealthPoints = entitySO.entityHealth;
+        player.MaxMana = entitySO.entityMaxMana;
+        player.Mana = entitySO.entityMana;
+        player.Strength = entitySO.entityStrength;
+        player.Stamina = entitySO.entityStamina;
+        player.Agility = entitySO.entityAgility;
+        player.Dexterity = entitySO.entityDexterity;
+        player.StatPoints = entitySO.entityStatPoints;
 
         return player;
     }
 
-    public int GetMaxHealthPoints(Entity entity) {
+    public float GetHealthNormalized() => (float)HealthPoints / MaxHealthPoints;
 
-        return entity.MaxHealthPoints;
-    }
-    public int GetHealthPoints(Entity entity) {
-        return entity.HealthPoints;
-    }
-    public int GetMaxMana(Entity entity) {
-        return entity.MaxMana;
-    }
-    public int GetMana(Entity entity) {
-        return entity.Mana;
-    }
-    public float GetHealthNormalized(Entity entity) {
-        return (float)entity.HealthPoints / entity.MaxHealthPoints;
-    }
-    public float GetManaNormalized(Entity entity) {
-        return (float)entity.Mana / entity.MaxMana;
-    }
+    public float GetManaNormalized() => (float)Mana / MaxMana;
 
 }

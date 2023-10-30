@@ -10,31 +10,31 @@ public class _ManagerUI : MonoBehaviour
     // This is for main control
 
     //Main Tabs
-    public bool characterTabOpen { get; set; }
-    public bool inventoryTabOpen { get; set; }
-    public bool mapTabOpen { get; set; }
-    public bool questsTabOpen { get; set; }
-    public bool skillsTabOpen { get; set; }
-    public bool settingsTabOpen { get; set; }
+    public bool CharacterTabOpen { get; set; }
+    public bool InventoryTabOpen { get; set; }
+    public bool MapTabOpen { get; set; }
+    public bool QuestsTabOpen { get; set; }
+    public bool SkillsTabOpen { get; set; }
+    public bool SettingsTabOpen { get; set; }
 
 
     //Base for all tabs
     private bool anyTabOpen;
 
     private void Awake() {
-        HudUI.HudInstance.Show();
+        HudUI.Instance.Show();
 
         anyTabOpen = false;
         BaseUITab.Instance.Hide();
 
-        characterTabOpen = false;
+        CharacterTabOpen = false;
         StatsTabUI.StatInstance.Hide();
         //Hide Others
-        inventoryTabOpen = false;
-        mapTabOpen = false;
-        questsTabOpen = false;
-        skillsTabOpen = false;
-        settingsTabOpen = false;
+        InventoryTabOpen = false;
+        MapTabOpen = false;
+        QuestsTabOpen = false;
+        SkillsTabOpen = false;
+        SettingsTabOpen = false;
 
     }
 
@@ -52,207 +52,208 @@ public class _ManagerUI : MonoBehaviour
     }
 
     private void GameInput_OnSettingsTabOpened(object sender, System.EventArgs e) {
-        if (!settingsTabOpen && !anyTabOpen)
+        if (!SettingsTabOpen && !anyTabOpen)
         {
-            HudUI.HudInstance.Hide();
+            HudUI.Instance.Hide();
 
             BaseUITab.Instance.Show();
             anyTabOpen = true;
             //StatsTabUI.Instance.ShowStats();
-            settingsTabOpen = true;
+            SettingsTabOpen = true;
         }
-        else if (anyTabOpen && !settingsTabOpen)
+        else if (anyTabOpen && !SettingsTabOpen)
         {
             //Hide other tabs
             StatsTabUI.StatInstance.Hide();
-            characterTabOpen = false;
-            inventoryTabOpen = false;
-            questsTabOpen = false;
-            skillsTabOpen = false;
-            mapTabOpen = false;
+            CharacterTabOpen = false;
+            InventoryTabOpen = false;
+            QuestsTabOpen = false;
+            SkillsTabOpen = false;
+            MapTabOpen = false;
             //Show SettingsTab
-            settingsTabOpen = true;
+            SettingsTabOpen = true;
         }
         else
         {
-            HudUI.HudInstance.Show();
+            HudUI.Instance.Show();
 
             BaseUITab.Instance.Hide();
             anyTabOpen = false;
             //StatsTabUI.Instance.HideStats();
-            settingsTabOpen = false;
+            SettingsTabOpen = false;
         }
     }
 
     private void GameInput_OnSkillsTabOpened(object sender, System.EventArgs e) {
-        if (!skillsTabOpen && !anyTabOpen)
+        if (!SkillsTabOpen && !anyTabOpen)
         {
-            HudUI.HudInstance.Hide();
+            HudUI.Instance.Hide();
 
             BaseUITab.Instance.Show();
             anyTabOpen = true;
             //StatsTabUI.Instance.ShowStats();
-            skillsTabOpen = true;
+            SkillsTabOpen = true;
         }
-        else if (anyTabOpen && !skillsTabOpen)
+        else if (anyTabOpen && !SkillsTabOpen)
         {
             //Hide other tabs
             StatsTabUI.StatInstance.Hide();
-            characterTabOpen = false;
-            inventoryTabOpen = false;
-            settingsTabOpen = false;
-            mapTabOpen = false;
-            questsTabOpen = false;
+            CharacterTabOpen = false;
+            InventoryTabOpen = false;
+            SettingsTabOpen = false;
+            MapTabOpen = false;
+            QuestsTabOpen = false;
             //Show SkillsTab
-            skillsTabOpen = true;
+            SkillsTabOpen = true;
         }
         else
         {
-            HudUI.HudInstance.Show();
+            HudUI.Instance.Show();
 
             BaseUITab.Instance.Hide();
             anyTabOpen = false;
             //StatsTabUI.Instance.HideStats();
-            skillsTabOpen = false;
+            SkillsTabOpen = false;
         }
     }
 
     private void GameInput_OnQuestsTabOpened(object sender, System.EventArgs e) {
-        if (!questsTabOpen && !anyTabOpen)
+        if (!QuestsTabOpen && !anyTabOpen)
         {
-            HudUI.HudInstance.Hide();
+            HudUI.Instance.Hide();
 
             BaseUITab.Instance.Show();
             anyTabOpen = true;
             //StatsTabUI.Instance.ShowStats();
-            questsTabOpen = true;
+            QuestsTabOpen = true;
         }
-        else if (anyTabOpen && !questsTabOpen)
+        else if (anyTabOpen && !QuestsTabOpen)
         {
             //Hide other tabs
             StatsTabUI.StatInstance.Hide();
-            characterTabOpen = false;
-            inventoryTabOpen = false;
-            mapTabOpen = false;
-            settingsTabOpen = false;
-            skillsTabOpen = false;
+            CharacterTabOpen = false;
+            InventoryTabOpen = false;
+            MapTabOpen = false;
+            SettingsTabOpen = false;
+            SkillsTabOpen = false;
             //Show QuestsTab
-            questsTabOpen = true;
+            QuestsTabOpen = true;
         }
         else
         {
-            HudUI.HudInstance.Show();
+            HudUI.Instance.Show();
 
             BaseUITab.Instance.Hide();
             anyTabOpen = false;
             //StatsTabUI.Instance.HideStats();
-            questsTabOpen = false;
+            QuestsTabOpen = false;
         }
     }
 
     private void GameInput_OnMapTabOpened(object sender, System.EventArgs e) {
-        if (!mapTabOpen && !anyTabOpen)
+        if (!MapTabOpen && !anyTabOpen)
         {
-            HudUI.HudInstance.Hide();
+            HudUI.Instance.Hide();
 
             BaseUITab.Instance.Show();
             anyTabOpen = true;
             //StatsTabUI.Instance.ShowStats();
-            mapTabOpen = true;
+            MapTabOpen = true;
         }
-        else if (anyTabOpen && !mapTabOpen)
+        else if (anyTabOpen && !MapTabOpen)
         {
             //Hide other tabs
             StatsTabUI.StatInstance.Hide();
-            characterTabOpen = false;
-            inventoryTabOpen = false;
-            settingsTabOpen = false;
-            questsTabOpen = false;
-            skillsTabOpen = false;
+            CharacterTabOpen = false;
+            InventoryTabOpen = false;
+            SettingsTabOpen = false;
+            QuestsTabOpen = false;
+            SkillsTabOpen = false;
             //Show MapTab
-            mapTabOpen = true;
+            MapTabOpen = true;
         }
         else
         {
-            HudUI.HudInstance.Show();
+            HudUI.Instance.Show();
 
             BaseUITab.Instance.Hide();
             anyTabOpen = false;
             //StatsTabUI.Instance.HideStats();
-            mapTabOpen = false;
+            MapTabOpen = false;
         }
     }
 
     private void GameInput_OnInventoryTabOpened(object sender, System.EventArgs e) {
-        if (!inventoryTabOpen && !anyTabOpen)
+        if (!InventoryTabOpen && !anyTabOpen)
         {
-            HudUI.HudInstance.Hide();
+            HudUI.Instance.Hide();
 
             BaseUITab.Instance.Show();
             anyTabOpen = true;
             //StatsTabUI.Instance.ShowStats();
-            inventoryTabOpen = true;
+            InventoryTabOpen = true;
         }
-        else if (anyTabOpen && !inventoryTabOpen)
+        else if (anyTabOpen && !InventoryTabOpen)
         {
             //Hide other tabs
             StatsTabUI.StatInstance.Hide();
-            characterTabOpen = false;
+            CharacterTabOpen = false;
 
-            settingsTabOpen = false;
-            mapTabOpen = false;
-            questsTabOpen = false;
-            skillsTabOpen = false;
+            SettingsTabOpen = false;
+            MapTabOpen = false;
+            QuestsTabOpen = false;
+            SkillsTabOpen = false;
             //Show InventoryTab
-            inventoryTabOpen = true;
+            InventoryTabOpen = true;
         }
         else
         {
-            HudUI.HudInstance.Show();
+            HudUI.Instance.Show();
 
             BaseUITab.Instance.Hide();
             anyTabOpen = false;
             //StatsTabUI.Instance.HideStats();
-            inventoryTabOpen = false;
+            InventoryTabOpen = false;
         }
     }
 
     private void GameInput_OnCharacterTabOpened(object sender, System.EventArgs e) {
-        if (!characterTabOpen && !anyTabOpen)
+        if (!CharacterTabOpen && !anyTabOpen)
         {
-            HudUI.HudInstance.Hide();
+            HudUI.Instance.Hide();
 
             BaseUITab.Instance.Show();
             anyTabOpen = true;
             StatsTabUI.StatInstance.Show();
-            characterTabOpen = true;
+            CharacterTabOpen = true;
         }
-        else if (anyTabOpen && !characterTabOpen)
+        else if (anyTabOpen && !CharacterTabOpen)
         {
             //Hide other tabs
-            inventoryTabOpen = false;
-            settingsTabOpen = false;
-            mapTabOpen = false;
-            questsTabOpen = false;
-            skillsTabOpen = false;
+            InventoryTabOpen = false;
+            SettingsTabOpen = false;
+            MapTabOpen = false;
+            QuestsTabOpen = false;
+            SkillsTabOpen = false;
             //Show CharacterTab
             StatsTabUI.StatInstance.Show();
-            characterTabOpen = true;
+            CharacterTabOpen = true;
         }
         else
         {
-            HudUI.HudInstance.Show();
+            HudUI.Instance.Show();
 
             BaseUITab.Instance.Hide();
             anyTabOpen = false;
             StatsTabUI.StatInstance.Hide();
-            characterTabOpen = false;
+            CharacterTabOpen = false;
 
         }
     }
 
 
     private void GameInput_OnExperienceTest(object sender, System.EventArgs e) {
+        Debug.Log("Open!");
         ExperienceTest.Instance.Show();
     }
 

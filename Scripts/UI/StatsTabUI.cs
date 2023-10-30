@@ -121,7 +121,8 @@ public class StatsTabUI : BaseUITab
                 }
                 else
                 {
-                    strengthAddText.text = $"{addStrength = 0}";
+                    addStrength = 0;
+                    strengthAddText.text = $"{addStrength}";
                 }
             }
             else Debug.Log("Unable remove more points!");
@@ -139,7 +140,8 @@ public class StatsTabUI : BaseUITab
                 }
                 else
                 {
-                    staminaAddText.text = $"{addStamina = 0}";
+                    addStamina = 0;
+                    staminaAddText.text = $"{addStamina}";
                 }
             }
             else Debug.Log("Unable remove more points!");
@@ -157,7 +159,8 @@ public class StatsTabUI : BaseUITab
                 }
                 else
                 {
-                    agilityAddText.text = $"{addAgility = 0}";
+                    addAgility = 0;
+                    agilityAddText.text = $"{addAgility}";
                 }
             }
             else Debug.Log("Unable remove more points!");
@@ -175,7 +178,8 @@ public class StatsTabUI : BaseUITab
                 }
                 else
                 {
-                    dexterityAddText.text = $"{addDexterity = 0}";
+                    addDexterity = 0;
+                    dexterityAddText.text = $"{addDexterity}";
                 }
             }
             else Debug.Log("Unable remove more points!");
@@ -255,10 +259,7 @@ public class StatsTabUI : BaseUITab
         dexterityAddText.text = $"{addDexterity}";
 
     }
-    private void UpdateStatPointsText() {
-        statPointsText.text = $"Remaining points: {entity.StatPoints}";
-    }
-
+    private void UpdateStatPointsText() => statPointsText.text = $"Remaining points: {entity.StatPoints}";
 
 }
 
