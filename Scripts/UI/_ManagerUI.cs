@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,14 +28,7 @@ public class _ManagerUI : MonoBehaviour
         anyTabOpen = false;
         BaseUITab.Instance.Hide();
 
-        CharacterTabOpen = false;
-        StatsTabUI.StatInstance.Hide();
-        //Hide Others
-        InventoryTabOpen = false;
-        MapTabOpen = false;
-        QuestsTabOpen = false;
-        SkillsTabOpen = false;
-        SettingsTabOpen = false;
+        HideAllMenuTabs();
 
     }
 
@@ -63,13 +57,8 @@ public class _ManagerUI : MonoBehaviour
         }
         else if (anyTabOpen && !SettingsTabOpen)
         {
-            //Hide other tabs
-            StatsTabUI.StatInstance.Hide();
-            CharacterTabOpen = false;
-            InventoryTabOpen = false;
-            QuestsTabOpen = false;
-            SkillsTabOpen = false;
-            MapTabOpen = false;
+            HideAllMenuTabs();
+
             //Show SettingsTab
             SettingsTabOpen = true;
         }
@@ -96,13 +85,8 @@ public class _ManagerUI : MonoBehaviour
         }
         else if (anyTabOpen && !SkillsTabOpen)
         {
-            //Hide other tabs
-            StatsTabUI.StatInstance.Hide();
-            CharacterTabOpen = false;
-            InventoryTabOpen = false;
-            SettingsTabOpen = false;
-            MapTabOpen = false;
-            QuestsTabOpen = false;
+            HideAllMenuTabs();
+
             //Show SkillsTab
             SkillsTabOpen = true;
         }
@@ -129,13 +113,8 @@ public class _ManagerUI : MonoBehaviour
         }
         else if (anyTabOpen && !QuestsTabOpen)
         {
-            //Hide other tabs
-            StatsTabUI.StatInstance.Hide();
-            CharacterTabOpen = false;
-            InventoryTabOpen = false;
-            MapTabOpen = false;
-            SettingsTabOpen = false;
-            SkillsTabOpen = false;
+            HideAllMenuTabs();
+
             //Show QuestsTab
             QuestsTabOpen = true;
         }
@@ -162,13 +141,8 @@ public class _ManagerUI : MonoBehaviour
         }
         else if (anyTabOpen && !MapTabOpen)
         {
-            //Hide other tabs
-            StatsTabUI.StatInstance.Hide();
-            CharacterTabOpen = false;
-            InventoryTabOpen = false;
-            SettingsTabOpen = false;
-            QuestsTabOpen = false;
-            SkillsTabOpen = false;
+            HideAllMenuTabs();
+
             //Show MapTab
             MapTabOpen = true;
         }
@@ -195,14 +169,8 @@ public class _ManagerUI : MonoBehaviour
         }
         else if (anyTabOpen && !InventoryTabOpen)
         {
-            //Hide other tabs
-            StatsTabUI.StatInstance.Hide();
-            CharacterTabOpen = false;
+           HideAllMenuTabs();
 
-            SettingsTabOpen = false;
-            MapTabOpen = false;
-            QuestsTabOpen = false;
-            SkillsTabOpen = false;
             //Show InventoryTab
             InventoryTabOpen = true;
         }
@@ -229,12 +197,8 @@ public class _ManagerUI : MonoBehaviour
         }
         else if (anyTabOpen && !CharacterTabOpen)
         {
-            //Hide other tabs
-            InventoryTabOpen = false;
-            SettingsTabOpen = false;
-            MapTabOpen = false;
-            QuestsTabOpen = false;
-            SkillsTabOpen = false;
+            HideAllMenuTabs();
+
             //Show CharacterTab
             StatsTabUI.StatInstance.Show();
             CharacterTabOpen = true;
@@ -255,6 +219,19 @@ public class _ManagerUI : MonoBehaviour
     private void GameInput_OnExperienceTest(object sender, System.EventArgs e) {
         Debug.Log("Open!");
         ExperienceTest.Instance.Show();
+    }
+
+    private void HideAllMenuTabs() {
+
+        CharacterTabOpen = false;
+        StatsTabUI.StatInstance.Hide();
+
+        //Hide Others
+        InventoryTabOpen = false;
+        MapTabOpen = false;
+        QuestsTabOpen = false;
+        SkillsTabOpen = false;
+        SettingsTabOpen = false;
     }
 
 }

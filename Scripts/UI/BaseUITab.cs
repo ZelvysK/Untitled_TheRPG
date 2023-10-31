@@ -1,90 +1,74 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BaseUITab : MonoBehaviour
 {
     public static BaseUITab Instance { get; private set; }
-    //[SerializeField] private Entity entity;
 
-    [SerializeField] private GameObject characterTab;
-    [SerializeField] private GameObject inventoryTab;
-    [SerializeField] private GameObject mapTab;
-    [SerializeField] private GameObject skillsTab;
-    [SerializeField] private GameObject questsTab;
-    [SerializeField] private GameObject settingsTab;
-
+    //Tabs to switch
+    [SerializeField] private List<GameObject> tabsList;
 
     //Tab switching buttons
-    [SerializeField] public Button characterTabButton;
-    [SerializeField] public Button inventoryTabButton;
-    [SerializeField] public Button mapTabButton;
-    [SerializeField] public Button skillsTabButton;
-    [SerializeField] public Button questsTabButton;
-    [SerializeField] public Button settingsTabButton;
+    [SerializeField] private List<Button> tabsButtonList;
+
 
     private void Awake() {
         Instance = this;
 
-        //Tab swhitching buttons
-        characterTabButton.onClick.AddListener(() =>
+        for (int i = 0; i < tabsButtonList.Count; i++)
         {
-            StatsTabUI.StatInstance.Show();
-            inventoryTab.gameObject.SetActive(false);
-            mapTab.gameObject.SetActive(false);
-            skillsTab.gameObject.SetActive(false);
-            questsTab.gameObject.SetActive(false);
-            settingsTab.gameObject.SetActive(false);
-        });
-        inventoryTabButton.onClick.AddListener(() =>
-        {
-            StatsTabUI.StatInstance.Hide();
-            inventoryTab.gameObject.SetActive(true);
-            mapTab.gameObject.SetActive(false);
-            skillsTab.gameObject.SetActive(false);
-            questsTab.gameObject.SetActive(false);
-            settingsTab.gameObject.SetActive(false);
-        });
-        mapTabButton.onClick.AddListener(() =>
-        {
-            StatsTabUI.StatInstance.Hide();
-            inventoryTab.gameObject.SetActive(false);
-            mapTab.gameObject.SetActive(true);
-            skillsTab.gameObject.SetActive(false);
-            questsTab.gameObject.SetActive(false);
-            settingsTab.gameObject.SetActive(false);
-        });
-        skillsTabButton.onClick.AddListener(() =>
-        {
-            StatsTabUI.StatInstance.Hide();
-            inventoryTab.gameObject.SetActive(false);
-            mapTab.gameObject.SetActive(false);
-            skillsTab.gameObject.SetActive(true);
-            questsTab.gameObject.SetActive(false);
-            settingsTab.gameObject.SetActive(false);
-        });
-        questsTabButton.onClick.AddListener(() =>
-        {
-            StatsTabUI.StatInstance.Hide();
-            inventoryTab.gameObject.SetActive(false);
-            mapTab.gameObject.SetActive(false);
-            skillsTab.gameObject.SetActive(false);
-            questsTab.gameObject.SetActive(true);
-            settingsTab.gameObject.SetActive(false);
-        });
-        settingsTabButton.onClick.AddListener(() =>
-        {
-            StatsTabUI.StatInstance.Hide();
-            inventoryTab.gameObject.SetActive(false);
-            mapTab.gameObject.SetActive(false);
-            skillsTab.gameObject.SetActive(false);
-            questsTab.gameObject.SetActive(false);
-            settingsTab.gameObject.SetActive(true);
-        });
+            //Local var to catch index
+            int buttonIndex = i;
+            tabsButtonList[i].onClick.AddListener(() => ButtonClickHandler(buttonIndex));
+        }
+
     }
 
     public void Show() { gameObject.SetActive(true); }
 
     public void Hide() { gameObject.SetActive(false); }
+
+    private void ButtonClickHandler(int buttonIndex) {
+        switch (buttonIndex)
+        {
+            case 0:
+                HideAll();
+                tabsList[buttonIndex].gameObject.SetActive(true);
+                break;
+            case 1:
+                HideAll();
+                tabsList[buttonIndex].gameObject.SetActive(true);
+                break;
+            case 2:
+                HideAll();
+                tabsList[buttonIndex].gameObject.SetActive(true);
+                break;
+            case 3:
+                HideAll();
+                tabsList[buttonIndex].gameObject.SetActive(true);
+                break;
+            case 4:
+                HideAll();
+                tabsList[buttonIndex].gameObject.SetActive(true);
+                break;
+            case 5:
+                HideAll();
+                tabsList[buttonIndex].gameObject.SetActive(true);
+                break;
+        }
+    }
+
+    public List<Button> GetTabButtonList() {
+        return tabsButtonList;
+    }
+
+    private void HideAll() {
+        foreach (var tab in tabsList)
+        {
+            tab.gameObject.SetActive(false);
+        }
+    }
 }

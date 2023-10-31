@@ -23,18 +23,18 @@ public class Entity : MonoBehaviour
     //private int dexterity = 10;
 
 
-    public string CharacterName { get; private set; }
-    public int Level { get; private set; }
-    public int ExperiencePoints { get; private set; }
+    public string CharacterName { get;  set; }
+    public int Level { get;  set; }
+    public int ExperiencePoints { get; set; }
     public int StatPoints { get; set; }
-    public int HealthPoints { get; private set; }
-    public int MaxHealthPoints { get; private set; }
-    public int Mana { get; private set; }
-    public int MaxMana { get; private set; }
-    public int Strength { get; private set; }
-    public int Stamina { get; private set; }
-    public int Agility { get; private set; }
-    public int Dexterity { get; private set; }
+    public int HealthPoints { get; set; }
+    public int MaxHealthPoints { get; set; }
+    public int Mana { get; set; }
+    public int MaxMana { get; set; }
+    public int Strength { get; set; }
+    public int Stamina { get; set; }
+    public int Agility { get; set; }
+    public int Dexterity { get; set; }
 
 
     private void Awake() {

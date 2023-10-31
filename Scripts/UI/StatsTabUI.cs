@@ -9,14 +9,7 @@ public class StatsTabUI : BaseUITab
     public static StatsTabUI StatInstance { get; private set; }
 
     //Current tab buttons
-    [SerializeField] private Button addStrengthButton;
-    [SerializeField] private Button removeStrengthButton;
-    [SerializeField] private Button addStaminaButton;
-    [SerializeField] private Button removeStaminaButton;
-    [SerializeField] private Button addAgilityButton;
-    [SerializeField] private Button removeAgilityButton;
-    [SerializeField] private Button addDexterityButton;
-    [SerializeField] private Button removeDexterityButton;
+    [SerializeField] private List<Button> statButtonsList;
 
     [SerializeField] private Button applyButton;
     [SerializeField] private Button resetButton;
@@ -51,150 +44,34 @@ public class StatsTabUI : BaseUITab
     private int addDexterity = 0;
 
 
+
     [SerializeField] private Entity entity;
 
     private void Awake() {
         StatInstance = this;
-
-        int statPointsMax = entity.StatPoints;
+        
+        var statPointsMax = entity.StatPoints;
 
         UpdateStatValuesText();
         UpdateStatPointsText();
 
-        //Add values
-        addStrengthButton.onClick.AddListener(() =>
+        for (int i = 0; i < statButtonsList.Count; i++)
         {
-            if (entity.StatPoints > 0)
-            {
-                entity.StatPoints--;
-                addStrength++;
-                strengthAddText.text = $"+{addStrength}";
-                UpdateStatPointsText();
-            }
-            else Debug.Log("You dont have enough stat point to distribute!");
-        });
-        addStaminaButton.onClick.AddListener(() =>
-        {
-            if (entity.StatPoints > 0)
-            {
-                entity.StatPoints--;
-                addStamina++;
-                staminaAddText.text = $"+{addStamina}";
-                UpdateStatPointsText();
-            }
-            else Debug.Log("You dont have enough stat point to distribute!");
-        });
-        addAgilityButton.onClick.AddListener(() =>
-        {
-            if (entity.StatPoints > 0)
-            {
-                entity.StatPoints--;
-                addAgility++;
-                agilityAddText.text = $"+{addAgility}";
-                UpdateStatPointsText();
-            }
-            else Debug.Log("You dont have enough stat point to distribute!");
-        });
-        addDexterityButton.onClick.AddListener(() =>
-        {
-            if (entity.StatPoints > 0)
-            {
-                entity.StatPoints--;
-                addDexterity++;
-                dexterityAddText.text = $"+{addDexterity}";
-                UpdateStatPointsText();
-            }
-            else Debug.Log("You dont have enough stat point to distribute!");
-        });
+            //Local var to catch index
+            int buttonIndex = i;
+            statButtonsList[i].onClick.AddListener(() => ButtonClickHandler(buttonIndex, statPointsMax));
+        }
 
-        //Remove values
-        removeStrengthButton.onClick.AddListener(() =>
-        {
-            if (entity.StatPoints > 0 && entity.StatPoints < statPointsMax)
-            {
-                addStrength--;
-                entity.StatPoints++;
-                UpdateStatPointsText();
-                if (addStrength > 0)
-                {
-                    strengthAddText.text = $"+{addStrength}";
-                }
-                else
-                {
-                    addStrength = 0;
-                    strengthAddText.text = $"{addStrength}";
-                }
-            }
-            else Debug.Log("Unable remove more points!");
-        });
-        removeStaminaButton.onClick.AddListener(() =>
-        {
-            if (entity.StatPoints > 0 && entity.StatPoints < statPointsMax)
-            {
-                addStamina--;
-                entity.StatPoints++;
-                UpdateStatPointsText();
-                if (addStamina > 0)
-                {
-                    staminaAddText.text = $"+{addStamina}";
-                }
-                else
-                {
-                    addStamina = 0;
-                    staminaAddText.text = $"{addStamina}";
-                }
-            }
-            else Debug.Log("Unable remove more points!");
-        });
-        removeAgilityButton.onClick.AddListener(() =>
-        {
-            if (entity.StatPoints > 0 && entity.StatPoints < statPointsMax)
-            {
-                addAgility--;
-                entity.StatPoints++;
-                UpdateStatPointsText();
-                if (addAgility > 0)
-                {
-                    agilityAddText.text = $"+{addAgility}";
-                }
-                else
-                {
-                    addAgility = 0;
-                    agilityAddText.text = $"{addAgility}";
-                }
-            }
-            else Debug.Log("Unable remove more points!");
-        });
-        removeDexterityButton.onClick.AddListener(() =>
-        {
-            if (entity.StatPoints > 0 && entity.StatPoints < statPointsMax)
-            {
-                addDexterity--;
-                entity.StatPoints++;
-                UpdateStatPointsText();
-                if (addDexterity > 0)
-                {
-                    dexterityAddText.text = $"+{addDexterity}";
-                }
-                else
-                {
-                    addDexterity = 0;
-                    dexterityAddText.text = $"{addDexterity}";
-                }
-            }
-            else Debug.Log("Unable remove more points!");
-        });
-
-        //Confirmation buttons
         applyButton.onClick.AddListener(() =>
         {
+            //Apply changes
             statPointsMax = entity.StatPoints;
             UpdateStatPointsText();
             //Set text
-            strengthText.text = (entity.Strength + addStrength).ToString();
-            staminaText.text = (entity.Stamina + addStamina).ToString();
-            agilityText.text = (entity.Agility + addAgility).ToString();
-            dexterityText.text = (entity.Dexterity + addDexterity).ToString();
+            strengthText.text = (entity.Strength += addStrength).ToString();
+            staminaText.text = (entity.Stamina += addStamina).ToString();
+            agilityText.text = (entity.Agility += addAgility).ToString();
+            dexterityText.text = (entity.Dexterity += addDexterity).ToString();
 
             //Set back to default
             addStrength = 0;
@@ -209,6 +86,7 @@ public class StatsTabUI : BaseUITab
             agilityAddText.text = $"{addAgility}";
             dexterityAddText.text = $"{addDexterity}";
         });
+
         resetButton.onClick.AddListener(() =>
         {
             entity.StatPoints = statPointsMax;
@@ -225,8 +103,8 @@ public class StatsTabUI : BaseUITab
             staminaAddText.text = $"{addStamina}";
             agilityAddText.text = $"{addAgility}";
             dexterityAddText.text = $"{addDexterity}";
-
         });
+
         cancelButton.onClick.AddListener(() =>
         {
             entity.StatPoints = statPointsMax;
@@ -244,7 +122,6 @@ public class StatsTabUI : BaseUITab
             agilityAddText.text = $"{addAgility}";
             dexterityAddText.text = $"{addDexterity}";
         });
-        
     }
 
     private void UpdateStatValuesText() {
@@ -259,7 +136,136 @@ public class StatsTabUI : BaseUITab
         dexterityAddText.text = $"{addDexterity}";
 
     }
+
     private void UpdateStatPointsText() => statPointsText.text = $"Remaining points: {entity.StatPoints}";
+
+    private void ButtonClickHandler(int buttonIndex, int statPointsMax) {
+        int tempStatPoints = entity.StatPoints + addStrength + addStamina + addAgility + addDexterity;
+
+        switch (buttonIndex)
+        {
+            case 0:
+                //Add to Strength
+                if (entity.StatPoints > 0)
+                {
+                    entity.StatPoints--;
+                    addStrength++;
+                    strengthAddText.text = $"+{addStrength}";
+                    UpdateStatPointsText();
+                }
+                else Debug.Log("You dont have enough stat point to distribute!");
+                break;
+            case 1:
+                //Remove from Strenght
+                if (entity.StatPoints >= 0 && entity.StatPoints < statPointsMax && tempStatPoints - addStrength < statPointsMax)
+                {
+                    addStrength--;
+                    entity.StatPoints++;
+                    UpdateStatPointsText();
+                    if (addStrength > 0)
+                    {
+                        strengthAddText.text = $"+{addStrength}";
+                    }
+                    else
+                    {
+                        addStrength = 0;
+                        strengthAddText.text = $"{addStrength}";
+                    }
+                }
+                else Debug.Log("Unable remove more points!");
+                break;
+            case 2:
+                //Add to Stamina
+                if (entity.StatPoints > 0)
+                {
+                    entity.StatPoints--;
+                    addStamina++;
+                    staminaAddText.text = $"+{addStamina}";
+                    UpdateStatPointsText();
+                }
+                else Debug.Log("You dont have enough stat point to distribute!");
+                break;
+            case 3:
+                //Remove from Stamina
+                if (entity.StatPoints >= 0 && entity.StatPoints < statPointsMax && tempStatPoints - addStamina < statPointsMax)
+                {
+                    addStamina--;
+                    entity.StatPoints++;
+                    UpdateStatPointsText();
+                    if (addStamina > 0)
+                    {
+                        staminaAddText.text = $"+{addStamina}";
+                    }
+                    else
+                    {
+                        addStamina = 0;
+                        staminaAddText.text = $"{addStamina}";
+                    }
+                }
+                else Debug.Log("Unable remove more points!");
+                break;
+            case 4:
+                //Add to Agility
+                if (entity.StatPoints > 0)
+                {
+                    entity.StatPoints--;
+                    addAgility++;
+                    agilityAddText.text = $"+{addAgility}";
+                    UpdateStatPointsText();
+                }
+                else Debug.Log("You dont have enough stat point to distribute!");
+                break;
+            case 5:
+                //Remove from Agility
+                if (entity.StatPoints >= 0 && entity.StatPoints < statPointsMax && tempStatPoints - addAgility < statPointsMax)
+                {
+                    addAgility--;
+                    entity.StatPoints++;
+                    UpdateStatPointsText();
+                    if (addAgility > 0)
+                    {
+                        agilityAddText.text = $"+{addAgility}";
+                    }
+                    else
+                    {
+                        addAgility = 0;
+                        agilityAddText.text = $"{addAgility}";
+                    }
+                }
+                else Debug.Log("Unable remove more points!");
+                break;
+            case 6:
+                //Add to Dexterity
+                if (entity.StatPoints > 0)
+                {
+                    entity.StatPoints--;
+                    addDexterity++;
+                    dexterityAddText.text = $"+{addDexterity}";
+                    UpdateStatPointsText();
+                }
+                else Debug.Log("You dont have enough stat point to distribute!");
+                break;
+            case 7:
+                //Remove from Dexterity
+                if (entity.StatPoints >= 0 && entity.StatPoints < statPointsMax && tempStatPoints - addDexterity < statPointsMax)
+                {
+                    addDexterity--;
+                    entity.StatPoints++;
+                    UpdateStatPointsText();
+                    if (addDexterity > 0)
+                    {
+                        dexterityAddText.text = $"+{addDexterity}";
+                    }
+                    else
+                    {
+                        addDexterity = 0;
+                        dexterityAddText.text = $"{addDexterity}";
+                    }
+                }
+                else Debug.Log("Unable remove more points!");
+                break;
+        }
+    }
 
 }
 

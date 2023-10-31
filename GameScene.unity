@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.5217, g: 2264.1428, b: 3287.145, a: 1}
+  m_IndirectSpecularColor: {r: 2159.7473, g: 2263.6213, b: 3286.6177, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2269,18 +2269,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21eedcdb36bb1fb419f668d81c94d843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterTab: {fileID: 1164992387}
-  inventoryTab: {fileID: 378252731}
-  mapTab: {fileID: 188063594}
-  skillsTab: {fileID: 968337034}
-  questsTab: {fileID: 2042698810}
-  settingsTab: {fileID: 744892583}
-  characterTabButton: {fileID: 1173469793}
-  inventoryTabButton: {fileID: 435509476}
-  mapTabButton: {fileID: 2021099614}
-  skillsTabButton: {fileID: 999144539}
-  questsTabButton: {fileID: 1413820773}
-  settingsTabButton: {fileID: 233132383}
+  tabsList:
+  - {fileID: 1164992387}
+  - {fileID: 378252731}
+  - {fileID: 188063594}
+  - {fileID: 968337034}
+  - {fileID: 2042698810}
+  - {fileID: 744892583}
+  tabsButtonList:
+  - {fileID: 1173469793}
+  - {fileID: 435509476}
+  - {fileID: 2021099614}
+  - {fileID: 999144539}
+  - {fileID: 1413820773}
+  - {fileID: 233132383}
 --- !u!1 &298451139
 GameObject:
   m_ObjectHideFlags: 0
@@ -7610,26 +7612,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a660cd5824372504788306bd058f2493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterTab: {fileID: 1164992387}
-  inventoryTab: {fileID: 378252731}
-  mapTab: {fileID: 188063594}
-  skillsTab: {fileID: 968337034}
-  questsTab: {fileID: 2042698810}
-  settingsTab: {fileID: 744892583}
-  characterTabButton: {fileID: 1173469793}
-  inventoryTabButton: {fileID: 435509476}
-  mapTabButton: {fileID: 2021099614}
-  skillsTabButton: {fileID: 999144539}
-  questsTabButton: {fileID: 1413820773}
-  settingsTabButton: {fileID: 233132383}
-  addStrengthButton: {fileID: 861302118}
-  removeStrengthButton: {fileID: 1097945766}
-  addStaminaButton: {fileID: 299379132}
-  removeStaminaButton: {fileID: 1907072109}
-  addAgilityButton: {fileID: 176027484}
-  removeAgilityButton: {fileID: 463323108}
-  addDexterityButton: {fileID: 1956857221}
-  removeDexterityButton: {fileID: 546889124}
+  tabsList: []
+  tabsButtonList: []
+  statButtonsList:
+  - {fileID: 861302118}
+  - {fileID: 1097945766}
+  - {fileID: 299379132}
+  - {fileID: 1907072109}
+  - {fileID: 176027484}
+  - {fileID: 463323108}
+  - {fileID: 1956857221}
+  - {fileID: 546889124}
   applyButton: {fileID: 1631127216}
   resetButton: {fileID: 2133139531}
   cancelButton: {fileID: 1478843924}
