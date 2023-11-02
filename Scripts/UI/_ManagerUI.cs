@@ -217,7 +217,7 @@ public class _ManagerUI : MonoBehaviour
 
 
     private void GameInput_OnExperienceTest(object sender, System.EventArgs e) {
-        Debug.Log("Open!");
+        Debug.Log("Experience test is Open!");
         ExperienceTest.Instance.Show();
     }
 

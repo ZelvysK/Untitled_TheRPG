@@ -61,9 +61,9 @@ public class BaseUITab : MonoBehaviour
         }
     }
 
-    public List<Button> GetTabButtonList() {
-        return tabsButtonList;
-    }
+    //public List<Button> GetTabButtonList() {
+    //    return tabsButtonList;
+    //}
 
     private void HideAll() {
         foreach (var tab in tabsList)

@@ -24,52 +24,7 @@ public class LevelSystem : MonoBehaviour
         Instance = this;
     }
 
-    //public void AddExperience(int amount) {
-    //    if (!IsMaxLevel())
-    //    {
-    //        experiencePoints += amount;
-    //        while (!IsMaxLevel() && experiencePoints >= GetExperienceToNextLevel(level))
-    //        {
-    //            //Enough experience to level
-    //            experiencePoints -= GetExperienceToNextLevel(level);
-    //            level++;
-    //        }
-    //    }
-    //}
-
-    //public void RemoveExperience(int amount) {
-    //    if (level != 1)
-    //    {
-    //        experiencePoints -= amount;
-    //        while (level != 1 && experiencePoints <= 0)
-    //        {
-
-    //            level--;
-    //            experiencePoints += GetExperienceToNextLevel(level);
-    //        }
-    //    }
-    //    else if (level == 1 && experiencePoints < 0)
-    //    {
-    //        experiencePoints = 0;
-    //    }
-    //    else
-    //    {
-    //        Debug.Log($"Level is set below minimal ammount: {level}. RESETING!");
-    //        level = 1;
-    //        experiencePoints = 0;
-    //    }
-    //}
-
-    public float GetExperienceNormalized(Entity player) {
-        if (IsMaxLevel(player))
-        {
-            return 1f;
-        }
-        else
-        {
-            return (float)player.ExperiencePoints/ GetExperienceToNextLevel(player.Level);
-        }
-    }
+    public float GetExperienceNormalized(Entity player) => IsMaxLevel(player) ? 1f : (float)player.ExperiencePoints / GetExperienceToNextLevel(player.Level);
 
     public int GetExperienceToNextLevel(int level) {
         if (level < entitySO.entityMaxLevel)

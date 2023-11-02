@@ -56,6 +56,7 @@ public class ExperienceTest : MonoBehaviour
                 experiencePoints -= levelSystem.GetExperienceToNextLevel(level);
                 level++;
             }
+            Debug.Log($"Added: {amount} of experience!\n New level is {level} with experience: {experiencePoints}");
         }
     }
 
@@ -69,10 +70,12 @@ public class ExperienceTest : MonoBehaviour
                 level--;
                 experiencePoints += levelSystem.GetExperienceToNextLevel(level);
             }
+            Debug.Log($"Removed {amount} experience!\nNew level is {level} with experience: {experiencePoints}");
         }
         else if (level == 1 && experiencePoints < 0)
         {
             experiencePoints = 0;
+            Debug.Log("Couldn't remove experience!");
         }
         else
         {
