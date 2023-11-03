@@ -108,14 +108,14 @@ public class _ManagerUI : MonoBehaviour
 
             BaseUITab.Instance.Show();
             anyTabOpen = true;
-            //StatsTabUI.Instance.ShowStats();
+            QuestsTabUI.QuestsInstance.Show();
             QuestsTabOpen = true;
         }
         else if (anyTabOpen && !QuestsTabOpen)
         {
             HideAllMenuTabs();
 
-            //Show QuestsTab
+            QuestsTabUI.QuestsInstance.Show();
             QuestsTabOpen = true;
         }
         else
@@ -124,7 +124,7 @@ public class _ManagerUI : MonoBehaviour
 
             BaseUITab.Instance.Hide();
             anyTabOpen = false;
-            //StatsTabUI.Instance.HideStats();
+            QuestsTabUI.QuestsInstance.Hide();
             QuestsTabOpen = false;
         }
     }
@@ -226,10 +226,12 @@ public class _ManagerUI : MonoBehaviour
         CharacterTabOpen = false;
         StatsTabUI.StatInstance.Hide();
 
+        QuestsTabOpen = false;
+        QuestsTabUI.QuestsInstance.Hide();
+
         //Hide Others
         InventoryTabOpen = false;
         MapTabOpen = false;
-        QuestsTabOpen = false;
         SkillsTabOpen = false;
         SettingsTabOpen = false;
     }
