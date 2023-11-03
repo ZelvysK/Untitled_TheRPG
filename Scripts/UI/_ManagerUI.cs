@@ -222,18 +222,18 @@ public class _ManagerUI : MonoBehaviour
     }
 
     private void HideAllMenuTabs() {
+        //Hide Others
+        InventoryTabOpen = false;
+        MapTabOpen = false;
+        SkillsTabOpen = false;
+        SettingsTabOpen = false;
+
 
         CharacterTabOpen = false;
         StatsTabUI.StatInstance.Hide();
 
         QuestsTabOpen = false;
         QuestsTabUI.QuestsInstance.Hide();
-
-        //Hide Others
-        InventoryTabOpen = false;
-        MapTabOpen = false;
-        SkillsTabOpen = false;
-        SettingsTabOpen = false;
     }
 
 }

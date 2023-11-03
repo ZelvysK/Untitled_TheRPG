@@ -25,10 +25,12 @@ public class HudUI : MonoBehaviour
     private Entity player;
 
     private void Awake() {
+
         if (Instance != null)
         {
             Debug.LogError("There is more than one HudUI instance");
         }
+
         Instance = this;
 
         player = entity.CreateNewPlayer();

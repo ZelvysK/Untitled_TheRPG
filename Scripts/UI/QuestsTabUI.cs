@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class QuestsTabUI : BaseUITab
 {
-    public static QuestsTabUI QuestsInstance {  get; private set; }
+    public static QuestsTabUI QuestsInstance { get; private set; }
 
     [SerializeField] private Transform scrollViewContent;
     [SerializeField] private List<QuestSO> questList;
@@ -34,6 +34,7 @@ public class QuestsTabUI : BaseUITab
     private float verticalSpacing = 2f;
 
     private void Awake() {
+
         QuestsInstance = this;
 
         AddQuestsToQuestList();
