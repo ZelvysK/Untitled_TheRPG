@@ -25,7 +25,6 @@ public class Entity : MonoBehaviour
     //private int agility = 10;
     //private int dexterity = 10;
 
-
     public string CharacterName { get;  set; }
     public int Level { get;  set; }
     public int ExperiencePoints { get; set; }
@@ -42,7 +41,7 @@ public class Entity : MonoBehaviour
 
     public Entity CreateNewPlayer() {
 
-        Entity player = this;
+        var player = this;
 
         player.CharacterName = entitySO.entityName;
         player.Level = entitySO.entityLevel;

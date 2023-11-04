@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 // TODO:
 // 1. Implement how do these values affect gameplay
+// 2. Strategy design pattern for buttons
 
 public class StatsTabUI : BaseUITab
 {
@@ -47,8 +48,6 @@ public class StatsTabUI : BaseUITab
     private int addAgility = 0;
     private int addDexterity = 0;
 
-
-
     [SerializeField] private Entity entity;
 
     private void Awake() {
@@ -72,10 +71,14 @@ public class StatsTabUI : BaseUITab
             statPointsMax = entity.StatPoints;
             UpdateStatPointsText();
             //Set text
-            strengthText.text = (entity.Strength += addStrength).ToString();
-            staminaText.text = (entity.Stamina += addStamina).ToString();
-            agilityText.text = (entity.Agility += addAgility).ToString();
-            dexterityText.text = (entity.Dexterity += addDexterity).ToString();
+            entity.Strength += addStrength;
+            strengthText.text = entity.Strength.ToString();
+            entity.Stamina += addStamina;
+            staminaText.text = entity.Stamina.ToString();
+            entity.Agility += addAgility;
+            agilityText.text = entity.Agility.ToString();
+            entity.Dexterity += addDexterity;
+            dexterityText.text = entity.Dexterity.ToString();
 
             //Set back to default
             addStrength = 0;
@@ -85,10 +88,10 @@ public class StatsTabUI : BaseUITab
 
 
             //Set add text to default
-            strengthAddText.text = $"{addStrength}";
-            staminaAddText.text = $"{addStamina}";
-            agilityAddText.text = $"{addAgility}";
-            dexterityAddText.text = $"{addDexterity}";
+            strengthAddText.text = addStrength.ToString();
+            staminaAddText.text = addStamina.ToString();
+            agilityAddText.text = addAgility.ToString();
+            dexterityAddText.text = addDexterity.ToString();
         });
 
         resetButton.onClick.AddListener(() =>
@@ -103,10 +106,10 @@ public class StatsTabUI : BaseUITab
 
 
             //Set text to default
-            strengthAddText.text = $"{addStrength}";
-            staminaAddText.text = $"{addStamina}";
-            agilityAddText.text = $"{addAgility}";
-            dexterityAddText.text = $"{addDexterity}";
+            strengthAddText.text = addStrength.ToString();
+            staminaAddText.text = addStamina.ToString();
+            agilityAddText.text = addAgility.ToString();
+            dexterityAddText.text = addDexterity.ToString();
         });
 
         cancelButton.onClick.AddListener(() =>
@@ -121,10 +124,10 @@ public class StatsTabUI : BaseUITab
 
 
             //Set text to default
-            strengthAddText.text = $"{addStrength}";
-            staminaAddText.text = $"{addStamina}";
-            agilityAddText.text = $"{addAgility}";
-            dexterityAddText.text = $"{addDexterity}";
+            strengthAddText.text = addStrength.ToString();
+            staminaAddText.text = addStamina.ToString();
+            agilityAddText.text = addAgility.ToString();
+            dexterityAddText.text = addDexterity.ToString();
         });
     }
 
@@ -134,10 +137,10 @@ public class StatsTabUI : BaseUITab
         agilityText.text = entity.Agility.ToString();
         dexterityText.text = entity.Dexterity.ToString();
 
-        strengthAddText.text = $"{addStrength}";
-        staminaAddText.text = $"{addStamina}";
-        agilityAddText.text = $"{addAgility}";
-        dexterityAddText.text = $"{addDexterity}";
+        strengthAddText.text = addStrength.ToString();
+        staminaAddText.text = addStamina.ToString();
+        agilityAddText.text = addAgility.ToString();
+        dexterityAddText.text = addDexterity.ToString();
 
     }
 

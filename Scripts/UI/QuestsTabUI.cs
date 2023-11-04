@@ -57,9 +57,9 @@ public class QuestsTabUI : BaseUITab
                 //onGoingQuestsList.Add(quest);
                 float prefabOffest = -index * (questItemHeight + verticalSpacing);
 
-                GameObject questItem = Instantiate(questPrefab, scrollViewContent);
+                var questItem = Instantiate(questPrefab, scrollViewContent);
 
-                QuestSO questSO = questList[index];
+                var questSO = questList[index];
                 if (questSO != null)
                 {
 
@@ -67,10 +67,10 @@ public class QuestsTabUI : BaseUITab
                     questDescriptionText.text = questSO.questDescription;
                 }
 
-                RectTransform itemTransform = questItem.GetComponent<RectTransform>();
+                var itemTransform = questItem.GetComponent<RectTransform>();
                 itemTransform.anchoredPosition = new Vector2(0f, prefabOffest);
             }
-            RectTransform contentTransform = scrollViewContent.GetComponent<RectTransform>();
+            var contentTransform = scrollViewContent.GetComponent<RectTransform>();
             contentTransform.sizeDelta = new Vector2(contentTransform.sizeDelta.x, questList.Count * (questItemHeight + verticalSpacing));
         }
         else

@@ -11,7 +11,6 @@ public class SettingsUITab : BaseUITab
 {
     public static SettingsUITab SettingsTabInstance { get; private set; }
 
-
     private void Awake() {
         SettingsTabInstance = this;
     }

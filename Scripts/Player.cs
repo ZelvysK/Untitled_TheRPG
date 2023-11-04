@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO:
+// Fix player rotation causing a bug where it offsets the avatar by a bit. Caused by playing walking animation while rotating.
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
@@ -10,7 +12,7 @@ public class Player : MonoBehaviour
 
 
     [SerializeField] private float rotateSpeedTP = 7f;
-    [SerializeField] private float rotateSpeedCC = 150f;
+    //[SerializeField] private float rotateSpeedCC = 150f;
     //Test bools
     [SerializeField] private bool characterControllerBool = false;
     [SerializeField] private bool rigidBodyBool = false;
@@ -21,12 +23,6 @@ public class Player : MonoBehaviour
     private Rigidbody rb;
 
     private bool isWalking;
-
-
-    /// <summary>
-    /// Need to fix player rotation causing a bug where it offsets the avatar by a bit. Caused by playing walking animation while rotating.
-    /// </summary>
-
 
     private void Start() {
         characterController = GetComponent<CharacterController>();
@@ -60,11 +56,8 @@ public class Player : MonoBehaviour
 
             isWalking = moveDir != Vector3.zero;
 
-            transform.forward = Vector3.Lerp(transform.forward, moveDir , rotateSpeedTP * Time.deltaTime);
-
+            transform.forward = Vector3.Lerp(transform.forward, moveDir, rotateSpeedTP * Time.deltaTime);
         }
-
-
     }
 
     public bool IsWalking() {

@@ -16,6 +16,4 @@ public class QuestSO : ScriptableObject
     //NiceToHave
     //public int reputationRewards;
 
-
-
 }

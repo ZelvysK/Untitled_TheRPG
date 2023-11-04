@@ -8,9 +8,9 @@ using UnityEngine;
 // 2. Add ItemSO
 // 3. Display items
 
-public class InventoryUI : BaseUITab
+public class InventoryTabUI : BaseUITab
 {
-    public static InventoryUI InventoryTabInstance { get; private set; }
+    public static InventoryTabUI InventoryTabInstance { get; private set; }
 
     private void Awake() {
         InventoryTabInstance = this;

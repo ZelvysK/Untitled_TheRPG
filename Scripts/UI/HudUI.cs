@@ -74,9 +74,7 @@ public class HudUI : MonoBehaviour
         else Debug.LogError("No entity instance!");
     }
 
-    private void SetExperienceText() {
-        experienceText.text = $"{player.ExperiencePoints}/{levelSystem.GetExperienceToNextLevel(player.Level)}";
-    }
+    private void SetExperienceText() => experienceText.text = $"{player.ExperiencePoints}/{levelSystem.GetExperienceToNextLevel(player.Level)}";
 
     private void SetHealthBarSize() {
         healthText.text = $"{player.HealthPoints} / {player.MaxHealthPoints}";
