@@ -107,6 +107,60 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CharacterTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""59a7530d-181d-4e53-8dde-24b8ebfe6f99"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventoryTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb850b28-d5bf-41d5-92a5-c2264bdaec3b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MapTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""5803fd64-32ca-4514-bab3-d14ce88345ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkillsTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e321a21-32b8-4873-997c-4e467e0f69f2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QuestsTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b38aae3-8f77-454d-9cd4-d4991e2d929e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SettingsTab"",
+                    ""type"": ""Button"",
+                    ""id"": ""5284ab36-83e6-46ad-9cc6-d683cf191c21"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -118,6 +172,83 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ExperienceTest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49f4c7ca-4268-4767-a603-0b81ad22ce6f"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CharacterTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d2f4307-b79f-4cc0-972c-c3677baaa1f4"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f431b83-37a4-48f8-a117-604ef58ddb84"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca055fc0-72f6-452b-a3a0-ce59b2b3a8e4"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MapTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9414300d-3c25-439f-9d10-eb765261337b"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkillsTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44097c96-b9aa-41b4-89ba-18bf53429199"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QuestsTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1bf84542-4e91-4726-bfc9-6b6334e7e225"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SettingsTab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -132,6 +263,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // UIElements
         m_UIElements = asset.FindActionMap("UIElements", throwIfNotFound: true);
         m_UIElements_ExperienceTest = m_UIElements.FindAction("ExperienceTest", throwIfNotFound: true);
+        m_UIElements_CharacterTab = m_UIElements.FindAction("CharacterTab", throwIfNotFound: true);
+        m_UIElements_InventoryTab = m_UIElements.FindAction("InventoryTab", throwIfNotFound: true);
+        m_UIElements_MapTab = m_UIElements.FindAction("MapTab", throwIfNotFound: true);
+        m_UIElements_SkillsTab = m_UIElements.FindAction("SkillsTab", throwIfNotFound: true);
+        m_UIElements_QuestsTab = m_UIElements.FindAction("QuestsTab", throwIfNotFound: true);
+        m_UIElements_SettingsTab = m_UIElements.FindAction("SettingsTab", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -240,11 +377,23 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UIElements;
     private List<IUIElementsActions> m_UIElementsActionsCallbackInterfaces = new List<IUIElementsActions>();
     private readonly InputAction m_UIElements_ExperienceTest;
+    private readonly InputAction m_UIElements_CharacterTab;
+    private readonly InputAction m_UIElements_InventoryTab;
+    private readonly InputAction m_UIElements_MapTab;
+    private readonly InputAction m_UIElements_SkillsTab;
+    private readonly InputAction m_UIElements_QuestsTab;
+    private readonly InputAction m_UIElements_SettingsTab;
     public struct UIElementsActions
     {
         private @PlayerInputActions m_Wrapper;
         public UIElementsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @ExperienceTest => m_Wrapper.m_UIElements_ExperienceTest;
+        public InputAction @CharacterTab => m_Wrapper.m_UIElements_CharacterTab;
+        public InputAction @InventoryTab => m_Wrapper.m_UIElements_InventoryTab;
+        public InputAction @MapTab => m_Wrapper.m_UIElements_MapTab;
+        public InputAction @SkillsTab => m_Wrapper.m_UIElements_SkillsTab;
+        public InputAction @QuestsTab => m_Wrapper.m_UIElements_QuestsTab;
+        public InputAction @SettingsTab => m_Wrapper.m_UIElements_SettingsTab;
         public InputActionMap Get() { return m_Wrapper.m_UIElements; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -257,6 +406,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ExperienceTest.started += instance.OnExperienceTest;
             @ExperienceTest.performed += instance.OnExperienceTest;
             @ExperienceTest.canceled += instance.OnExperienceTest;
+            @CharacterTab.started += instance.OnCharacterTab;
+            @CharacterTab.performed += instance.OnCharacterTab;
+            @CharacterTab.canceled += instance.OnCharacterTab;
+            @InventoryTab.started += instance.OnInventoryTab;
+            @InventoryTab.performed += instance.OnInventoryTab;
+            @InventoryTab.canceled += instance.OnInventoryTab;
+            @MapTab.started += instance.OnMapTab;
+            @MapTab.performed += instance.OnMapTab;
+            @MapTab.canceled += instance.OnMapTab;
+            @SkillsTab.started += instance.OnSkillsTab;
+            @SkillsTab.performed += instance.OnSkillsTab;
+            @SkillsTab.canceled += instance.OnSkillsTab;
+            @QuestsTab.started += instance.OnQuestsTab;
+            @QuestsTab.performed += instance.OnQuestsTab;
+            @QuestsTab.canceled += instance.OnQuestsTab;
+            @SettingsTab.started += instance.OnSettingsTab;
+            @SettingsTab.performed += instance.OnSettingsTab;
+            @SettingsTab.canceled += instance.OnSettingsTab;
         }
 
         private void UnregisterCallbacks(IUIElementsActions instance)
@@ -264,6 +431,24 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ExperienceTest.started -= instance.OnExperienceTest;
             @ExperienceTest.performed -= instance.OnExperienceTest;
             @ExperienceTest.canceled -= instance.OnExperienceTest;
+            @CharacterTab.started -= instance.OnCharacterTab;
+            @CharacterTab.performed -= instance.OnCharacterTab;
+            @CharacterTab.canceled -= instance.OnCharacterTab;
+            @InventoryTab.started -= instance.OnInventoryTab;
+            @InventoryTab.performed -= instance.OnInventoryTab;
+            @InventoryTab.canceled -= instance.OnInventoryTab;
+            @MapTab.started -= instance.OnMapTab;
+            @MapTab.performed -= instance.OnMapTab;
+            @MapTab.canceled -= instance.OnMapTab;
+            @SkillsTab.started -= instance.OnSkillsTab;
+            @SkillsTab.performed -= instance.OnSkillsTab;
+            @SkillsTab.canceled -= instance.OnSkillsTab;
+            @QuestsTab.started -= instance.OnQuestsTab;
+            @QuestsTab.performed -= instance.OnQuestsTab;
+            @QuestsTab.canceled -= instance.OnQuestsTab;
+            @SettingsTab.started -= instance.OnSettingsTab;
+            @SettingsTab.performed -= instance.OnSettingsTab;
+            @SettingsTab.canceled -= instance.OnSettingsTab;
         }
 
         public void RemoveCallbacks(IUIElementsActions instance)
@@ -288,5 +473,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IUIElementsActions
     {
         void OnExperienceTest(InputAction.CallbackContext context);
+        void OnCharacterTab(InputAction.CallbackContext context);
+        void OnInventoryTab(InputAction.CallbackContext context);
+        void OnMapTab(InputAction.CallbackContext context);
+        void OnSkillsTab(InputAction.CallbackContext context);
+        void OnQuestsTab(InputAction.CallbackContext context);
+        void OnSettingsTab(InputAction.CallbackContext context);
     }
 }

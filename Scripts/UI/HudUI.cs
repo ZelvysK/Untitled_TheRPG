@@ -10,6 +10,7 @@ public class HudUI : MonoBehaviour
     public static HudUI Instance;
 
     [SerializeField] private Entity entity;
+    [SerializeField] private LevelSystem levelSystem;
 
     [SerializeField] private Image experienceBarImage;
     [SerializeField] private TextMeshProUGUI experienceText;
@@ -24,14 +25,20 @@ public class HudUI : MonoBehaviour
     private Entity player;
 
     private void Awake() {
+        if (Instance != null)
+        {
+            Debug.LogError("There is more than one HudUI instance");
+        }
         Instance = this;
-        player = entity.CreateNewEntity();
+
+        player = entity.CreateNewPlayer();
 
         UpdateVisual();
     }
 
+
     public void UpdateVisual() {
-        if (Instance != null)
+        if (player != null)
         {
             SetLevelNumber();
             SetExperienceBarSize();
@@ -41,29 +48,42 @@ public class HudUI : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No Instance or Null");
+            Debug.LogError("No entity or Null");
         }
     }
 
     private void SetExperienceBarSize() {
-        experienceBarImage.fillAmount = LevelSystem.LevelInstance.GetExperienceNormalized();
+        if (player != null)
+        {
+            experienceBarImage.fillAmount = levelSystem.GetExperienceNormalized(player);
+        }
+        else Debug.LogError("No entity instance!");
     }
 
     private void SetLevelNumber() {
-        levelText.text = $"{LevelSystem.LevelInstance.GetLevel()}";
+        if (player != null)
+        {
+            levelText.text = $"{player.Level}";
+        }
+        else Debug.LogError("No entity instance!");
     }
 
     private void SetExperienceText() {
-        experienceText.text = $"{LevelSystem.LevelInstance.GetExperience()}/{LevelSystem.LevelInstance.GetExperienceToNextLevel(LevelSystem.LevelInstance.GetLevel())}";
+        experienceText.text = $"{player.ExperiencePoints}/{levelSystem.GetExperienceToNextLevel(player.Level)}";
     }
 
     private void SetHealthBarSize() {
-        healthText.text = $"{Entity.EntityInstance.GetHealthPoints(player)}/{Entity.EntityInstance.GetMaxHealthPoints(player)}";
-        healthBarImage.fillAmount = Entity.EntityInstance.GetHealthNormalized(player);
+        healthText.text = $"{player.HealthPoints} / {player.MaxHealthPoints}";
+        healthBarImage.fillAmount = player.GetHealthNormalized();
     }
 
     private void SetUtilityBarSize() {
-        utilityText.text = $"{Entity.EntityInstance.GetMana(player)}/{Entity.EntityInstance.GetMaxMana(player)}";
-        utilityBarImage.fillAmount = Entity.EntityInstance.GetManaNormalized(player);
+        utilityText.text = $"{player.Mana} / {player.MaxMana}";
+        utilityBarImage.fillAmount = player.GetManaNormalized();
     }
+
+    public void Show() => gameObject.SetActive(true);
+    public void Hide() => gameObject.SetActive(false);
+
+
 }

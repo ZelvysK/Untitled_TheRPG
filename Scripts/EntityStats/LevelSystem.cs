@@ -5,86 +5,43 @@ using UnityEngine;
 
 public class LevelSystem : MonoBehaviour
 {
-    public static LevelSystem LevelInstance { get; private set; }
+    [SerializeField] private EntitySO entitySO;
 
-    private int experiencePoints = 0;
-    private int level = 1;
-    private int maxLevel = 20;
+    public static LevelSystem Instance { get; private set; }
+
+    private readonly float slope = 0.13f;
+    private readonly int offset = 2;
+
+    //private int experiencePoints;
+    //private int level = 1;
 
 
     private void Awake() {
-        LevelInstance = this;
-
-
+        if (Instance != null)
+        {
+            Debug.LogError("There is more than one LevelSystem instance");
+        }
+        Instance = this;
     }
 
-    public void AddExperience(int amount) {
-        if (!IsMaxLevel())
-        {
-            experiencePoints += amount;
-            while (!IsMaxLevel() && experiencePoints >= GetExperienceToNextLevel(level))
-            {
-                //Enough experience to level
-                experiencePoints -= GetExperienceToNextLevel(level);
-                level++;
-            }
-        }
-    }
-
-    public void RemoveExperience(int amount) {
-        if (level != 1)
-        {
-            experiencePoints -= amount;
-            while (level != 1 && experiencePoints <= 0)
-            {
-
-                level--;
-                experiencePoints += GetExperienceToNextLevel(level);
-            }
-        }
-        else if (level == 1 && experiencePoints < 0)
-        {
-            experiencePoints = 0;
-        }
-        else
-        {
-            Debug.Log($"Level is set below required ammount: {level}. RESETING!");
-            level = 1;
-            experiencePoints = 0;
-        }
-    }
-
-    public int GetLevel() { return level; }
-
-    public float GetExperienceNormalized() {
-        if (IsMaxLevel())
-        {
-            return 1f;
-        }
-        else
-        {
-            return (float)experiencePoints / GetExperienceToNextLevel(level);
-        }
-    }
-
-    public int GetExperience() { return experiencePoints; }
+    public float GetExperienceNormalized(Entity player) => IsMaxLevel(player) ? 1f : (float)player.ExperiencePoints / GetExperienceToNextLevel(player.Level);
 
     public int GetExperienceToNextLevel(int level) {
-        if (level < maxLevel)
+        if (level < entitySO.entityMaxLevel)
         {
-            return (int)Mathf.Pow((level / 0.13f), 2);
+            return (int)Mathf.Pow((level / slope), offset);
         }
         else
+        {
             //Invalid level
             Debug.LogError("Level invalid" + level);
-        return 999999999;
+            return int.MaxValue;
+        }
     }
 
-    public bool IsMaxLevel() {
-        return IsMaxLevel(level);
-    }
+    public bool IsMaxLevel() => IsMaxLevel(entitySO.entityLevel);
 
-    public bool IsMaxLevel(int level) {
-        return level == maxLevel;
-    }
+    public bool IsMaxLevel(int level) => level == entitySO.entityMaxLevel;
+
+    public bool IsMaxLevel(Entity entity) => entity.Level == entitySO.entityMaxLevel;
 }

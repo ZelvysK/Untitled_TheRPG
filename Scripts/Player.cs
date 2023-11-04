@@ -5,10 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+
     [SerializeField] private GameInput gameInput;
+    //[SerializeField] private Entity entity;
 
     private bool isWalking;
-    
+
     private void Update() {
         Vector2 inputVector = gameInput.GetMovementNormalized();
 
@@ -18,7 +20,7 @@ public class Player : MonoBehaviour
         isWalking = moveDir != Vector3.zero;
 
         float rotateSpeed = 7f;
-        transform.forward = Vector3.Slerp(transform.forward, moveDir, rotateSpeed * Time.deltaTime);
+        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
     }
 
     public bool IsWalking() {
