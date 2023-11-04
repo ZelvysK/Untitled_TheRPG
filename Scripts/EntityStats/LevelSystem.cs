@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
+// TODO:
+// Implement experience rewards after:
+// 1. Killing enemies
+// 2. Completing quests
+// 3. Crafting?
+
+
+
 public class LevelSystem : MonoBehaviour
 {
     [SerializeField] private EntitySO entitySO;

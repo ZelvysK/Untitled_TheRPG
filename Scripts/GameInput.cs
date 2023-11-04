@@ -24,6 +24,7 @@ public class GameInput : MonoBehaviour
     private void Awake() {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
+
         //Testing tabs
         playerInputActions.UIElements.Enable();
         playerInputActions.UIElements.ExperienceTest.performed += ExperienceTest_performed;

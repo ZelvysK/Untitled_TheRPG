@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BaseUITab : MonoBehaviour
 {
-    public static BaseUITab Instance { get; private set; }
+    public static BaseUITab BaseUITabInstance { get; private set; }
 
     //Tabs to switch
     [SerializeField] private List<GameObject> tabsList;
@@ -16,7 +16,18 @@ public class BaseUITab : MonoBehaviour
 
 
     private void Awake() {
-        Instance = this;
+        BaseUITabInstance = this;
+
+        //Use if instance breaks:
+
+        //if (BaseUITabInstance != null)
+        //{
+        //    Debug.Log($"BaseUITabIsntance is set to {BaseUITabInstance}");
+        //}
+        //else
+        //{
+        //    BaseUITabInstance = this;
+        //}
 
         for (int i = 0; i < tabsButtonList.Count; i++)
         {
@@ -60,10 +71,6 @@ public class BaseUITab : MonoBehaviour
                 break;
         }
     }
-
-    //public List<Button> GetTabButtonList() {
-    //    return tabsButtonList;
-    //}
 
     private void HideAll() {
         foreach (var tab in tabsList)

@@ -11,7 +11,7 @@ public class QuestSO : ScriptableObject
     public int experienceRewards;
     public int goldRewards;
 
-    //public ItemObject questRewards;
+    //public List<ItemSO> questRewards;
     
     //NiceToHave
     //public int reputationRewards;

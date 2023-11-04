@@ -5,6 +5,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// TODO:
+// Add status bar animations
+
 public class HudUI : MonoBehaviour
 {
     public static HudUI Instance;

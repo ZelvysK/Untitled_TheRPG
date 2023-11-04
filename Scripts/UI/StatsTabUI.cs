@@ -4,6 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// TODO:
+// 1. Implement how do these values affect gameplay
+
 public class StatsTabUI : BaseUITab
 {
     public static StatsTabUI StatInstance { get; private set; }

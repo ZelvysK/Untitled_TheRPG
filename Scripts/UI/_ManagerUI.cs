@@ -4,11 +4,12 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
+// This is for main UI control
 public class _ManagerUI : MonoBehaviour
 {
     [SerializeField] private GameInput gameInput;
-    // Seperate script for each UI element to show/hide
-    // This is for main control
 
     //Main Tabs
     public bool CharacterTabOpen { get; set; }
@@ -26,7 +27,7 @@ public class _ManagerUI : MonoBehaviour
         HudUI.Instance.Show();
 
         anyTabOpen = false;
-        BaseUITab.Instance.Hide();
+        BaseUITab.BaseUITabInstance.Hide();
 
         HideAllMenuTabs();
 
@@ -50,7 +51,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Hide();
 
-            BaseUITab.Instance.Show();
+            BaseUITab.BaseUITabInstance.Show();
             anyTabOpen = true;
             //StatsTabUI.Instance.ShowStats();
             SettingsTabOpen = true;
@@ -66,7 +67,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Show();
 
-            BaseUITab.Instance.Hide();
+            BaseUITab.BaseUITabInstance.Hide();
             anyTabOpen = false;
             //StatsTabUI.Instance.HideStats();
             SettingsTabOpen = false;
@@ -78,7 +79,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Hide();
 
-            BaseUITab.Instance.Show();
+            BaseUITab.BaseUITabInstance.Show();
             anyTabOpen = true;
             //StatsTabUI.Instance.ShowStats();
             SkillsTabOpen = true;
@@ -94,7 +95,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Show();
 
-            BaseUITab.Instance.Hide();
+            BaseUITab.BaseUITabInstance.Hide();
             anyTabOpen = false;
             //StatsTabUI.Instance.HideStats();
             SkillsTabOpen = false;
@@ -106,7 +107,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Hide();
 
-            BaseUITab.Instance.Show();
+            BaseUITab.BaseUITabInstance.Show();
             anyTabOpen = true;
             QuestsTabUI.QuestsInstance.Show();
             QuestsTabOpen = true;
@@ -122,7 +123,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Show();
 
-            BaseUITab.Instance.Hide();
+            BaseUITab.BaseUITabInstance.Hide();
             anyTabOpen = false;
             QuestsTabUI.QuestsInstance.Hide();
             QuestsTabOpen = false;
@@ -134,7 +135,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Hide();
 
-            BaseUITab.Instance.Show();
+            BaseUITab.BaseUITabInstance.Show();
             anyTabOpen = true;
             //StatsTabUI.Instance.ShowStats();
             MapTabOpen = true;
@@ -150,7 +151,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Show();
 
-            BaseUITab.Instance.Hide();
+            BaseUITab.BaseUITabInstance.Hide();
             anyTabOpen = false;
             //StatsTabUI.Instance.HideStats();
             MapTabOpen = false;
@@ -162,14 +163,14 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Hide();
 
-            BaseUITab.Instance.Show();
+            BaseUITab.BaseUITabInstance.Show();
             anyTabOpen = true;
             //StatsTabUI.Instance.ShowStats();
             InventoryTabOpen = true;
         }
         else if (anyTabOpen && !InventoryTabOpen)
         {
-           HideAllMenuTabs();
+            HideAllMenuTabs();
 
             //Show InventoryTab
             InventoryTabOpen = true;
@@ -178,7 +179,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Show();
 
-            BaseUITab.Instance.Hide();
+            BaseUITab.BaseUITabInstance.Hide();
             anyTabOpen = false;
             //StatsTabUI.Instance.HideStats();
             InventoryTabOpen = false;
@@ -190,7 +191,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Hide();
 
-            BaseUITab.Instance.Show();
+            BaseUITab.BaseUITabInstance.Show();
             anyTabOpen = true;
             StatsTabUI.StatInstance.Show();
             CharacterTabOpen = true;
@@ -207,7 +208,7 @@ public class _ManagerUI : MonoBehaviour
         {
             HudUI.Instance.Show();
 
-            BaseUITab.Instance.Hide();
+            BaseUITab.BaseUITabInstance.Hide();
             anyTabOpen = false;
             StatsTabUI.StatInstance.Hide();
             CharacterTabOpen = false;
@@ -229,11 +230,18 @@ public class _ManagerUI : MonoBehaviour
         SettingsTabOpen = false;
 
 
-        CharacterTabOpen = false;
         StatsTabUI.StatInstance.Hide();
+        CharacterTabOpen = false;
 
+        if (QuestsTabUI.QuestsInstance != null)
+        {
+            QuestsTabUI.QuestsInstance.Hide();
+        }
+        else
+        {
+            Debug.LogError("EROORROROROR!");
+        }
         QuestsTabOpen = false;
-        QuestsTabUI.QuestsInstance.Hide();
     }
 
 }

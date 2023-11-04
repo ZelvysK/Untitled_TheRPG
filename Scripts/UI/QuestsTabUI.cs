@@ -7,6 +7,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// TODO:
+// 1. Add quests as buttons that you can click and open more details about said quest 
+
+
 public class QuestsTabUI : BaseUITab
 {
     public static QuestsTabUI QuestsInstance { get; private set; }
@@ -34,7 +39,6 @@ public class QuestsTabUI : BaseUITab
     private float verticalSpacing = 2f;
 
     private void Awake() {
-
         QuestsInstance = this;
 
         AddQuestsToQuestList();
@@ -45,11 +49,9 @@ public class QuestsTabUI : BaseUITab
         //});
     }
 
-
     private void AddQuestsToQuestList() {
         if (questList != null)
         {
-
             for (int index = 0; index < questList.Count; index++)
             {
                 //onGoingQuestsList.Add(quest);
