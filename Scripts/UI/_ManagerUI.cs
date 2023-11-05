@@ -233,6 +233,7 @@ public class _ManagerUI : MonoBehaviour
         StatsTabUI.StatInstance.Hide();
         CharacterTabOpen = false;
 
+        Debug.Log(QuestsTabUI.QuestsInstance);
         QuestsTabUI.QuestsInstance.Hide();
         QuestsTabOpen = false;
     }

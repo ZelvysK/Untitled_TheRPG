@@ -6,6 +6,9 @@ public class PlayerAnimator : MonoBehaviour
 {
     //Defined values in animator as constants
     private const string IS_WALKING = "IsWalking";
+    private const string MOVEMENT_BLEND = "Movement";
+    private const float ANIMATION_DAMPENING = 0.1f;
+
 
     [SerializeField] private Player player;
     private Animator animator;
@@ -16,5 +19,13 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Update() {
         animator.SetBool(IS_WALKING, player.IsWalking());
+
+        if (player.IsWalking())
+        {
+            AnimationHandler(player.GetBlendFloat());
+        }
+
     }
+
+    private void AnimationHandler(float blendFloat) => animator.SetFloat(MOVEMENT_BLEND, blendFloat, ANIMATION_DAMPENING, Time.deltaTime);
 }

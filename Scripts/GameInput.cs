@@ -53,4 +53,9 @@ public class GameInput : MonoBehaviour
 
         return inputVector;
     }
+
+    public bool GetJumpInput() => playerInputActions.Player.Jump.IsPressed();
+
+    public bool GetSprintInput() => playerInputActions.Player.Sprint.IsPressed();
+
 }

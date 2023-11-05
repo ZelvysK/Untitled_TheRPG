@@ -39,7 +39,15 @@ public class QuestsTabUI : BaseUITab
     private float verticalSpacing = 2f;
 
     private void Awake() {
+        Debug.Log("QuestTab Awake() Run");
+        if (QuestsInstance == null)
+        {
         QuestsInstance = this;
+        }
+        else
+        {
+            Debug.Log(QuestsInstance);
+        }
 
         AddQuestsToQuestList();
 
