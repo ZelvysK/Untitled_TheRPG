@@ -42,7 +42,7 @@ public class QuestsTabUI : BaseUITab
         Debug.Log("QuestTab Awake() Run");
         if (QuestsInstance == null)
         {
-        QuestsInstance = this;
+            QuestsInstance = this;
         }
         else
         {

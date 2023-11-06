@@ -218,23 +218,23 @@ public class _ManagerUI : MonoBehaviour
     private void GameInput_OnExperienceTest(object sender, System.EventArgs e) => ExperienceTest.Instance.Show();
 
     private void HideAllMenuTabs() {
-        InventoryTabUI.InventoryTabInstance.Hide();
+        InventoryTabUI.InventoryTabInstance?.Hide();
         InventoryTabOpen = false;
         
-        MapTabUI.MapTabInstance.Hide();
+        MapTabUI.MapTabInstance?.Hide();
         MapTabOpen = false;
         
-        SkillsTabUI.SkillsTabInstance.Hide();
+        SkillsTabUI.SkillsTabInstance?.Hide();
         SkillsTabOpen = false;
 
-        SettingsUITab.SettingsTabInstance.Hide();
+        SettingsUITab.SettingsTabInstance?.Hide();
         SettingsTabOpen = false;
 
-        StatsTabUI.StatInstance.Hide();
+        StatsTabUI.StatInstance?.Hide();
         CharacterTabOpen = false;
 
-        Debug.Log(QuestsTabUI.QuestsInstance);
-        QuestsTabUI.QuestsInstance.Hide();
+        QuestsTabUI.QuestsInstance?.Hide();
+        //Debug.Log(QuestsTabUI.QuestsInstance);
         QuestsTabOpen = false;
     }
 

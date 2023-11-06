@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.5168, g: 2264.555, b: 3287.5747, a: 1}
+  m_IndirectSpecularColor: {r: 2160.5247, g: 2264.5627, b: 3287.5864, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6325,8 +6325,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 2013742606}
-  m_Follow: {fileID: 2013742606}
+  m_LookAt: {fileID: 1736870188}
+  m_Follow: {fileID: 1736870188}
   m_Lens:
     FieldOfView: 60.000004
     OrthographicSize: 5
@@ -7599,37 +7599,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583702319}
   m_CullTransparentMesh: 1
---- !u!1 &588430157
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 588430158}
-  m_Layer: 0
-  m_Name: PlayerRotation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &588430158
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588430157}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1736870188}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &598348936
 GameObject:
   m_ObjectHideFlags: 0
@@ -13156,6 +13125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tabsList: []
   tabsButtonList: []
+  statButtonDictionary: {fileID: 11400000, guid: a128893ffd62ab048bc993ccaf5385c7,
+    type: 2}
   statButtonsList:
   - {fileID: 861302118}
   - {fileID: 1097945766}
@@ -13165,9 +13136,9 @@ MonoBehaviour:
   - {fileID: 463323108}
   - {fileID: 1956857221}
   - {fileID: 546889124}
-  applyButton: {fileID: 1631127216}
-  resetButton: {fileID: 2133139531}
-  cancelButton: {fileID: 1478843924}
+  - {fileID: 1631127216}
+  - {fileID: 2133139531}
+  - {fileID: 1478843924}
   strengthText: {fileID: 814269273}
   staminaText: {fileID: 1388307639}
   agilityText: {fileID: 365784136}
@@ -20812,7 +20783,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 201550919}
-  - {fileID: 588430158}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1736870189
@@ -20830,6 +20800,7 @@ MonoBehaviour:
   moveSpeed: 5
   walkSpeed: 5
   runSpeed: 7
+  mouseSensitivity: 150
   gameInput: {fileID: 1608877591}
 --- !u!114 &1736870191
 MonoBehaviour:

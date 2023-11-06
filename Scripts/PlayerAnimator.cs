@@ -24,6 +24,10 @@ public class PlayerAnimator : MonoBehaviour
         {
             AnimationHandler(player.GetBlendFloat());
         }
+        else
+        {
+            AnimationHandler(0f);
+        }
 
     }
 
