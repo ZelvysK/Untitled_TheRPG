@@ -7,6 +7,7 @@ public class PlayerAnimator : MonoBehaviour
     //Defined values in animator as constants
     private const string IS_WALKING = "IsWalking";
     private const string MOVEMENT_BLEND = "Movement";
+    private const string IS_BACKWARDS_WALKING = "IsBackwardsWalking";
     private const float ANIMATION_DAMPENING = 0.1f;
 
 
