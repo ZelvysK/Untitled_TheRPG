@@ -15,10 +15,12 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Awake() {
         animator = GetComponent<Animator>();
+        transform.localPosition = Vector3.zero;
     }
 
     private void Update() {
         animator.SetBool(IS_WALKING, player.IsWalking());
+        transform.localPosition = Vector3.zero;
 
         if (player.IsWalking())
         {
@@ -30,6 +32,5 @@ public class PlayerAnimator : MonoBehaviour
         }
 
     }
-
     private void AnimationHandler(float blendFloat) => animator.SetFloat(MOVEMENT_BLEND, blendFloat, ANIMATION_DAMPENING, Time.deltaTime);
 }
