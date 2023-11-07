@@ -15,25 +15,16 @@ public class LevelSystem : MonoBehaviour
 {
     [SerializeField] private EntitySO entitySO;
 
-    public static LevelSystem Instance { get; private set; }
-
     private readonly float slope = 0.13f;
     private readonly int offset = 2;
 
     //private int experiencePoints;
     //private int level = 1;
 
-
     private void Awake() {
-        if (Instance != null)
-        {
-            Debug.LogError("There is more than one LevelSystem instance");
-        }
-        Instance = this;
+        
     }
-
     public float GetExperienceNormalized(Entity player) => IsMaxLevel(player) ? 1f : (float)player.ExperiencePoints / GetExperienceToNextLevel(player.Level);
-
     public int GetExperienceToNextLevel(int level) {
         if (level < entitySO.entityMaxLevel)
         {
@@ -46,10 +37,7 @@ public class LevelSystem : MonoBehaviour
             return int.MaxValue;
         }
     }
-
     public bool IsMaxLevel() => IsMaxLevel(entitySO.entityLevel);
-
     public bool IsMaxLevel(int level) => level == entitySO.entityMaxLevel;
-
     public bool IsMaxLevel(Entity entity) => entity.Level == entitySO.entityMaxLevel;
 }

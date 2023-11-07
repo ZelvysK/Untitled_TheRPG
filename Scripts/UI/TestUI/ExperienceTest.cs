@@ -47,17 +47,16 @@ public class ExperienceTest : MonoBehaviour
     public void Hide() => gameObject.SetActive(false);
 
     public void AddExperience(int amount) {
-        if (!levelSystem.IsMaxLevel())
+        if (levelSystem.IsMaxLevel()) return;
+
+        experiencePoints += amount;
+        while (!levelSystem.IsMaxLevel() && experiencePoints >= levelSystem.GetExperienceToNextLevel(level))
         {
-            experiencePoints += amount;
-            while (!levelSystem.IsMaxLevel() && experiencePoints >= levelSystem.GetExperienceToNextLevel(level))
-            {
-                //Enough experience to level
-                experiencePoints -= levelSystem.GetExperienceToNextLevel(level);
-                level++;
-            }
-            Debug.Log($"Added: {amount} of experience!\n New level is {level} with experience: {experiencePoints}");
+            //Enough experience to level
+            experiencePoints -= levelSystem.GetExperienceToNextLevel(level);
+            level++;
         }
+        Debug.Log($"Added: {amount} of experience!\n New level is {level} with experience: {experiencePoints}");
     }
 
     public void RemoveExperience(int amount) {
@@ -66,7 +65,6 @@ public class ExperienceTest : MonoBehaviour
             experiencePoints -= amount;
             while (level != 1 && experiencePoints <= 0)
             {
-
                 level--;
                 experiencePoints += levelSystem.GetExperienceToNextLevel(level);
             }
