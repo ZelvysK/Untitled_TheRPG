@@ -49,6 +49,8 @@ public class QuestsTabUI : BaseUITab
             Debug.Log(QuestsInstance);
         }
 
+        Debug.Log(QuestsInstance);
+
         AddQuestsToQuestList();
 
         //completeButton.onClick.AddListener(() =>

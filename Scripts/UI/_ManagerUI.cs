@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 // This is for main UI control
 public class _ManagerUI : MonoBehaviour
@@ -22,10 +18,10 @@ public class _ManagerUI : MonoBehaviour
     private bool anyTabOpen;
 
     private void Awake() {
-        HudUI.Instance.Show();
+        HudUI.Instance?.Show();
 
         anyTabOpen = false;
-        BaseUITab.BaseUITabInstance.Hide();
+        BaseUITab.BaseUITabInstance?.Hide();
 
         HideAllMenuTabs();
 
@@ -47,27 +43,27 @@ public class _ManagerUI : MonoBehaviour
     private void GameInput_OnSettingsTabOpened(object sender, System.EventArgs e) {
         if (!SettingsTabOpen && !anyTabOpen)
         {
-            HudUI.Instance.Hide();
+            HudUI.Instance?.Hide();
 
-            BaseUITab.BaseUITabInstance.Show();
+            BaseUITab.BaseUITabInstance?.Show();
             anyTabOpen = true;
-            SettingsUITab.SettingsTabInstance.Show();
+            SettingsUITab.SettingsTabInstance?.Show();
             SettingsTabOpen = true;
         }
         else if (anyTabOpen && !SettingsTabOpen)
         {
             HideAllMenuTabs();
 
-            SettingsUITab.SettingsTabInstance.Show();
+            SettingsUITab.SettingsTabInstance?.Show();
             SettingsTabOpen = true;
         }
         else
         {
-            HudUI.Instance.Show();
+            HudUI.Instance?.Show();
 
-            BaseUITab.BaseUITabInstance.Hide();
+            BaseUITab.BaseUITabInstance?.Hide();
             anyTabOpen = false;
-            SettingsUITab.SettingsTabInstance.Hide();
+            SettingsUITab.SettingsTabInstance?.Hide();
             SettingsTabOpen = false;
         }
     }
@@ -75,27 +71,27 @@ public class _ManagerUI : MonoBehaviour
     private void GameInput_OnSkillsTabOpened(object sender, System.EventArgs e) {
         if (!SkillsTabOpen && !anyTabOpen)
         {
-            HudUI.Instance.Hide();
+            HudUI.Instance?.Hide();
 
-            BaseUITab.BaseUITabInstance.Show();
+            BaseUITab.BaseUITabInstance?.Show();
             anyTabOpen = true;
-            SkillsTabUI.SkillsTabInstance.Show();
+            SkillsTabUI.SkillsTabInstance?.Show();
             SkillsTabOpen = true;
         }
         else if (anyTabOpen && !SkillsTabOpen)
         {
             HideAllMenuTabs();
 
-            SkillsTabUI.SkillsTabInstance.Show();
+            SkillsTabUI.SkillsTabInstance?.Show();
             SkillsTabOpen = true;
         }
         else
         {
-            HudUI.Instance.Show();
+            HudUI.Instance?.Show();
 
-            BaseUITab.BaseUITabInstance.Hide();
+            BaseUITab.BaseUITabInstance?.Hide();
             anyTabOpen = false;
-            SkillsTabUI.SkillsTabInstance.Hide();
+            SkillsTabUI.SkillsTabInstance?.Hide();
             SkillsTabOpen = false;
         }
     }
@@ -103,27 +99,27 @@ public class _ManagerUI : MonoBehaviour
     private void GameInput_OnQuestsTabOpened(object sender, System.EventArgs e) {
         if (!QuestsTabOpen && !anyTabOpen)
         {
-            HudUI.Instance.Hide();
+            HudUI.Instance?.Hide();
 
-            BaseUITab.BaseUITabInstance.Show();
+            BaseUITab.BaseUITabInstance?.Show();
             anyTabOpen = true;
-            QuestsTabUI.QuestsInstance.Show();
+            QuestsTabUI.QuestsInstance?.Show();
             QuestsTabOpen = true;
         }
         else if (anyTabOpen && !QuestsTabOpen)
         {
             HideAllMenuTabs();
 
-            QuestsTabUI.QuestsInstance.Show();
+            QuestsTabUI.QuestsInstance?.Show();
             QuestsTabOpen = true;
         }
         else
         {
-            HudUI.Instance.Show();
+            HudUI.Instance?.Show();
 
-            BaseUITab.BaseUITabInstance.Hide();
+            BaseUITab.BaseUITabInstance?.Hide();
             anyTabOpen = false;
-            QuestsTabUI.QuestsInstance.Hide();
+            QuestsTabUI.QuestsInstance?.Hide();
             QuestsTabOpen = false;
         }
     }
@@ -131,27 +127,27 @@ public class _ManagerUI : MonoBehaviour
     private void GameInput_OnMapTabOpened(object sender, System.EventArgs e) {
         if (!MapTabOpen && !anyTabOpen)
         {
-            HudUI.Instance.Hide();
+            HudUI.Instance?.Hide();
 
-            BaseUITab.BaseUITabInstance.Show();
+            BaseUITab.BaseUITabInstance?.Show();
             anyTabOpen = true;
-            MapTabUI.MapTabInstance.Show();
+            MapTabUI.MapTabInstance?.Show();
             MapTabOpen = true;
         }
         else if (anyTabOpen && !MapTabOpen)
         {
             HideAllMenuTabs();
 
-            MapTabUI.MapTabInstance.Show();
+            MapTabUI.MapTabInstance?.Show();
             MapTabOpen = true;
         }
         else
         {
-            HudUI.Instance.Show();
+            HudUI.Instance?.Show();
 
-            BaseUITab.BaseUITabInstance.Hide();
+            BaseUITab.BaseUITabInstance?.Hide();
             anyTabOpen = false;
-            MapTabUI.MapTabInstance.Hide();
+            MapTabUI.MapTabInstance?.Hide();
             MapTabOpen = false;
         }
     }
@@ -159,27 +155,27 @@ public class _ManagerUI : MonoBehaviour
     private void GameInput_OnInventoryTabOpened(object sender, System.EventArgs e) {
         if (!InventoryTabOpen && !anyTabOpen)
         {
-            HudUI.Instance.Hide();
+            HudUI.Instance?.Hide();
 
-            BaseUITab.BaseUITabInstance.Show();
+            BaseUITab.BaseUITabInstance?.Show();
             anyTabOpen = true;
-            InventoryTabUI.InventoryTabInstance.Show();
+            InventoryTabUI.InventoryTabInstance?.Show();
             InventoryTabOpen = true;
         }
         else if (anyTabOpen && !InventoryTabOpen)
         {
             HideAllMenuTabs();
 
-            InventoryTabUI.InventoryTabInstance.Show();
+            InventoryTabUI.InventoryTabInstance?.Show();
             InventoryTabOpen = true;
         }
         else
         {
-            HudUI.Instance.Show();
+            HudUI.Instance?.Show();
 
-            BaseUITab.BaseUITabInstance.Hide();
+            BaseUITab.BaseUITabInstance?.Hide();
             anyTabOpen = false;
-            InventoryTabUI.InventoryTabInstance.Hide();
+            InventoryTabUI.InventoryTabInstance?.Hide();
             InventoryTabOpen = false;
         }
     }
@@ -187,11 +183,11 @@ public class _ManagerUI : MonoBehaviour
     private void GameInput_OnCharacterTabOpened(object sender, System.EventArgs e) {
         if (!CharacterTabOpen && !anyTabOpen)
         {
-            HudUI.Instance.Hide();
+            HudUI.Instance?.Hide();
 
-            BaseUITab.BaseUITabInstance.Show();
+            BaseUITab.BaseUITabInstance?.Show();
             anyTabOpen = true;
-            StatsTabUI.StatInstance.Show();
+            CharacterTab.BaseUITabInstance?.Show();
             CharacterTabOpen = true;
         }
         else if (anyTabOpen && !CharacterTabOpen)
@@ -199,16 +195,16 @@ public class _ManagerUI : MonoBehaviour
             HideAllMenuTabs();
 
             //Show CharacterTab
-            StatsTabUI.StatInstance.Show();
+            CharacterTab.BaseUITabInstance?.Show();
             CharacterTabOpen = true;
         }
         else
         {
-            HudUI.Instance.Show();
+            HudUI.Instance?.Show();
 
-            BaseUITab.BaseUITabInstance.Hide();
+            BaseUITab.BaseUITabInstance?.Hide();
             anyTabOpen = false;
-            StatsTabUI.StatInstance.Hide();
+            CharacterTab.BaseUITabInstance?.Show();
             CharacterTabOpen = false;
 
         }
@@ -230,7 +226,7 @@ public class _ManagerUI : MonoBehaviour
         SettingsUITab.SettingsTabInstance?.Hide();
         SettingsTabOpen = false;
 
-        StatsTabUI.StatInstance?.Hide();
+        CharacterTab.BaseUITabInstance?.Hide();
         CharacterTabOpen = false;
 
         QuestsTabUI.QuestsInstance?.Hide();

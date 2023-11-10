@@ -31,7 +31,7 @@ public class BaseUITab : MonoBehaviour
         for (int i = 0; i < tabsButtonList.Count; i++)
         {
             //Local var to catch index
-            int buttonIndex = i;
+            //int buttonIndex = i;
             tabsButtonList[i].onClick.AddListener(() =>
             {
                 HideAll();

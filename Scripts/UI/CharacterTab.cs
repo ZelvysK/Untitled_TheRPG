@@ -1,14 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CharacterTab : MonoBehaviour
+public class CharacterTab : BaseUITab
 {
     //REFERENCES
     [SerializeField] private Entity entity;
+    //private TabUIManager tabUIManager;
 
     //Tab Buttons
     [SerializeField] private List<ExtendedButton> buttons;
@@ -38,7 +37,12 @@ public class CharacterTab : MonoBehaviour
     private Dictionary<TabButtons, Action> ButtonToActionMap;
 
     private void Awake() {
+        //BaseUITab playerTab = new BaseUITab();
+        //tabUIManager.AddTab(playerTab);
+
         InitializeButtonActionMap();
+
+        Debug.Log($"Start Awake statP: {statPointsMax}");
 
         foreach (var button in buttons)
         {
@@ -47,6 +51,9 @@ public class CharacterTab : MonoBehaviour
 
         UpdateStatValuesText();
         UpdateStatPointsText();
+
+        Debug.Log($"End Awake statP: {statPointsMax}");
+
     }
 
     private void InitializeButtonActionMap() {
@@ -247,12 +254,12 @@ public class CharacterTab : MonoBehaviour
     public void CancelStatChanges() {
         RestoreStatPointsMax();
         UpdateStatPointsText();
+
         //Set back to zero
         addStrength = 0;
         addStamina = 0;
         addAgility = 0;
         addDexterity = 0;
-
 
         //Set text to default
         strengthAddText.text = addStrength.ToString();
@@ -260,6 +267,9 @@ public class CharacterTab : MonoBehaviour
         agilityAddText.text = addAgility.ToString();
         dexterityAddText.text = addDexterity.ToString();
     }
+    private int RestoreStatPointsMax() => entity.StatPoints = statPointsMax;
+    private void UpdateStatPointsText() => statPointsText.text = $"Remaining points: {entity.StatPoints}";
+    private int UpdateStatPointsMax() => statPointsMax = entity.StatPoints;
     private void UpdateStatValuesText() {
         strengthText.text = entity.Strength.ToString();
         staminaText.text = entity.Stamina.ToString();
@@ -272,9 +282,8 @@ public class CharacterTab : MonoBehaviour
         dexterityAddText.text = addDexterity.ToString();
     }
 
-    private void UpdateStatPointsText() => statPointsText.text = $"Remaining points: {entity.StatPoints}";
-    private int UpdateStatPointsMax() => statPointsMax = entity.StatPoints;
-    private int RestoreStatPointsMax() => entity.StatPoints = statPointsMax;
-
+    //Temp methods
+    //public void Show() => gameObject.SetActive(true);
+    //public void Hide() => gameObject.SetActive(false);
 }
 
