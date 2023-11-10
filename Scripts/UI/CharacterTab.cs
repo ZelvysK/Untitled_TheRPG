@@ -40,6 +40,11 @@ public class CharacterTab : MonoBehaviour
     private void Awake() {
         InitializeButtonActionMap();
 
+        foreach (var button in buttons)
+        {
+            button.onClick.AddListener(() => Execute(button.ButtonType));
+        }
+
         UpdateStatValuesText();
         UpdateStatPointsText();
     }
@@ -200,6 +205,7 @@ public class CharacterTab : MonoBehaviour
         //Apply changes
         UpdateStatPointsMax();
         UpdateStatPointsText();
+
         //Set text
         entity.Strength += addStrength;
         strengthText.text = entity.Strength.ToString();
@@ -216,7 +222,6 @@ public class CharacterTab : MonoBehaviour
         addAgility = 0;
         addDexterity = 0;
 
-
         //Set add text to default
         strengthAddText.text = addStrength.ToString();
         staminaAddText.text = addStamina.ToString();
@@ -226,12 +231,12 @@ public class CharacterTab : MonoBehaviour
     public void ResetStatChanges() {
         RestoreStatPointsMax();
         UpdateStatPointsText();
-        //Set back to zero
+
+        //Set back to default
         addStrength = 0;
         addStamina = 0;
         addAgility = 0;
         addDexterity = 0;
-
 
         //Set text to default
         strengthAddText.text = addStrength.ToString();
@@ -265,7 +270,6 @@ public class CharacterTab : MonoBehaviour
         staminaAddText.text = addStamina.ToString();
         agilityAddText.text = addAgility.ToString();
         dexterityAddText.text = addDexterity.ToString();
-
     }
 
     private void UpdateStatPointsText() => statPointsText.text = $"Remaining points: {entity.StatPoints}";
