@@ -11,6 +11,15 @@ public class ButtonDictionary : ScriptableObject
 
     private Dictionary<TabButtons, Button> buttonDictionary;
 
+    public ButtonDictionary() {
+        buttonDictionary = new Dictionary<TabButtons, Button>();
+
+        foreach (var buttonData in buttonDataList)
+        {
+            buttonDictionary[buttonData.type] = buttonData.button;
+        }
+    }
+
     public Dictionary<TabButtons, Button> GetButtonDictionary() {
         if (buttonDictionary == null)
         {
