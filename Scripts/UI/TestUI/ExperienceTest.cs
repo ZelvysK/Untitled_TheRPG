@@ -20,6 +20,8 @@ public class ExperienceTest : MonoBehaviour
 
     [SerializeField] private LevelSystem levelSystem;
 
+    private HudUI hudUI;
+
     private int experiencePoints;
     private int level = 1;
 
@@ -27,15 +29,15 @@ public class ExperienceTest : MonoBehaviour
     private void Awake() {
         Instance = this;
 
-        buttonAdd10.onClick.AddListener(() => { AddExperience(10); HudUI.Instance.UpdateVisual(); });
-        buttonAdd100.onClick.AddListener(() => { AddExperience(100); HudUI.Instance.UpdateVisual(); });
-        buttonAdd1000.onClick.AddListener(() => { AddExperience(1000); HudUI.Instance.UpdateVisual(); });
-        buttonAdd5000.onClick.AddListener(() => { AddExperience(5000); HudUI.Instance.UpdateVisual(); });
+        buttonAdd10.onClick.AddListener(() => { AddExperience(10); hudUI.UpdateVisual(); });
+        buttonAdd100.onClick.AddListener(() => { AddExperience(100); hudUI.UpdateVisual(); });
+        buttonAdd1000.onClick.AddListener(() => { AddExperience(1000); hudUI.UpdateVisual(); });
+        buttonAdd5000.onClick.AddListener(() => { AddExperience(5000); hudUI.UpdateVisual(); });
 
-        buttonRemove10.onClick.AddListener(() => { RemoveExperience(10); HudUI.Instance.UpdateVisual(); });
-        buttonRemove100.onClick.AddListener(() => { RemoveExperience(100); HudUI.Instance.UpdateVisual(); });
-        buttonRemove1000.onClick.AddListener(() => { RemoveExperience(1000); HudUI.Instance.UpdateVisual(); });
-        buttonRemove5000.onClick.AddListener(() => { RemoveExperience(5000); HudUI.Instance.UpdateVisual(); });
+        buttonRemove10.onClick.AddListener(() => { RemoveExperience(10); hudUI.UpdateVisual(); });
+        buttonRemove100.onClick.AddListener(() => { RemoveExperience(100); hudUI.UpdateVisual(); });
+        buttonRemove1000.onClick.AddListener(() => { RemoveExperience(1000); hudUI.UpdateVisual(); });
+        buttonRemove5000.onClick.AddListener(() => { RemoveExperience(5000); hudUI.UpdateVisual(); });
 
         closeButton.onClick.AddListener(() => { Hide(); });
 

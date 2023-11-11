@@ -836,6 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceac8d378db20b94aadd86a63549e68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TabName: QuestsTab
   tabsList: []
   tabsButtonList: []
   scrollViewContent: {fileID: 3589889134082980662}

@@ -5028,6 +5028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b396a174e172b4ba21282d98193978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TabName: SettingsTab
   tabsList: []
   tabsButtonList: []
 --- !u!1 &7485608888508540161

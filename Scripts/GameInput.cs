@@ -16,10 +16,27 @@ public class GameInput : MonoBehaviour
     public event EventHandler OnSkillsTabOpened;
     public event EventHandler OnSettingsTabOpened;
 
-
-
-
+    //Player Input
     private PlayerInputActions playerInputActions;
+
+    public enum MovementBinding
+    {
+        MoveForward,
+        MoveBack,
+        MoveLeft,
+        MoveRight,
+        Jump,
+        Sprint,
+    }
+    public enum TabBinding
+    {
+        CharacterTab,
+        InventoryTab,
+        SkillsTab,
+        SettingsTab,
+        QuestsTab,
+        MapTab,
+    }
 
     private void Awake() {
         playerInputActions = new PlayerInputActions();
@@ -58,4 +75,40 @@ public class GameInput : MonoBehaviour
 
     public bool GetSprintInput() => playerInputActions.Player.Sprint.IsPressed();
 
+    public string GetMovementBindingText(MovementBinding binding) {
+        switch (binding)
+        {
+            default:
+            case MovementBinding.MoveForward:
+                return playerInputActions.Player.Move.bindings[1].ToDisplayString();
+            case MovementBinding.MoveBack:
+                return playerInputActions.Player.Move.bindings[2].ToDisplayString();
+            case MovementBinding.MoveLeft:
+                return playerInputActions.Player.Move.bindings[3].ToDisplayString();
+            case MovementBinding.MoveRight:
+                return playerInputActions.Player.Move.bindings[4].ToDisplayString();
+            case MovementBinding.Jump:
+                return playerInputActions.Player.Jump.bindings[0].ToDisplayString();
+            case MovementBinding.Sprint:
+                return playerInputActions.Player.Sprint.bindings[0].ToDisplayString();
+        }
+    }
+    public string GetTabBindingText(TabBinding binding) {
+        switch (binding)
+        {
+            default:
+            case TabBinding.CharacterTab:
+                return playerInputActions.UIElements.CharacterTab.bindings[0].ToDisplayString();
+            case TabBinding.InventoryTab:
+                return playerInputActions.UIElements.InventoryTab.bindings[0].ToDisplayString();
+            case TabBinding.MapTab:
+                return playerInputActions.UIElements.MapTab.bindings[0].ToDisplayString();
+            case TabBinding.QuestsTab:
+                return playerInputActions.UIElements.QuestsTab.bindings[0].ToDisplayString();
+            case TabBinding.SkillsTab:
+                return playerInputActions.UIElements.SkillsTab.bindings[0]. ToDisplayString();
+            case TabBinding.SettingsTab:
+                return playerInputActions.UIElements.SettingsTab.bindings[0].ToDisplayString();
+        }
+    }
 }

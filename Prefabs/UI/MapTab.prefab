@@ -259,5 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f929598249495e4d9025476a90fea26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TabName: MapTab
   tabsList: []
   tabsButtonList: []

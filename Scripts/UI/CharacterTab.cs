@@ -52,6 +52,7 @@ public class CharacterTab : BaseUITab
         UpdateStatValuesText();
         UpdateStatPointsText();
 
+        statPointsMax = entity.StatPoints;
         Debug.Log($"End Awake statP: {statPointsMax}");
 
     }
@@ -282,8 +283,5 @@ public class CharacterTab : BaseUITab
         dexterityAddText.text = addDexterity.ToString();
     }
 
-    //Temp methods
-    //public void Show() => gameObject.SetActive(true);
-    //public void Hide() => gameObject.SetActive(false);
 }
 

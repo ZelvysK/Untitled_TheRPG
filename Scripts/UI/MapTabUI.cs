@@ -10,9 +10,7 @@ using UnityEngine;
 
 public class MapTabUI : BaseUITab
 {
-    public static MapTabUI MapTabInstance {  get; private set; }
-
     private void Awake() {
-        MapTabInstance = this;
+        
     }
 }

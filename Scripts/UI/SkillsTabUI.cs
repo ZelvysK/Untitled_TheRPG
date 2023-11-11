@@ -9,9 +9,7 @@ using UnityEngine;
 
 public class SkillsTabUI : BaseUITab
 {
-    public static SkillsTabUI SkillsTabInstance { get; private set; }
-
     private void Awake() {
-        SkillsTabInstance = this;
+
     }
 }

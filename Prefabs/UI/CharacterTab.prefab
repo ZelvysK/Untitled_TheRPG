@@ -7101,6 +7101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d380c0d5ebe31c458e6294e0a40123a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TabName: CharacterTab
   tabsList: []
   tabsButtonList: []
   entity: {fileID: 0}

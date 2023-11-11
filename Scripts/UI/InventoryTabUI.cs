@@ -16,10 +16,8 @@ using UnityEngine;
 
 public class InventoryTabUI : BaseUITab
 {
-    public static InventoryTabUI InventoryTabInstance { get; private set; }
-
     private void Awake() {
-        InventoryTabInstance = this;
+
     }
 
 }

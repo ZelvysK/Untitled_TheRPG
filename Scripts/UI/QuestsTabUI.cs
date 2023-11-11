@@ -14,8 +14,6 @@ using UnityEngine.UI;
 
 public class QuestsTabUI : BaseUITab
 {
-    public static QuestsTabUI QuestsInstance { get; private set; }
-
     [SerializeField] private Transform scrollViewContent;
     [SerializeField] private List<QuestSO> questList;
     [SerializeField] private GameObject questPrefab;
@@ -39,17 +37,7 @@ public class QuestsTabUI : BaseUITab
     private float verticalSpacing = 2f;
 
     private void Awake() {
-        Debug.Log("QuestTab Awake() Run");
-        if (QuestsInstance == null)
-        {
-            QuestsInstance = this;
-        }
-        else
-        {
-            Debug.Log(QuestsInstance);
-        }
-
-        Debug.Log(QuestsInstance);
+        //Debug.Log("QuestTab Awake() Run");
 
         AddQuestsToQuestList();
 
