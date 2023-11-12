@@ -5,9 +5,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// TODO:
+// Add status bar animations
+
 public class HudUI : MonoBehaviour
 {
-    public static HudUI Instance;
 
     [SerializeField] private Entity entity;
     [SerializeField] private LevelSystem levelSystem;
@@ -25,12 +28,6 @@ public class HudUI : MonoBehaviour
     private Entity player;
 
     private void Awake() {
-        if (Instance != null)
-        {
-            Debug.LogError("There is more than one HudUI instance");
-        }
-        Instance = this;
-
         player = entity.CreateNewPlayer();
 
         UpdateVisual();
@@ -68,9 +65,7 @@ public class HudUI : MonoBehaviour
         else Debug.LogError("No entity instance!");
     }
 
-    private void SetExperienceText() {
-        experienceText.text = $"{player.ExperiencePoints}/{levelSystem.GetExperienceToNextLevel(player.Level)}";
-    }
+    private void SetExperienceText() => experienceText.text = $"{player.ExperiencePoints}/{levelSystem.GetExperienceToNextLevel(player.Level)}";
 
     private void SetHealthBarSize() {
         healthText.text = $"{player.HealthPoints} / {player.MaxHealthPoints}";

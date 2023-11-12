@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
+// TODO:
+// 1. Add enemies
+// 2. Enemy creation
+
 public class Entity : MonoBehaviour
 {
-    //public static Entity Instance { get; private set; }
-
     [SerializeField] private EntitySO entitySO;
 
     //private string characterName;
@@ -22,7 +25,6 @@ public class Entity : MonoBehaviour
     //private int agility = 10;
     //private int dexterity = 10;
 
-
     public string CharacterName { get;  set; }
     public int Level { get;  set; }
     public int ExperiencePoints { get; set; }
@@ -37,13 +39,9 @@ public class Entity : MonoBehaviour
     public int Dexterity { get; set; }
 
 
-    private void Awake() {
-        //Instance = this;
-    }
-
     public Entity CreateNewPlayer() {
 
-        Entity player = this;
+        var player = this;
 
         player.CharacterName = entitySO.entityName;
         player.Level = entitySO.entityLevel;
