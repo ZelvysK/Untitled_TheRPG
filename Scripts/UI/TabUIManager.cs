@@ -1,4 +1,5 @@
 using System;
+using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,7 +32,8 @@ public class TabUIManager : MonoBehaviour
 
     //REFERENCES
     [SerializeField] private HudUI hudUI;
-    [SerializeField] private BaseUITab baseTab;
+    [SerializeField] private BaseUITab baseUI;
+    [SerializeField] private TabSwitcherUI tabSwitcherUI;
     //[SerializeField] private List<GameObject> tabObjects;
 
     //private SkillsTabUI skillsTab;
@@ -54,7 +56,8 @@ public class TabUIManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        baseTab.Hide();
+        tabSwitcherUI.Hide();
+        baseUI.Hide();
         hudUI.Show();
 
         anyTabOpen = false;
@@ -80,7 +83,10 @@ public class TabUIManager : MonoBehaviour
             hudUI.Hide();
 
             anyTabOpen = true;
-            baseTab.Show();
+            tabSwitcherUI.Show();
+            tabSwitcherUI.SelectTabButton(SETTINGS_TAB);
+
+            baseUI.Show();
             SettingsTabOpen = true;
             tabs.Find(t => t.TabName == SETTINGS_TAB).Show();
         }
@@ -90,13 +96,15 @@ public class TabUIManager : MonoBehaviour
 
             SettingsTabOpen = true;
             tabs.Find(t => t.TabName == SETTINGS_TAB).Show();
+            tabSwitcherUI.SelectTabButton(SETTINGS_TAB);
         }
         else
         {
             hudUI.Show();
 
             anyTabOpen = false;
-            baseTab.Hide();
+            tabSwitcherUI.Hide();
+            baseUI.Hide();
             SettingsTabOpen = false;
             tabs.Find(t => t.TabName == SETTINGS_TAB).Hide();
         }
@@ -107,7 +115,10 @@ public class TabUIManager : MonoBehaviour
             hudUI.Hide();
 
             anyTabOpen = true;
-            baseTab.Show();
+            tabSwitcherUI.Show();
+            tabSwitcherUI.SelectTabButton(SKILLS_TAB);
+
+            baseUI.Show();
             SkillsTabOpen = true;
             tabs.Find(t => t.TabName == SKILLS_TAB).Show();
         }
@@ -117,13 +128,15 @@ public class TabUIManager : MonoBehaviour
 
             SkillsTabOpen = true;
             tabs.Find(t => t.TabName == SKILLS_TAB).Show();
+            tabSwitcherUI.SelectTabButton(SKILLS_TAB);
         }
         else
         {
             hudUI.Show();
 
             anyTabOpen = false;
-            baseTab.Hide();
+            tabSwitcherUI.Hide();
+            baseUI.Hide();
             SkillsTabOpen = false;
             tabs.Find(t => t.TabName == SKILLS_TAB).Hide();
         }
@@ -134,7 +147,10 @@ public class TabUIManager : MonoBehaviour
             hudUI.Hide();
 
             anyTabOpen = true;
-            baseTab.Show();
+            tabSwitcherUI.Show();
+            tabSwitcherUI.SelectTabButton(QUESTS_TAB);
+
+            baseUI.Show();
             QuestsTabOpen = true;
             tabs.Find(t => t.TabName == QUESTS_TAB).Show();
         }
@@ -144,13 +160,15 @@ public class TabUIManager : MonoBehaviour
 
             QuestsTabOpen = true;
             tabs.Find(t => t.TabName == QUESTS_TAB).Show();
+            tabSwitcherUI.SelectTabButton(QUESTS_TAB);
         }
         else
         {
             hudUI.Show();
 
             anyTabOpen = false;
-            baseTab.Hide();
+            tabSwitcherUI.Hide();
+            baseUI.Hide();
             QuestsTabOpen = false;
             tabs.Find(t => t.TabName == QUESTS_TAB).Hide();
         }
@@ -161,7 +179,10 @@ public class TabUIManager : MonoBehaviour
             hudUI.Hide();
 
             anyTabOpen = true;
-            baseTab.Show();
+            tabSwitcherUI.Show();
+            tabSwitcherUI.SelectTabButton(MAP_TAB);
+
+            baseUI.Show();
             MapTabOpen = true;
             tabs.Find(t => t.TabName == MAP_TAB).Show();
         }
@@ -171,13 +192,15 @@ public class TabUIManager : MonoBehaviour
 
             MapTabOpen = true;
             tabs.Find(t => t.TabName == MAP_TAB).Show();
+            tabSwitcherUI.SelectTabButton(MAP_TAB);
         }
         else
         {
             hudUI.Show();
 
             anyTabOpen = false;
-            baseTab.Hide();
+            tabSwitcherUI.Hide();
+            baseUI.Hide();
             MapTabOpen = false;
             tabs.Find(t => t.TabName == MAP_TAB).Hide();
         }
@@ -188,7 +211,10 @@ public class TabUIManager : MonoBehaviour
             hudUI.Hide();
 
             anyTabOpen = true;
-            baseTab.Show();
+            tabSwitcherUI.Show();
+            tabSwitcherUI.SelectTabButton(INVENTORY_TAB);
+
+            baseUI.Show();
             InventoryTabOpen = true;
             tabs.Find(t => t.TabName == INVENTORY_TAB).Show();
         }
@@ -198,13 +224,15 @@ public class TabUIManager : MonoBehaviour
 
             InventoryTabOpen = true;
             tabs.Find(t => t.TabName == INVENTORY_TAB).Show();
+            tabSwitcherUI.SelectTabButton(INVENTORY_TAB);
         }
         else
         {
             hudUI.Show();
 
             anyTabOpen = false;
-            baseTab.Hide();
+            tabSwitcherUI.Hide();
+            baseUI.Hide();
             InventoryTabOpen = false;
             tabs.Find(t => t.TabName == INVENTORY_TAB).Hide();
         }
@@ -215,7 +243,10 @@ public class TabUIManager : MonoBehaviour
             hudUI.Hide();
 
             anyTabOpen = true;
-            baseTab.Show();
+            tabSwitcherUI.Show();
+            tabSwitcherUI.SelectTabButton(CHARACTER_TAB);
+
+            baseUI.Show();
             CharacterTabOpen = true;
             tabs.Find(t => t.TabName == CHARACTER_TAB).Show();
         }
@@ -225,13 +256,15 @@ public class TabUIManager : MonoBehaviour
 
             CharacterTabOpen = true;
             tabs.Find(t => t.TabName == CHARACTER_TAB).Show();
+            tabSwitcherUI.SelectTabButton(CHARACTER_TAB);
         }
         else
         {
             hudUI.Show();
 
             anyTabOpen = false;
-            baseTab.Hide();
+            tabSwitcherUI.Hide();
+            baseUI.Hide();
             CharacterTabOpen = false;
             tabs.Find(t => t.TabName == CHARACTER_TAB).Hide();
         }

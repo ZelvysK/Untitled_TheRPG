@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CharacterTab : BaseUITab
+public class CharacterTabUI : BaseUITab
 {
     //REFERENCES
     [SerializeField] private Entity entity;
@@ -89,7 +89,6 @@ public class CharacterTab : BaseUITab
     }
     public void RemoveStrength() {
         //Remove from Strenght
-
         var tempStatPoints = entity.StatPoints + addStrength + addStamina + addAgility + addDexterity;
 
         if (entity.StatPoints >= 0 && entity.StatPoints < statPointsMax && tempStatPoints - addStrength < statPointsMax)
@@ -123,7 +122,6 @@ public class CharacterTab : BaseUITab
     }
     public void RemoveStamina() {
         //Remove from Stamina
-        statPointsMax = entity.StatPoints;
         var tempStatPoints = entity.StatPoints + addStrength + addStamina + addAgility + addDexterity;
 
         if (entity.StatPoints >= 0 && entity.StatPoints < statPointsMax && tempStatPoints - addStamina < statPointsMax)
@@ -156,7 +154,6 @@ public class CharacterTab : BaseUITab
     }
     public void RemoveAgility() {
         //Remove from Agility
-        statPointsMax = entity.StatPoints;
         var tempStatPoints = entity.StatPoints + addStrength + addStamina + addAgility + addDexterity;
 
         if (entity.StatPoints >= 0 && entity.StatPoints < statPointsMax && tempStatPoints - addAgility < statPointsMax)
@@ -189,7 +186,6 @@ public class CharacterTab : BaseUITab
     }
     public void RemoveDexterity() {
         //Remove from Dexterity
-        statPointsMax = entity.StatPoints;
         var tempStatPoints = entity.StatPoints + addStrength + addStamina + addAgility + addDexterity;
 
         if (entity.StatPoints >= 0 && entity.StatPoints < statPointsMax && tempStatPoints - addDexterity < statPointsMax)

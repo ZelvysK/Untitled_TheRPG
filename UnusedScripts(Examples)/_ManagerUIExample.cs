@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // This is for main UI control
-public class _ManagerUI : MonoBehaviour
+public class _ManagerUIExample : MonoBehaviour
 {
     [SerializeField] private GameInput gameInput;
 

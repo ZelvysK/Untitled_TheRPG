@@ -1,29 +1,16 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-
-// TODO:
-// 1. Implement how do these values affect gameplay
-// 2. Strategy design pattern for buttons
-
-
-
-public class StatsTabUI : BaseUITab
+public class CharacterTabExample : BaseUITab
 {
-    public static StatsTabUI StatInstance { get; private set; }
+    //REFERENCES
+    [SerializeField] private Entity entity;
+    //private TabUIManager tabUIManager;
 
-    //Current tab buttons
-    [SerializeField] private ButtonDictionary statButtonDictionary;
-
-    [SerializeField] private List<Button> statButtonsList;
-
-    //[SerializeField] private Button applyButton;
-    //[SerializeField] private Button resetButton;
-    //[SerializeField] private Button cancelButton;
+    //Tab Buttons
+    [SerializeField] private List<ExtendedButton> buttons;
 
     //Current tab text fields
     [SerializeField] private TextMeshProUGUI strengthText;
@@ -38,44 +25,56 @@ public class StatsTabUI : BaseUITab
 
     [SerializeField] private TextMeshProUGUI statPointsText;
 
-    //Equiped items visuals
-    [SerializeField] private Image helmetImage;
-    [SerializeField] private Image necklaceImage;
-    [SerializeField] private Image chestplateImage;
-    [SerializeField] private Image weaponImage;
-    [SerializeField] private Image secondaryImage;
-    [SerializeField] private Image ringImage;
-    [SerializeField] private Image leggingsImage;
-    [SerializeField] private Image bootsImage;
-
+    //VARIABLES
+    //Local
     private int addStrength = 0;
     private int addStamina = 0;
     private int addAgility = 0;
     private int addDexterity = 0;
     private int statPointsMax;
+    
 
-    [SerializeField] private Entity entity;
-
-    private Dictionary<TabButtons, IButtonStrategy> buttonStrategies = new Dictionary<TabButtons, IButtonStrategy>();
+    private Dictionary<TabButtons, Action> ButtonToActionMap;
 
     private void Awake() {
-        StatInstance = this;
+        //BaseUITab playerTab = new BaseUITab();
+        //tabUIManager.AddTab(playerTab);
 
-        InitializeButtonDictionary();
+        InitializeButtonActionMap();
 
-        AddButtonStrategies();
-        DoButtonClickEvents();
-        var statPointsMax = entity.StatPoints;
+        Debug.Log($"Start Awake statP: {statPointsMax}");
+
+        foreach (var button in buttons)
+        {
+            button.onClick.AddListener(() => Execute(button.ButtonType));
+        }
 
         UpdateStatValuesText();
         UpdateStatPointsText();
+
+        statPointsMax = entity.StatPoints;
+        Debug.Log($"End Awake statP: {statPointsMax}");
+
     }
 
-    private void ExecuteButtonStrategy(TabButtons button) {
-        if (buttonStrategies.ContainsKey(button))
+    private void InitializeButtonActionMap() {
+        ButtonToActionMap = new Dictionary<TabButtons, Action>
         {
-            buttonStrategies[button].Execute(this);
-        }
+            { TabButtons.AddStrength, AddStrength },
+            { TabButtons.RemoveStrength, RemoveStrength },
+            { TabButtons.AddStamina, AddStamina },
+            { TabButtons.RemoveStamina, RemoveStamina },
+            { TabButtons.AddAgility, AddAgility },
+            { TabButtons.RemoveAgility, RemoveAgility },
+            { TabButtons.AddDexterity, AddDexterity },
+            { TabButtons.RemoveDexterity, RemoveDexterity },
+            { TabButtons.Apply, ApplyStatChanges },
+            { TabButtons.Reset, ResetStatChanges },
+            { TabButtons.Cancel, CancelStatChanges },
+        };
+    }
+    public void Execute(TabButtons buttonType) {
+        ButtonToActionMap[buttonType].Invoke();
     }
     public void AddStrength() {
         //Add to Strength
@@ -90,7 +89,7 @@ public class StatsTabUI : BaseUITab
     }
     public void RemoveStrength() {
         //Remove from Strenght
-        
+
         var tempStatPoints = entity.StatPoints + addStrength + addStamina + addAgility + addDexterity;
 
         if (entity.StatPoints >= 0 && entity.StatPoints < statPointsMax && tempStatPoints - addStrength < statPointsMax)
@@ -210,11 +209,11 @@ public class StatsTabUI : BaseUITab
         }
         else Debug.Log("Unable remove more points!");
     }
-
-    public void ApplyButton() {
+    public void ApplyStatChanges() {
         //Apply changes
         UpdateStatPointsMax();
         UpdateStatPointsText();
+
         //Set text
         entity.Strength += addStrength;
         strengthText.text = entity.Strength.ToString();
@@ -231,22 +230,21 @@ public class StatsTabUI : BaseUITab
         addAgility = 0;
         addDexterity = 0;
 
-
         //Set add text to default
         strengthAddText.text = addStrength.ToString();
         staminaAddText.text = addStamina.ToString();
         agilityAddText.text = addAgility.ToString();
         dexterityAddText.text = addDexterity.ToString();
     }
-    public void ResetButton() {
+    public void ResetStatChanges() {
         RestoreStatPointsMax();
         UpdateStatPointsText();
-        //Set back to zero
+
+        //Set back to default
         addStrength = 0;
         addStamina = 0;
         addAgility = 0;
         addDexterity = 0;
-
 
         //Set text to default
         strengthAddText.text = addStrength.ToString();
@@ -254,15 +252,15 @@ public class StatsTabUI : BaseUITab
         agilityAddText.text = addAgility.ToString();
         dexterityAddText.text = addDexterity.ToString();
     }
-    public void CancelButton() {
+    public void CancelStatChanges() {
         RestoreStatPointsMax();
         UpdateStatPointsText();
+
         //Set back to zero
         addStrength = 0;
         addStamina = 0;
         addAgility = 0;
         addDexterity = 0;
-
 
         //Set text to default
         strengthAddText.text = addStrength.ToString();
@@ -270,11 +268,9 @@ public class StatsTabUI : BaseUITab
         agilityAddText.text = addAgility.ToString();
         dexterityAddText.text = addDexterity.ToString();
     }
-
-    private int UpdateStatPointsMax() => statPointsMax = entity.StatPoints;
-
     private int RestoreStatPointsMax() => entity.StatPoints = statPointsMax;
-
+    private void UpdateStatPointsText() => statPointsText.text = $"Remaining points: {entity.StatPoints}";
+    private int UpdateStatPointsMax() => statPointsMax = entity.StatPoints;
     private void UpdateStatValuesText() {
         strengthText.text = entity.Strength.ToString();
         staminaText.text = entity.Stamina.ToString();
@@ -285,121 +281,7 @@ public class StatsTabUI : BaseUITab
         staminaAddText.text = addStamina.ToString();
         agilityAddText.text = addAgility.ToString();
         dexterityAddText.text = addDexterity.ToString();
-
-    }
-
-    private void UpdateStatPointsText() => statPointsText.text = $"Remaining points: {entity.StatPoints}";
-
-    private void AddButtonStrategies() {
-        buttonStrategies[TabButtons.AddStrength] = new AddStrengthStrategy();
-        buttonStrategies[TabButtons.RemoveStrength] = new RemoveStrengthStrategy();
-        buttonStrategies[TabButtons.AddStamina] = new AddStaminaStrategy();
-        buttonStrategies[TabButtons.RemoveStamina] = new RemoveStaminaStrategy();
-        buttonStrategies[TabButtons.AddAgility] = new AddAgilityStrategy();
-        buttonStrategies[TabButtons.RemoveAgility] = new RemoveAgilityStrategy();
-        buttonStrategies[TabButtons.AddDexterity] = new AddDexterityStrategy();
-        buttonStrategies[TabButtons.RemoveDexterity] = new RemoveDexterityStrategy();
-        buttonStrategies[TabButtons.Apply] = new ApplyStrategy();
-        buttonStrategies[TabButtons.Reset] = new ResetStrategy();
-        buttonStrategies[TabButtons.Cancel] = new CancelStrategy();
-    }
-
-    private void DoButtonClickEvents() {
-        statButtonDictionary.GetButtonDictionary()[TabButtons.AddStrength].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.AddStrength));
-        statButtonDictionary.GetButtonDictionary()[TabButtons.RemoveStrength].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.RemoveStrength));
-        statButtonDictionary.GetButtonDictionary()[TabButtons.AddStamina].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.AddStamina));
-        statButtonDictionary.GetButtonDictionary()[TabButtons.RemoveStamina].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.RemoveStamina));
-        statButtonDictionary.GetButtonDictionary()[TabButtons.AddAgility].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.AddAgility));
-        statButtonDictionary.GetButtonDictionary()[TabButtons.RemoveAgility].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.RemoveAgility));
-        statButtonDictionary.GetButtonDictionary()[TabButtons.AddDexterity].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.AddDexterity));
-        statButtonDictionary.GetButtonDictionary()[TabButtons.RemoveDexterity].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.RemoveDexterity));
-        statButtonDictionary.GetButtonDictionary()[TabButtons.Apply].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.Apply));
-        statButtonDictionary.GetButtonDictionary()[TabButtons.Reset].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.Reset));
-        statButtonDictionary.GetButtonDictionary()[TabButtons.Cancel].onClick.AddListener(() => ExecuteButtonStrategy(TabButtons.Cancel));
-    }
-
-    private void InitializeButtonDictionary() {
-        statButtonDictionary.buttonDataList = new List<ButtonDictionary.ButtonData>
-    {
-        new ButtonDictionary.ButtonData { type = TabButtons.AddStrength, button = statButtonsList[0]},
-        new ButtonDictionary.ButtonData { type = TabButtons.RemoveStrength, button = statButtonsList[1] },
-        new ButtonDictionary.ButtonData { type = TabButtons.AddStamina, button = statButtonsList[2] },
-        new ButtonDictionary.ButtonData { type = TabButtons.RemoveStamina, button = statButtonsList[3] },
-        new ButtonDictionary.ButtonData { type = TabButtons.AddAgility, button = statButtonsList[4] },
-        new ButtonDictionary.ButtonData { type = TabButtons.RemoveAgility, button = statButtonsList[5] },
-        new ButtonDictionary.ButtonData { type = TabButtons.AddDexterity, button = statButtonsList[6] },
-        new ButtonDictionary.ButtonData { type = TabButtons.RemoveDexterity, button = statButtonsList[7] },
-        new ButtonDictionary.ButtonData { type = TabButtons.Apply, button = statButtonsList[8] },
-        new ButtonDictionary.ButtonData { type = TabButtons.Reset, button = statButtonsList[9] },
-        new ButtonDictionary.ButtonData { type = TabButtons.Cancel, button = statButtonsList[10] },
-        // Add other buttons as needed
-    };
     }
 
 }
 
-public enum TabButtons
-{
-    AddStrength,
-    RemoveStrength,
-    AddStamina,
-    RemoveStamina,
-    AddAgility,
-    RemoveAgility,
-    AddDexterity,
-    RemoveDexterity,
-    Apply,
-    Reset,
-    Cancel,
-}
-
-public interface IButtonStrategy
-{
-    void Execute(StatsTabUI statsTab);
-}
-
-public class AddStrengthStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.AddStrength();
-}
-public class RemoveStrengthStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.RemoveStrength();
-}
-public class AddStaminaStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.AddStamina();
-}
-public class RemoveStaminaStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.RemoveStamina();
-}
-public class AddAgilityStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.AddAgility();
-}
-public class RemoveAgilityStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.RemoveAgility();
-
-}
-public class AddDexterityStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.AddDexterity();
-}
-public class RemoveDexterityStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.RemoveDexterity();
-}
-public class ApplyStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.ApplyButton();
-}
-public class ResetStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.ResetButton();
-}
-public class CancelStrategy : IButtonStrategy
-{
-    public void Execute(StatsTabUI statsTab) => statsTab.CancelButton();
-}

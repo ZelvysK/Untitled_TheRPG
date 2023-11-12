@@ -10,6 +10,7 @@ using TMPro;
 
 public class SettingsUITab : BaseUITab
 {
+    //REFERENCES
     [SerializeField] private GameInput gameInput;
     
     //Movement KeyBinds

@@ -14,6 +14,7 @@ using UnityEngine.UI;
 
 public class QuestsTabUI : BaseUITab
 {
+    //REFERENCE
     [SerializeField] private Transform scrollViewContent;
     [SerializeField] private List<QuestSO> questList;
     [SerializeField] private GameObject questPrefab;
