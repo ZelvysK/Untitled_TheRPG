@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2185.5295, g: 2330.258, b: 3495.8833, a: 1}
+  m_IndirectSpecularColor: {r: 2187.6204, g: 2345.3557, b: 3558.942, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9173,6 +9173,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5751258399204993260, guid: b2f23f810511534418b4bf254ae3077f,
+        type: 3}
+      propertyPath: m_Name
+      value: StatButtons
+      objectReference: {fileID: 0}
     - target: {fileID: 5846246490160069229, guid: b2f23f810511534418b4bf254ae3077f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9509,7 +9514,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 763303153352516010, guid: b2f23f810511534418b4bf254ae3077f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2f23f810511534418b4bf254ae3077f, type: 3}
