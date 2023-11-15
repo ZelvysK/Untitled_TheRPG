@@ -1,4 +1,4 @@
-public enum CharacterTabButtons
+public enum CharacterTabButton
 {
     AddStrength,
     RemoveStrength,
@@ -13,14 +13,14 @@ public enum CharacterTabButtons
     Cancel,
 }
 
-public enum WeaponTypes
+public enum WeaponType
 {
     Sword1H,
     Sword2H,
     Bow,
 }
 
-public enum ItemTypes
+public enum ItemType
 {
     Weapon,
     Consumable,
@@ -29,7 +29,7 @@ public enum ItemTypes
     Ammo,
 }
 
-public enum ArmorTypes
+public enum ArmorType
 {
     Helmet,
     Necklace,

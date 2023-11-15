@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemSO", menuName = "ScriptableObjects/ItemSO")]
 public class ItemSO : ScriptableObject
 {
-    [SerializeField] public ItemTypes itemType;
+    [SerializeField] public ItemType itemType;
     [SerializeField] public string itemName;
     //[SerializeField] public int itemLevel;
     //[SerializeField] public int attackPowerMin;

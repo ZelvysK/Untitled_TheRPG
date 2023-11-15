@@ -34,7 +34,7 @@ public class CharacterTabUI : BaseUITab
     private int statPointsMax;
     
 
-    private Dictionary<CharacterTabButtons, Action> ButtonToActionMap;
+    private Dictionary<CharacterTabButton, Action> ButtonToActionMap;
 
     private void Awake() {
         //BaseUITab playerTab = new BaseUITab();
@@ -58,22 +58,22 @@ public class CharacterTabUI : BaseUITab
     }
 
     private void InitializeButtonActionMap() {
-        ButtonToActionMap = new Dictionary<CharacterTabButtons, Action>
+        ButtonToActionMap = new Dictionary<CharacterTabButton, Action>
         {
-            { CharacterTabButtons.AddStrength, AddStrength },
-            { CharacterTabButtons.RemoveStrength, RemoveStrength },
-            { CharacterTabButtons.AddStamina, AddStamina },
-            { CharacterTabButtons.RemoveStamina, RemoveStamina },
-            { CharacterTabButtons.AddAgility, AddAgility },
-            { CharacterTabButtons.RemoveAgility, RemoveAgility },
-            { CharacterTabButtons.AddDexterity, AddDexterity },
-            { CharacterTabButtons.RemoveDexterity, RemoveDexterity },
-            { CharacterTabButtons.Apply, ApplyStatChanges },
-            { CharacterTabButtons.Reset, ResetStatChanges },
-            { CharacterTabButtons.Cancel, CancelStatChanges },
+            { CharacterTabButton.AddStrength, AddStrength },
+            { CharacterTabButton.RemoveStrength, RemoveStrength },
+            { CharacterTabButton.AddStamina, AddStamina },
+            { CharacterTabButton.RemoveStamina, RemoveStamina },
+            { CharacterTabButton.AddAgility, AddAgility },
+            { CharacterTabButton.RemoveAgility, RemoveAgility },
+            { CharacterTabButton.AddDexterity, AddDexterity },
+            { CharacterTabButton.RemoveDexterity, RemoveDexterity },
+            { CharacterTabButton.Apply, ApplyStatChanges },
+            { CharacterTabButton.Reset, ResetStatChanges },
+            { CharacterTabButton.Cancel, CancelStatChanges },
         };
     }
-    public void Execute(CharacterTabButtons buttonType) {
+    public void Execute(CharacterTabButton buttonType) {
         ButtonToActionMap[buttonType].Invoke();
     }
     public void AddStrength() {

@@ -10,9 +10,7 @@ public class MouseDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void SetupStorage(Storage storage, InventorySlot inventorySlot) {
         this.storage = storage;
-
     }
-
     public void OnBeginDrag(PointerEventData eventData) {
         storage.SwapItem(inventorySlot);
 
@@ -25,14 +23,12 @@ public class MouseDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         dragInstance.transform.SetParent(storage.transform);
         dragInstance.transform.localScale = Vector3.one;
     }
-
     public void OnDrag(PointerEventData eventData) {
         if (dragInstance != null)
         {
             dragInstance.transform.position = Input.mousePosition;
         }
     }
-
     public void OnEndDrag(PointerEventData eventData) {
         if (eventData.pointerCurrentRaycast.gameObject is GameObject targetObj)
         {
@@ -44,7 +40,6 @@ public class MouseDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             }
             storage.ClearSwap();
         }
-
         if (dragInstance != null)
         {
             Destroy(dragInstance);
