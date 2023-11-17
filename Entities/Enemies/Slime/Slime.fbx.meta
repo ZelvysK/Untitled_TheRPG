@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e607f74860c67814e93c914b710142d5
+guid: d008a6029dee26349b966a4a79dfc441
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
@@ -126,22 +126,17 @@ ModelImporter:
   - first:
       137: 13700000
     second: SlimeLevel1 1
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SlimeMaterial
-    second: {fileID: 2100000, guid: ebc635584de1d32438fe273f929bb671, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
-    materialName: 2
+    materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
-    optimizeGameObjects: 1
+    optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
@@ -151,7 +146,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
+    importConstraints: 1
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -471,7 +466,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: SlimeControl
+    rootMotionBoneName: SlimeRootJoint
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0

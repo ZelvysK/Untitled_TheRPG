@@ -37,7 +37,7 @@ public class SettingsUITab : BaseUITab
         if (gameInput != null)
         {
             forwardText.text = gameInput.GetMovementBindingText(GameInput.MovementBinding.MoveForward);
-            backwardText.text = gameInput.GetMovementBindingText(GameInput.MovementBinding.MoveForward);
+            backwardText.text = gameInput.GetMovementBindingText(GameInput.MovementBinding.MoveBack);
             leftText.text = gameInput.GetMovementBindingText(GameInput.MovementBinding.MoveLeft);
             rightText.text = gameInput.GetMovementBindingText(GameInput.MovementBinding.MoveRight);
             sprintText.text = gameInput.GetMovementBindingText(GameInput.MovementBinding.Sprint);

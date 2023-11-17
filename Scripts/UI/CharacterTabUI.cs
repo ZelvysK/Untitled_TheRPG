@@ -42,8 +42,6 @@ public class CharacterTabUI : BaseUITab
 
         InitializeButtonActionMap();
 
-        Debug.Log($"Start Awake statP: {statPointsMax}");
-
         foreach (var button in buttons)
         {
             button.onClick.AddListener(() => Execute(button.ButtonType));
@@ -53,8 +51,6 @@ public class CharacterTabUI : BaseUITab
         UpdateStatPointsText();
 
         statPointsMax = entity.StatPoints;
-        Debug.Log($"End Awake statP: {statPointsMax}");
-
     }
 
     private void InitializeButtonActionMap() {
