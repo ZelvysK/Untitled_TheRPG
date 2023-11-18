@@ -19,25 +19,6 @@ public class GameInput : MonoBehaviour
     //Player Input
     private PlayerInputActions playerInputActions;
 
-    public enum MovementBinding
-    {
-        MoveForward,
-        MoveBack,
-        MoveLeft,
-        MoveRight,
-        Jump,
-        Sprint,
-    }
-    public enum TabBinding
-    {
-        CharacterTab,
-        InventoryTab,
-        SkillsTab,
-        SettingsTab,
-        QuestsTab,
-        MapTab,
-    }
-
     private void Awake() {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
@@ -110,5 +91,23 @@ public class GameInput : MonoBehaviour
             case TabBinding.SettingsTab:
                 return playerInputActions.UIElements.SettingsTab.bindings[0].ToDisplayString();
         }
+    }
+    public enum MovementBinding
+    {
+        MoveForward,
+        MoveBack,
+        MoveLeft,
+        MoveRight,
+        Jump,
+        Sprint,
+    }
+    public enum TabBinding
+    {
+        CharacterTab,
+        InventoryTab,
+        SkillsTab,
+        SettingsTab,
+        QuestsTab,
+        MapTab,
     }
 }

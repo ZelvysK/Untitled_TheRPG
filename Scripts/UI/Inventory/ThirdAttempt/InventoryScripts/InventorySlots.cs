@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,4 +43,27 @@ public class InventorySlots
     public void AddToStack(int amount) => stackSize += amount;
 
     public void RemoveFromStack(int amount) => stackSize -= amount;
+
+    public void AssignItem(InventorySlots invSlot) {
+        if (itemData == invSlot.ItemData) AddToStack(invSlot.stackSize);
+        else
+        {
+            itemData = invSlot.ItemData;
+            stackSize = 0;
+            AddToStack(invSlot.stackSize);
+        }
+    }
+
+    public bool SplitStack(out InventorySlots splitStack) {
+        if (stackSize <= 1)
+        {
+            splitStack = null;
+            return false;
+        }
+        int halfStack = Mathf.RoundToInt(stackSize / 2);
+        RemoveFromStack(halfStack);
+
+        splitStack = new InventorySlots(itemData, halfStack);
+        return true;
+    }
 }

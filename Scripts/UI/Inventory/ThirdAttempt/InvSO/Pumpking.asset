@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0827052b8f2cb842bb31e0687cecedd, type: 3}
-  m_Name: TestItem2
+  m_Name: Pumpking
   m_EditorClassIdentifier: 
   ID: 0
-  DisplayName: Test item 2
-  Description: Test item two
-  Icon: {fileID: 21300000, guid: b9ba8ba73504d5344a9b8a1c64107c86, type: 3}
+  DisplayName: Pumpking
+  Description: This is a Pumpking!
+  Icon: {fileID: 21300000, guid: 1310657f6481aa7468f94b6704c626a9, type: 3}
   MaxStackSize: 1
