@@ -34,7 +34,7 @@ public class CharacterTabUI : BaseUITab
     private int statPointsMax;
     
 
-    private Dictionary<TabButtons, Action> ButtonToActionMap;
+    private Dictionary<CharacterTabButton, Action> ButtonToActionMap;
 
     private void Awake() {
         //BaseUITab playerTab = new BaseUITab();
@@ -58,22 +58,22 @@ public class CharacterTabUI : BaseUITab
     }
 
     private void InitializeButtonActionMap() {
-        ButtonToActionMap = new Dictionary<TabButtons, Action>
+        ButtonToActionMap = new Dictionary<CharacterTabButton, Action>
         {
-            { TabButtons.AddStrength, AddStrength },
-            { TabButtons.RemoveStrength, RemoveStrength },
-            { TabButtons.AddStamina, AddStamina },
-            { TabButtons.RemoveStamina, RemoveStamina },
-            { TabButtons.AddAgility, AddAgility },
-            { TabButtons.RemoveAgility, RemoveAgility },
-            { TabButtons.AddDexterity, AddDexterity },
-            { TabButtons.RemoveDexterity, RemoveDexterity },
-            { TabButtons.Apply, ApplyStatChanges },
-            { TabButtons.Reset, ResetStatChanges },
-            { TabButtons.Cancel, CancelStatChanges },
+            { CharacterTabButton.AddStrength, AddStrength },
+            { CharacterTabButton.RemoveStrength, RemoveStrength },
+            { CharacterTabButton.AddStamina, AddStamina },
+            { CharacterTabButton.RemoveStamina, RemoveStamina },
+            { CharacterTabButton.AddAgility, AddAgility },
+            { CharacterTabButton.RemoveAgility, RemoveAgility },
+            { CharacterTabButton.AddDexterity, AddDexterity },
+            { CharacterTabButton.RemoveDexterity, RemoveDexterity },
+            { CharacterTabButton.Apply, ApplyStatChanges },
+            { CharacterTabButton.Reset, ResetStatChanges },
+            { CharacterTabButton.Cancel, CancelStatChanges },
         };
     }
-    public void Execute(TabButtons buttonType) {
+    public void Execute(CharacterTabButton buttonType) {
         ButtonToActionMap[buttonType].Invoke();
     }
     public void AddStrength() {
@@ -280,4 +280,5 @@ public class CharacterTabUI : BaseUITab
     }
 
 }
+
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2185.5295, g: 2330.258, b: 3495.8833, a: 1}
+  m_IndirectSpecularColor: {r: 2186.2307, g: 2333.7346, b: 3509.6567, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9173,6 +9173,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5751258399204993260, guid: b2f23f810511534418b4bf254ae3077f,
+        type: 3}
+      propertyPath: m_Name
+      value: StatButtons
+      objectReference: {fileID: 0}
     - target: {fileID: 5846246490160069229, guid: b2f23f810511534418b4bf254ae3077f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9468,6 +9473,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterTab
       objectReference: {fileID: 0}
+    - target: {fileID: 7903933947159013315, guid: b2f23f810511534418b4bf254ae3077f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8227127005600202950, guid: b2f23f810511534418b4bf254ae3077f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9509,7 +9519,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 763303153352516010, guid: b2f23f810511534418b4bf254ae3077f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2f23f810511534418b4bf254ae3077f, type: 3}
@@ -9579,6 +9590,56 @@ PrefabInstance:
     - target: {fileID: 826073326960133302, guid: 6e9919a51aefe31409f8f48d12f71e63,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257418349148602635, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_Name
+      value: InventoryPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263859153104156288, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263859153104156288, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263859153104156288, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263859153104156288, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263859153104156288, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1263859153104156288, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929323201902471972, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_Name
+      value: InventorySlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215791217266978754, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_Spacing.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215791217266978754, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_Spacing.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3510020478775789892, guid: 6e9919a51aefe31409f8f48d12f71e63,
@@ -9655,6 +9716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InventoryTab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356444731182706765, guid: 6e9919a51aefe31409f8f48d12f71e63,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7081775974549549732, guid: 6e9919a51aefe31409f8f48d12f71e63,
         type: 3}
@@ -9934,6 +10000,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkillsTab
       objectReference: {fileID: 0}
+    - target: {fileID: 8302023287319612900, guid: 6e1a8ef717c8fe64aba3f29f5360c68e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8515971374825197149, guid: 6e1a8ef717c8fe64aba3f29f5360c68e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -10081,6 +10152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: QuestsTab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785180817562499799, guid: 845f35f1b6b652440857bd470deb50b9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3012348630663003916, guid: 845f35f1b6b652440857bd470deb50b9,
         type: 3}
@@ -10359,6 +10435,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MapTab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694137786204698606, guid: 3db39d6a18b59f9488a5bce7d1042ff5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10762,6 +10843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SettingsTab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460585674708667180, guid: e1ec0f666e22d2c47b14bb0886b9928a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7545311144925388831, guid: e1ec0f666e22d2c47b14bb0886b9928a,
         type: 3}
