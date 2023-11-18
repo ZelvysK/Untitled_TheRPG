@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     // Method to create a new enemy
     public Entity CreateNewEnemy() {
-        Entity enemy = new Entity();
+        var enemy = new Entity();
 
         // Set enemy properties from EntitySO
         enemy.EntityName = enemyEntitySO.entityName;
@@ -28,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
         Entity newEnemy = CreateNewEnemy();
 
         // Load the enemy prefab from the Resources folder (replace "EnemyPrefab" with the actual prefab name)
-        GameObject enemyPrefab = Resources.Load("Slime") as GameObject;
+        GameObject enemyPrefab = Resources.Load("Enemies/Slime") as GameObject;
 
         if (enemyPrefab != null)
         {

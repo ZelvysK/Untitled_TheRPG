@@ -6,13 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemSO", menuName = "ScriptableObjects/ItemSO")]
 public class ItemSO : ScriptableObject
 {
-    [SerializeField] public ItemType itemType;
-    [SerializeField] public string itemName;
-    //[SerializeField] public int itemLevel;
-    //[SerializeField] public int attackPowerMin;
-    //[SerializeField] public int attavkPowerMax;
-    [SerializeField] public int requiredLevel;
-    [SerializeField] public Sprite itemSprite;
-    [SerializeField] public GameObject itemPrefab = null;
-    //[SerializeField] public List<ItemStats> itemStatValues;
+    public ItemType itemType;
+    public string itemName;
+    //public int itemLevel;
+    //public int attackPowerMin;
+    //public int attavkPowerMax;
+    public int requiredLevel;
+    public int stackSize;
+    public Sprite itemSprite;
+    public GameObject itemPrefab = null;
+    //public List<ItemStats> itemStatValues;
 }
