@@ -110,4 +110,6 @@ public class GameInput : MonoBehaviour
         QuestsTab,
         MapTab,
     }
+
+    public bool InventoryTriggered() => playerInputActions.UIElements.InventoryTab.triggered;
 }
