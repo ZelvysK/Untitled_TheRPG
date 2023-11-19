@@ -7,13 +7,17 @@ using System.Linq;
 [System.Serializable]
 public class InventorySystem
 {
+    //REFERENCES
     [SerializeField] private List<InventorySlots> inventorySlots;
 
+    //FIELDS
     public List<InventorySlots> InventorySlots => inventorySlots;
     public int InventorySize => inventorySlots.Count;
 
+    //EVENTS
     public UnityAction<InventorySlots> OnInventorySlotChanged;
 
+    //Ctor to create the required inventory
     public InventorySystem(int size) {
         inventorySlots = new List<InventorySlots>(size);
 
@@ -22,9 +26,10 @@ public class InventorySystem
             inventorySlots.Add(new InventorySlots());
         }
     }
-
+    //Add an Item to Inventory
     public bool AddToInventory(InventoryItemData itemToAdd, int amountToAdd) {
-        if (ContainsItem(itemToAdd, out List<InventorySlots> invSlot)) //Check if item exists in Inventory
+        //Check if item exists in Inventory
+        if (ContainsItem(itemToAdd, out List<InventorySlots> invSlot))
         {
             foreach (var slot in invSlot)
             {
@@ -36,23 +41,23 @@ public class InventorySystem
                 }
             }
         }
-
-        if (HasFreeSlot(out InventorySlots freeSlot)) //Gets the first available slot
+        //Gets the first available slot
+        if (HasFreeSlot(out InventorySlots freeSlot))
         {
             freeSlot.UpdateInventorySlot(itemToAdd, amountToAdd);
             OnInventorySlotChanged?.Invoke(freeSlot);
             return true;
         }
-
+        //If nothing passes - don't pick up Item
         return false;
     }
-
+    //Checks if the Inventory Slot contains an Item
     public bool ContainsItem(InventoryItemData itemToAdd, out List<InventorySlots> invSlot) {
         invSlot = InventorySlots.Where(i => i.ItemData == itemToAdd).ToList();
 
         return invSlot == null ? false : true;
     }
-
+    //Check it there are empty InventorySlots
     public bool HasFreeSlot(out InventorySlots freeSlot) {
 
         freeSlot = InventorySlots.FirstOrDefault(i => i.ItemData == null);

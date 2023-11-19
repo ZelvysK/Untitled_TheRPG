@@ -4,12 +4,13 @@ using TMPro;
 
 public class InventorySlots_UI : MonoBehaviour
 {
+    //REFERENCES
     [SerializeField] private Image itemSprite;
     [SerializeField] private TextMeshProUGUI itemCount;
     [SerializeField] private InventorySlots assignedInventorySlot;
-
     private Button button;
 
+    //FIELDS
     public InventorySlots AssignedInventorySlot => assignedInventorySlot;
     public InventoryDisplay ParentDisplay { get; private set; }
 
@@ -21,12 +22,12 @@ public class InventorySlots_UI : MonoBehaviour
 
         ParentDisplay = transform.parent.GetComponent<InventoryDisplay>();
     }
-
+    //Initialize Inventory slot
     public void Init(InventorySlots slot) {
         assignedInventorySlot = slot;
         UpdateUISlot(slot);
     }
-
+    //Update Inventory slot
     public void UpdateUISlot(InventorySlots slot) {
         if (slot.ItemData != null)
         {
@@ -43,7 +44,6 @@ public class InventorySlots_UI : MonoBehaviour
         }
 
     }
-
     public void UpdateUISlot() {
         if (assignedInventorySlot != null) UpdateUISlot(assignedInventorySlot);
     }
@@ -54,7 +54,7 @@ public class InventorySlots_UI : MonoBehaviour
         itemSprite.color = Color.clear;
         itemCount.text = string.Empty;
     }
-
+    //If the button is clicked
     public void OnUISlotClick() {
         ParentDisplay?.SlotClicked(this);
     }

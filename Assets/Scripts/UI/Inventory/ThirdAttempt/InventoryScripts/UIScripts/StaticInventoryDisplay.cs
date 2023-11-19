@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StaticInventoryDisplay : InventoryDisplay
 {
+    //REFERENCES
     [SerializeField] private InventoryHolder inventoryHolder;
     [SerializeField] private InventorySlots_UI[] slots;
 

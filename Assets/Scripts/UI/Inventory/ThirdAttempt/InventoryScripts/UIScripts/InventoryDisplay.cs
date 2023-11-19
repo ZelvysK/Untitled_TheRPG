@@ -5,19 +5,19 @@ using UnityEngine.InputSystem;
 
 public abstract class InventoryDisplay : MonoBehaviour
 {
+    //REFERENCES
     [SerializeField] MouseItemData mouseInventoryItem;
     protected InventorySystem inventorySystem;
-    protected Dictionary<InventorySlots_UI, InventorySlots> slotDictionary;
 
+    //FIELDS
+    protected Dictionary<InventorySlots_UI, InventorySlots> slotDictionary;
     public InventorySystem InventorySystem => inventorySystem;
     public Dictionary<InventorySlots_UI, InventorySlots> SlotDictionary => slotDictionary;
 
     protected virtual void Start() {
-
     }
-
     public abstract void AssignSlots(InventorySystem invToDisplay);
-
+    //Update inventory slot
     protected virtual void UpdateSlot(InventorySlots updatedSlot) {
         foreach (var slot in slotDictionary)
         {
@@ -27,21 +27,21 @@ public abstract class InventoryDisplay : MonoBehaviour
             }
         }
     }
-
+    //Logic to move/split items
     public void SlotClicked(InventorySlots_UI clickedUISlot) {
         bool isShiftPressed = Keyboard.current.leftShiftKey.isPressed;
         //Clicked slot has an Item - Mouse doesn't => Pick-Up item
         if (clickedUISlot.AssignedInventorySlot.ItemData != null &&
             mouseInventoryItem.AssignedInventorySlot.ItemData == null)
         {
-            //If player holdig shift? Split the stack
+            //If player holdig shift Split the stack
             if (isShiftPressed && clickedUISlot.AssignedInventorySlot.SplitStack(out InventorySlots halfStackSlot)) //Split stack
             {
                 mouseInventoryItem.UpdateMouseSlot(halfStackSlot);
                 clickedUISlot.UpdateUISlot();
                 return;
             }
-            else
+            else //Pick up Item
             {
                 mouseInventoryItem.UpdateMouseSlot(clickedUISlot.AssignedInventorySlot);
                 clickedUISlot.ClearSlot();
@@ -59,7 +59,7 @@ public abstract class InventoryDisplay : MonoBehaviour
             mouseInventoryItem.ClearSlot();
             return;
         }
-        //Both slots have items - decide what to do..
+        //Both slots have items - decide what to do...
         if (clickedUISlot.AssignedInventorySlot.ItemData != null &&
             mouseInventoryItem.AssignedInventorySlot.ItemData != null)
         {
@@ -97,14 +97,14 @@ public abstract class InventoryDisplay : MonoBehaviour
             }
         }
     }
-
+    //Swap items in Inventory slots (Mouse & Inventory)
     private void SwapSlots(InventorySlots_UI clickedUISlot) {
         var clonedSlot = new InventorySlots(mouseInventoryItem.AssignedInventorySlot.ItemData, mouseInventoryItem.AssignedInventorySlot.StackSize);
         mouseInventoryItem.ClearSlot();
 
         mouseInventoryItem.UpdateMouseSlot(clickedUISlot.AssignedInventorySlot);
-        clickedUISlot.ClearSlot();
 
+        clickedUISlot.ClearSlot();
         clickedUISlot.AssignedInventorySlot.AssignItem(clonedSlot);
         clickedUISlot.UpdateUISlot();
     }

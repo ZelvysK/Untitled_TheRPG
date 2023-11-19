@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class ItemPickUp : MonoBehaviour
 {
+    //FIELDS
     public float PickUpRadius = 1f;
     public InventoryItemData ItemData;
 
@@ -15,7 +16,6 @@ public class ItemPickUp : MonoBehaviour
         myCollider.isTrigger = true;
         myCollider.radius = PickUpRadius;
     }
-
     private void OnTriggerEnter(Collider other) {
         var inventory = other.GetComponent<InventoryHolder>();
         if (!inventory) return;
