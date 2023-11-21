@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2186.971, g: 2338.6565, b: 3529.7935, a: 1}
+  m_IndirectSpecularColor: {r: 2186.7737, g: 2337.3948, b: 3524.4185, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 31789406}
   - component: {fileID: 31789404}
   - component: {fileID: 31789403}
+  - component: {fileID: 31789408}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -217,6 +218,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b409c7a21ef2b4b498b23b1c5db453ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &31789408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31789402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0949b18ffa7b4f445a2c84c742dc6bc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &32759834
@@ -606,6 +619,7 @@ GameObject:
   - component: {fileID: 39071772}
   - component: {fileID: 39071771}
   - component: {fileID: 39071770}
+  - component: {fileID: 39071773}
   m_Layer: 0
   m_Name: Pumpking (4)
   m_TagString: Untagged
@@ -627,6 +641,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 30748f844387a2e44a0d15757e27f9e8, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &39071771
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -664,6 +682,19 @@ Transform:
   - {fileID: 95651008}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &39071773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39071769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: ae3e60c5-d5ff-4796-aaf2-6863054289dd
 --- !u!1001 &44722239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1034,6 +1065,7 @@ GameObject:
   - component: {fileID: 87814297}
   - component: {fileID: 87814296}
   - component: {fileID: 87814295}
+  - component: {fileID: 87814298}
   m_Layer: 0
   m_Name: Evil Pumpkin (22)
   m_TagString: Untagged
@@ -1055,6 +1087,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &87814296
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1092,6 +1128,19 @@ Transform:
   - {fileID: 1013641779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87814298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87814294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 744f820a-61f4-4f92-a6f5-db0eec323c5d
 --- !u!1 &88375230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,7 +2036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &157267182
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2006,7 +2055,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: -600, y: 0}
-  m_SizeDelta: {x: 415, y: 95}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157267183
 MonoBehaviour:
@@ -2389,6 +2438,7 @@ GameObject:
   - component: {fileID: 178960429}
   - component: {fileID: 178960428}
   - component: {fileID: 178960427}
+  - component: {fileID: 178960430}
   m_Layer: 0
   m_Name: Pumpking (5)
   m_TagString: Untagged
@@ -2410,6 +2460,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 30748f844387a2e44a0d15757e27f9e8, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &178960428
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2447,6 +2501,19 @@ Transform:
   - {fileID: 2055725238}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &178960430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178960426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: beac7ce5-a672-45e5-a3fc-4131252ea4ed
 --- !u!1001 &184159332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2535,6 +2602,7 @@ GameObject:
   - component: {fileID: 187988190}
   - component: {fileID: 187988189}
   - component: {fileID: 187988188}
+  - component: {fileID: 187988191}
   m_Layer: 0
   m_Name: Pumpking (2)
   m_TagString: Untagged
@@ -2556,6 +2624,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 30748f844387a2e44a0d15757e27f9e8, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &187988189
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2593,6 +2665,19 @@ Transform:
   - {fileID: 1915902826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &187988191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187988187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: b9e1307b-bfb8-4a6f-b872-f6ff77650bac
 --- !u!224 &188063595 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3307675097319321905, guid: 3db39d6a18b59f9488a5bce7d1042ff5,
@@ -3398,6 +3483,7 @@ GameObject:
   - component: {fileID: 337289779}
   - component: {fileID: 337289778}
   - component: {fileID: 337289777}
+  - component: {fileID: 337289780}
   m_Layer: 0
   m_Name: Evil Pumpkin (3)
   m_TagString: Untagged
@@ -3419,6 +3505,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &337289778
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3456,6 +3546,19 @@ Transform:
   - {fileID: 2129369969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &337289780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337289776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 4c4bd278-6076-4fee-875a-cd6d7c5236b5
 --- !u!1 &366003557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3511,6 +3614,139 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd04f6bce8733b48aef28471eb625d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &396992703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396992704}
+  - component: {fileID: 396992707}
+  - component: {fileID: 396992706}
+  - component: {fileID: 396992705}
+  m_Layer: 5
+  m_Name: Delete
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &396992704
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396992703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 587465538}
+  m_Father: {fileID: 1919789950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 895, y: 310}
+  m_SizeDelta: {x: 276.6648, y: 66.3382}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &396992705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396992703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 396992706}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 31789408}
+        m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
+        m_MethodName: DeleteData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &396992706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396992703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &396992707
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396992703}
+  m_CullTransparentMesh: 1
 --- !u!1 &411212194
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,6 +3758,7 @@ GameObject:
   - component: {fileID: 411212197}
   - component: {fileID: 411212196}
   - component: {fileID: 411212195}
+  - component: {fileID: 411212198}
   m_Layer: 0
   m_Name: Evil Pumpkin (11)
   m_TagString: Untagged
@@ -3543,6 +3780,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &411212196
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3580,6 +3821,19 @@ Transform:
   - {fileID: 1738602048}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &411212198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411212194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 76739d7f-63af-4124-8760-2204e32536b7
 --- !u!1 &418581729
 GameObject:
   m_ObjectHideFlags: 0
@@ -4082,6 +4336,20 @@ MonoBehaviour:
   inventorySize: 10
   primaryInventorySystem:
     inventorySlots: []
+  offset: 10
+--- !u!114 &439651973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439651967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: e116af8a-3f87-4d23-ae22-a4033fa09843
 --- !u!1 &472191683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,6 +4361,7 @@ GameObject:
   - component: {fileID: 472191686}
   - component: {fileID: 472191685}
   - component: {fileID: 472191684}
+  - component: {fileID: 472191687}
   m_Layer: 0
   m_Name: Evil Pumpkin (5)
   m_TagString: Untagged
@@ -4114,6 +4383,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &472191685
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4151,6 +4424,19 @@ Transform:
   - {fileID: 257730804}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &472191687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472191683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 75617bc8-f2c4-4899-9973-dd1eb8380a64
 --- !u!1 &473033575
 GameObject:
   m_ObjectHideFlags: 0
@@ -4599,6 +4885,7 @@ GameObject:
   - component: {fileID: 503020453}
   - component: {fileID: 503020452}
   - component: {fileID: 503020451}
+  - component: {fileID: 503020454}
   m_Layer: 0
   m_Name: Evil Pumpkin (23)
   m_TagString: Untagged
@@ -4620,6 +4907,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &503020452
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4657,6 +4948,19 @@ Transform:
   - {fileID: 1986785614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &503020454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503020450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 6423c28f-d987-478d-be8f-0a1cf5c08ef8
 --- !u!1 &513005883
 GameObject:
   m_ObjectHideFlags: 0
@@ -4747,6 +5051,7 @@ GameObject:
   - component: {fileID: 533444919}
   - component: {fileID: 533444918}
   - component: {fileID: 533444917}
+  - component: {fileID: 533444920}
   m_Layer: 0
   m_Name: Evil Pumpkin (19)
   m_TagString: Untagged
@@ -4768,6 +5073,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &533444918
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4805,6 +5114,19 @@ Transform:
   - {fileID: 1519149105}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &533444920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533444916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: db1a7b0e-68f4-48bd-80f5-f6f21247e2e9
 --- !u!1 &546999993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4816,6 +5138,7 @@ GameObject:
   - component: {fileID: 546999996}
   - component: {fileID: 546999995}
   - component: {fileID: 546999994}
+  - component: {fileID: 546999997}
   m_Layer: 0
   m_Name: Evil Pumpkin (1)
   m_TagString: Untagged
@@ -4837,6 +5160,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &546999995
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4874,6 +5201,19 @@ Transform:
   - {fileID: 1097035484}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &546999997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546999993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 240f8041-eda5-4feb-a364-f26ed233925a
 --- !u!1 &547164138
 GameObject:
   m_ObjectHideFlags: 0
@@ -5170,6 +5510,7 @@ GameObject:
   - component: {fileID: 563961824}
   - component: {fileID: 563961823}
   - component: {fileID: 563961822}
+  - component: {fileID: 563961825}
   m_Layer: 0
   m_Name: Evil Pumpkin (2)
   m_TagString: Untagged
@@ -5191,6 +5532,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &563961823
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5228,6 +5573,19 @@ Transform:
   - {fileID: 1315470016}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &563961825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563961821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 6dc44876-31ae-4ab3-a403-6548e67fe980
 --- !u!114 &572193904 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 397233194578145059, guid: e1ec0f666e22d2c47b14bb0886b9928a,
@@ -5240,6 +5598,140 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &587465537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 587465538}
+  - component: {fileID: 587465540}
+  - component: {fileID: 587465539}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &587465538
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587465537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 396992704}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &587465539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587465537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Delete
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 59.35
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &587465540
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587465537}
+  m_CullTransparentMesh: 1
 --- !u!1 &606180758
 GameObject:
   m_ObjectHideFlags: 0
@@ -5955,6 +6447,7 @@ GameObject:
   - component: {fileID: 716561010}
   - component: {fileID: 716561009}
   - component: {fileID: 716561008}
+  - component: {fileID: 716561011}
   m_Layer: 0
   m_Name: Evil Pumpkin (20)
   m_TagString: Untagged
@@ -5976,6 +6469,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &716561009
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6013,6 +6510,19 @@ Transform:
   - {fileID: 66955246}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &716561011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716561007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: bb3693c9-ae2c-4745-b8c4-4bf5aeb588c4
 --- !u!1 &730623507
 GameObject:
   m_ObjectHideFlags: 0
@@ -6080,6 +6590,7 @@ GameObject:
   - component: {fileID: 747126436}
   - component: {fileID: 747126435}
   - component: {fileID: 747126434}
+  - component: {fileID: 747126437}
   m_Layer: 0
   m_Name: Evil Pumpkin (4)
   m_TagString: Untagged
@@ -6101,6 +6612,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &747126435
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6138,6 +6653,19 @@ Transform:
   - {fileID: 557323278}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &747126437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747126433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 3ca918de-9237-42a8-83eb-b4953ec03db6
 --- !u!1001 &751377281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6496,6 +7024,7 @@ GameObject:
   - component: {fileID: 771474948}
   - component: {fileID: 771474947}
   - component: {fileID: 771474946}
+  - component: {fileID: 771474949}
   m_Layer: 0
   m_Name: Evil Pumpkin (9)
   m_TagString: Untagged
@@ -6517,6 +7046,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &771474947
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6554,6 +7087,19 @@ Transform:
   - {fileID: 1292557456}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &771474949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771474945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 046a1259-f6b9-41eb-9b78-4e072b0a672f
 --- !u!1 &779409708
 GameObject:
   m_ObjectHideFlags: 0
@@ -6672,6 +7218,7 @@ RectTransform:
   m_Children:
   - {fileID: 426180668}
   - {fileID: 1953964763}
+  - {fileID: 1919789950}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6755,6 +7302,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1501537561}
+    - targetCorrespondingSourceObject: {fileID: 129596, guid: 1ad60190470c8904c833f021be513271,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1501537563}
   m_SourcePrefab: {fileID: 100100000, guid: 1ad60190470c8904c833f021be513271, type: 3}
 --- !u!1 &822928902
 GameObject:
@@ -6767,6 +7318,7 @@ GameObject:
   - component: {fileID: 822928905}
   - component: {fileID: 822928904}
   - component: {fileID: 822928903}
+  - component: {fileID: 822928906}
   m_Layer: 0
   m_Name: Evil Pumpkin (14)
   m_TagString: Untagged
@@ -6788,6 +7340,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &822928904
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6825,6 +7381,19 @@ Transform:
   - {fileID: 2102411693}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &822928906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822928902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 5b8c107b-9349-4fae-9ec8-c21c20ba5322
 --- !u!224 &823659510 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3251430865693027301, guid: c34d66145421b224da6c3e99012f27dd,
@@ -6854,6 +7423,7 @@ GameObject:
   - component: {fileID: 844849979}
   - component: {fileID: 844849978}
   - component: {fileID: 844849977}
+  - component: {fileID: 844849980}
   m_Layer: 0
   m_Name: Evil Pumpkin (8)
   m_TagString: Untagged
@@ -6875,6 +7445,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &844849978
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6912,6 +7486,19 @@ Transform:
   - {fileID: 690896729}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &844849980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844849976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: fd84e04d-7c09-44f9-91c5-e964d2fbb411
 --- !u!114 &852034002 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8731152389378589586, guid: 845f35f1b6b652440857bd470deb50b9,
@@ -7068,6 +7655,7 @@ GameObject:
   - component: {fileID: 887859869}
   - component: {fileID: 887859868}
   - component: {fileID: 887859867}
+  - component: {fileID: 887859870}
   m_Layer: 0
   m_Name: Evil Pumpkin (15)
   m_TagString: Untagged
@@ -7089,6 +7677,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &887859868
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7126,6 +7718,19 @@ Transform:
   - {fileID: 1424115326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &887859870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887859866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: e7692f25-86fc-4cc0-9d1c-511d9d472cee
 --- !u!1 &920513616
 GameObject:
   m_ObjectHideFlags: 0
@@ -7820,6 +8425,140 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1013641778}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1028285325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1028285326}
+  - component: {fileID: 1028285328}
+  - component: {fileID: 1028285327}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1028285326
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028285325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1732018372}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1028285327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028285325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Save
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 59.35
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1028285328
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028285325}
+  m_CullTransparentMesh: 1
 --- !u!1 &1039493736
 GameObject:
   m_ObjectHideFlags: 0
@@ -7922,6 +8661,7 @@ GameObject:
   - component: {fileID: 1042808788}
   - component: {fileID: 1042808787}
   - component: {fileID: 1042808786}
+  - component: {fileID: 1042808789}
   m_Layer: 0
   m_Name: Evil Pumpkin (18)
   m_TagString: Untagged
@@ -7943,6 +8683,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1042808787
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7980,6 +8724,19 @@ Transform:
   - {fileID: 2128840276}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1042808789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042808785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 7f4f977a-c23c-4fac-9367-11e7340a1eb4
 --- !u!1 &1045541445
 GameObject:
   m_ObjectHideFlags: 0
@@ -8035,6 +8792,139 @@ MonoBehaviour:
   AssignedInventorySlot:
     itemData: {fileID: 0}
     stackSize: -1
+--- !u!1 &1054306589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1054306590}
+  - component: {fileID: 1054306593}
+  - component: {fileID: 1054306592}
+  - component: {fileID: 1054306591}
+  m_Layer: 5
+  m_Name: Load
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1054306590
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054306589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2027795259}
+  m_Father: {fileID: 1919789950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 895, y: 398}
+  m_SizeDelta: {x: 276.6648, y: 66.3382}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &1054306591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054306589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1054306592}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 31789408}
+        m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
+        m_MethodName: TryLoadData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1054306592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054306589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1054306593
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054306589}
+  m_CullTransparentMesh: 1
 --- !u!1 &1060396910
 GameObject:
   m_ObjectHideFlags: 0
@@ -8904,6 +9794,7 @@ GameObject:
   - component: {fileID: 1121175630}
   - component: {fileID: 1121175629}
   - component: {fileID: 1121175628}
+  - component: {fileID: 1121175631}
   m_Layer: 0
   m_Name: Evil Pumpkin (7)
   m_TagString: Untagged
@@ -8925,6 +9816,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1121175629
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8962,6 +9857,19 @@ Transform:
   - {fileID: 1623325563}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1121175631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121175627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 3b926120-c358-4ca2-8018-c0bef9c44237
 --- !u!224 &1164992388 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7029839970625052947, guid: b2f23f810511534418b4bf254ae3077f,
@@ -9011,7 +9919,7 @@ PrefabInstance:
     - target: {fileID: 3251430865693027301, guid: c34d66145421b224da6c3e99012f27dd,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251430865693027301, guid: c34d66145421b224da6c3e99012f27dd,
         type: 3}
@@ -9021,7 +9929,7 @@ PrefabInstance:
     - target: {fileID: 3251430865693027301, guid: c34d66145421b224da6c3e99012f27dd,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251430865693027301, guid: c34d66145421b224da6c3e99012f27dd,
         type: 3}
@@ -9071,12 +9979,12 @@ PrefabInstance:
     - target: {fileID: 3251430865693027301, guid: c34d66145421b224da6c3e99012f27dd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 207.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251430865693027301, guid: c34d66145421b224da6c3e99012f27dd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -47.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251430865693027301, guid: c34d66145421b224da6c3e99012f27dd,
         type: 3}
@@ -9586,6 +10494,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 439651971}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 827e3a18a4fd5e646a6e2d6252a65363,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 439651973}
   m_SourcePrefab: {fileID: 100100000, guid: 827e3a18a4fd5e646a6e2d6252a65363, type: 3}
 --- !u!1 &1193188503
 GameObject:
@@ -10313,6 +11225,7 @@ GameObject:
   - component: {fileID: 1254115830}
   - component: {fileID: 1254115829}
   - component: {fileID: 1254115828}
+  - component: {fileID: 1254115831}
   m_Layer: 0
   m_Name: Pumpking (1)
   m_TagString: Untagged
@@ -10334,6 +11247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 30748f844387a2e44a0d15757e27f9e8, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1254115829
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10371,6 +11288,19 @@ Transform:
   - {fileID: 473033576}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1254115831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254115827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: a1ff5c1a-0d97-4589-8266-9d65a740f22e
 --- !u!1 &1261655545
 GameObject:
   m_ObjectHideFlags: 0
@@ -10382,6 +11312,7 @@ GameObject:
   - component: {fileID: 1261655548}
   - component: {fileID: 1261655547}
   - component: {fileID: 1261655546}
+  - component: {fileID: 1261655549}
   m_Layer: 0
   m_Name: Evil Pumpkin (10)
   m_TagString: Untagged
@@ -10403,6 +11334,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1261655547
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10440,6 +11375,19 @@ Transform:
   - {fileID: 60420395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1261655549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261655545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: ccc4d26c-de97-4cf0-81a6-248323ea6fa1
 --- !u!1001 &1275988470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11694,6 +12642,7 @@ MonoBehaviour:
   inventorySize: 20
   primaryInventorySystem:
     inventorySlots: []
+  offset: 10
 --- !u!65 &1501537562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11715,6 +12664,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0835369, y: 1.3883941, z: 2.00234}
   m_Center: {x: 0.0047342777, y: 0.69419706, z: -0.0042003393}
+--- !u!114 &1501537563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501537559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: c78b4f3e-16d3-41a0-93e9-01063b539731
 --- !u!1 &1508437718
 GameObject:
   m_ObjectHideFlags: 0
@@ -11860,6 +12822,7 @@ GameObject:
   - component: {fileID: 1508954887}
   - component: {fileID: 1508954886}
   - component: {fileID: 1508954885}
+  - component: {fileID: 1508954888}
   m_Layer: 0
   m_Name: Evil Pumpkin (21)
   m_TagString: Untagged
@@ -11881,6 +12844,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1508954886
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11918,6 +12885,19 @@ Transform:
   - {fileID: 1082077946}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1508954888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508954884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: bb53b459-628c-4ece-a571-2383f8092d92
 --- !u!1 &1519149104
 GameObject:
   m_ObjectHideFlags: 0
@@ -12034,6 +13014,7 @@ GameObject:
   - component: {fileID: 1563792261}
   - component: {fileID: 1563792260}
   - component: {fileID: 1563792259}
+  - component: {fileID: 1563792262}
   m_Layer: 0
   m_Name: Evil Pumpkin (6)
   m_TagString: Untagged
@@ -12055,6 +13036,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1563792260
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12092,6 +13077,19 @@ Transform:
   - {fileID: 125446986}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1563792262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563792258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 0259cf5f-a212-4a81-8355-a4a635799e03
 --- !u!1 &1565776336
 GameObject:
   m_ObjectHideFlags: 0
@@ -12103,6 +13101,7 @@ GameObject:
   - component: {fileID: 1565776339}
   - component: {fileID: 1565776338}
   - component: {fileID: 1565776337}
+  - component: {fileID: 1565776340}
   m_Layer: 0
   m_Name: Evil Pumpkin
   m_TagString: Untagged
@@ -12124,6 +13123,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1565776338
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12161,6 +13164,19 @@ Transform:
   - {fileID: 492948729}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1565776340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565776336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: a76799e3-3456-408f-8594-7fadcfad0ef9
 --- !u!224 &1586484639 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3251430865693027301, guid: c34d66145421b224da6c3e99012f27dd,
@@ -12314,6 +13330,7 @@ GameObject:
   - component: {fileID: 1595690863}
   - component: {fileID: 1595690862}
   - component: {fileID: 1595690861}
+  - component: {fileID: 1595690864}
   m_Layer: 0
   m_Name: Evil Pumpkin (16)
   m_TagString: Untagged
@@ -12335,6 +13352,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1595690862
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12372,6 +13393,19 @@ Transform:
   - {fileID: 1825937981}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1595690864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595690860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: f24a03ac-7c98-4a95-83d4-875ba93fc9f0
 --- !u!114 &1621229221 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1420759143771473137, guid: e1ec0f666e22d2c47b14bb0886b9928a,
@@ -12925,6 +13959,7 @@ GameObject:
   - component: {fileID: 1711959291}
   - component: {fileID: 1711959290}
   - component: {fileID: 1711959289}
+  - component: {fileID: 1711959292}
   m_Layer: 0
   m_Name: Evil Pumpkin (12)
   m_TagString: Untagged
@@ -12946,6 +13981,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1711959290
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12983,6 +14022,19 @@ Transform:
   - {fileID: 547164139}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1711959292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711959288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: df6f4b92-0037-4630-be77-bfa5eb34622c
 --- !u!1 &1714079426
 GameObject:
   m_ObjectHideFlags: 0
@@ -13018,6 +14070,139 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1732018371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1732018372}
+  - component: {fileID: 1732018375}
+  - component: {fileID: 1732018374}
+  - component: {fileID: 1732018373}
+  m_Layer: 5
+  m_Name: Save
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1732018372
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732018371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1028285326}
+  m_Father: {fileID: 1919789950}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 895, y: 478}
+  m_SizeDelta: {x: 276.6648, y: 66.3382}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &1732018373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732018371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1732018374}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 31789408}
+        m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
+        m_MethodName: SaveData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1732018374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732018371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1732018375
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732018371}
+  m_CullTransparentMesh: 1
 --- !u!1 &1736870187
 GameObject:
   m_ObjectHideFlags: 0
@@ -13169,12 +14354,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7cfa96617c4cd42b37a86fa85692e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventorySize: 10
+  inventorySize: 50
   primaryInventorySystem:
     inventorySlots: []
-  secondaryInventorySize: 84
-  secondaryInventorySystem:
-    inventorySlots: []
+  offset: 10
   gameInput: {fileID: 31789407}
 --- !u!1 &1738602047
 GameObject:
@@ -13642,6 +14825,7 @@ GameObject:
   - component: {fileID: 1820522973}
   - component: {fileID: 1820522972}
   - component: {fileID: 1820522971}
+  - component: {fileID: 1820522974}
   m_Layer: 0
   m_Name: Pumpking
   m_TagString: Untagged
@@ -13663,6 +14847,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 30748f844387a2e44a0d15757e27f9e8, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1820522972
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13700,6 +14888,19 @@ Transform:
   - {fileID: 1228998315}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1820522974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820522970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: d9c0ece8-52df-4cf7-a204-73d7a2341754
 --- !u!1 &1823688464
 GameObject:
   m_ObjectHideFlags: 0
@@ -14073,6 +15274,7 @@ GameObject:
   - component: {fileID: 1828357645}
   - component: {fileID: 1828357644}
   - component: {fileID: 1828357643}
+  - component: {fileID: 1828357646}
   m_Layer: 0
   m_Name: Pumpking (3)
   m_TagString: Untagged
@@ -14094,6 +15296,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 30748f844387a2e44a0d15757e27f9e8, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1828357644
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14131,6 +15337,19 @@ Transform:
   - {fileID: 2051378241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828357646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828357642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 7b76a71f-0df9-45c8-95cf-4387201123d1
 --- !u!1 &1833467035
 GameObject:
   m_ObjectHideFlags: 0
@@ -14426,6 +15645,7 @@ GameObject:
   - component: {fileID: 1850858048}
   - component: {fileID: 1850858047}
   - component: {fileID: 1850858046}
+  - component: {fileID: 1850858049}
   m_Layer: 0
   m_Name: Evil Pumpkin (13)
   m_TagString: Untagged
@@ -14447,6 +15667,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &1850858047
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14484,6 +15708,19 @@ Transform:
   - {fileID: 920513617}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1850858049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850858045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: b01c1b02-b9d8-48f4-9fa4-5da8f6329c39
 --- !u!1 &1854855828
 GameObject:
   m_ObjectHideFlags: 0
@@ -14857,6 +16094,44 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915902825}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1919789949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1919789950}
+  m_Layer: 5
+  m_Name: SaveLoadButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1919789950
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919789949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1732018372}
+  - {fileID: 1054306590}
+  - {fileID: 396992704}
+  m_Father: {fileID: 779409713}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1934376344
 GameObject:
   m_ObjectHideFlags: 0
@@ -15043,8 +16318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9f15499f6c4b54697f25c291dbd72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestPanel: {fileID: 679762980}
-  playerBackpackPanel: {fileID: 115780781}
+  inventoryPanel: {fileID: 679762980}
+  playerBackpackPanel: {fileID: 157267185}
 --- !u!1 &1955232726
 GameObject:
   m_ObjectHideFlags: 0
@@ -15721,6 +16996,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021099612}
   m_CullTransparentMesh: 1
+--- !u!1 &2027795258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2027795259}
+  - component: {fileID: 2027795261}
+  - component: {fileID: 2027795260}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2027795259
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027795258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1054306590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2027795260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027795258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Load
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 59.35
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &2027795261
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027795258}
+  m_CullTransparentMesh: 1
 --- !u!224 &2034952753 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3251430865693027301, guid: c34d66145421b224da6c3e99012f27dd,
@@ -16107,6 +17516,7 @@ GameObject:
   - component: {fileID: 2125131413}
   - component: {fileID: 2125131412}
   - component: {fileID: 2125131411}
+  - component: {fileID: 2125131414}
   m_Layer: 0
   m_Name: Evil Pumpkin (17)
   m_TagString: Untagged
@@ -16128,6 +17538,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpRadius: 1
   ItemData: {fileID: 11400000, guid: 9daf254bf334d474ea0daac9b78293ca, type: 2}
+  itemSaveData:
+    ItemData: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!135 &2125131412
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16165,6 +17579,19 @@ Transform:
   - {fileID: 1193188504}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2125131414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125131410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b87f4b1224ea6246902ddd24aba5331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 40114c52-79fd-4310-aaef-a8ee4913ea53
 --- !u!1 &2128840275
 GameObject:
   m_ObjectHideFlags: 0

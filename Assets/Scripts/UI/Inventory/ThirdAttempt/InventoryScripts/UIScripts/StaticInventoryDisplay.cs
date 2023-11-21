@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,14 @@ public class StaticInventoryDisplay : InventoryDisplay
     [SerializeField] private InventoryHolder inventoryHolder;
     [SerializeField] private InventorySlots_UI[] slots;
 
-    protected override void Start() {
-        base.Start();
 
+    private void OnEnable() {
+        PlayerInventoryHolder.OnPlayerInventoryChanged += RefreshStaticDisplay;
+    }
+    private void OnDisable() {
+        PlayerInventoryHolder.OnPlayerInventoryChanged -= RefreshStaticDisplay;
+    }
+    private void RefreshStaticDisplay() {
         if (inventoryHolder != null)
         {
             inventorySystem = inventoryHolder.PrimaryInventorySystem;
@@ -21,14 +27,18 @@ public class StaticInventoryDisplay : InventoryDisplay
             Debug.Log($"No inventory system assigned to {this.gameObject}");
         }
 
-        AssignSlots(inventorySystem);
+        AssignSlots(inventorySystem, 0);
     }
-    public override void AssignSlots(InventorySystem invToDisplay) {
+
+    protected override void Start() {
+        base.Start();
+
+        RefreshStaticDisplay();
+    }
+    public override void AssignSlots(InventorySystem invToDisplay, int offset) {
         slotDictionary = new Dictionary<InventorySlots_UI, InventorySlots>();
 
-        if (slots.Length != inventorySystem.InventorySize) Debug.Log($"Inventory slots out of sync on {this.gameObject}");
-
-        for (int i = 0; i < inventorySystem.InventorySize; i++) 
+        for (int i = 0; i < inventoryHolder.Offset; i++)
         {
             slotDictionary.Add(slots[i], inventorySystem.InventorySlots[i]);
             slots[i].Init(inventorySystem.InventorySlots[i]);

@@ -7,28 +7,32 @@ using UnityEngine.InputSystem;
 public class PlayerInventoryHolder : InventoryHolder
 {
     //FIELDS
-    [SerializeField] protected int secondaryInventorySize;
-    [SerializeField] protected InventorySystem secondaryInventorySystem;
     [SerializeField] protected GameInput gameInput;
 
-    public InventorySystem SecondaryInventorySystem => secondaryInventorySystem;
 
-    public static UnityAction<InventorySystem> OnPlayerBackpackDisplayRequested;
+    public static UnityAction OnPlayerInventoryChanged;
+    public static UnityAction<InventorySystem, int> OnPlayerInventoryDisplayRequested;
 
-    protected override void Awake() {
-        base.Awake();
-
-        secondaryInventorySystem = new InventorySystem(secondaryInventorySize);
+    private void Start() {
+        SaveGameManager.data.playerInventory = new InventorySaveData(primaryInventorySystem);
     }
 
+    protected override void LoadInventory(SaveData data) {
+        if (data.playerInventory.InvSystem != null)
+        {
+            this.primaryInventorySystem = data.playerInventory.InvSystem;
+            OnPlayerInventoryChanged?.Invoke();
+        }
+    }
     void Update() {
-        //if (Keyboard.current.bKey.wasPressedThisFrame) OnPlayerBackpackDisplayRequested?.Invoke(secondaryInventorySystem);
-        if (gameInput.InventoryTriggered()) OnPlayerBackpackDisplayRequested?.Invoke(secondaryInventorySystem);
+        if (Keyboard.current.bKey.wasPressedThisFrame) OnPlayerInventoryDisplayRequested?.Invoke(primaryInventorySystem, offset);
+        //if (gameInput.InventoryTriggered()) OnPlayerBackpackDisplayRequested?.Invoke(secondaryInventorySystem);
     }
 
     public bool AddToInventory(InventoryItemData data, int amount) {
+
         if (primaryInventorySystem.AddToInventory(data, amount)) return true;
-        else if (secondaryInventorySystem.AddToInventory(data, amount)) return true;
+
         return false;
     }
 }
