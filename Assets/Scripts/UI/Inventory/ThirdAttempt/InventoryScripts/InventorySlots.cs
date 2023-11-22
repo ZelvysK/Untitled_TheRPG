@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class InventorySlots
+public class InventorySlots : ISerializationCallbackReceiver
 {
     //REFERENCES
-    [SerializeField] private InventoryItemData itemData;
+    [NonSerialized] private InventoryItemData itemData;
+    [SerializeField] private int _itemID = -1;
     [SerializeField] private int stackSize;
 
     //FIELDS
@@ -17,6 +18,7 @@ public class InventorySlots
     //Ctor to create occupied Inventory Slot
     public InventorySlots(InventoryItemData source, int amount) {
         itemData = source;
+        _itemID = itemData.ID;
         stackSize = amount;
     }
 
@@ -28,12 +30,14 @@ public class InventorySlots
     //Clear a slot
     public void ClearSlot() {
         itemData = null;
+        _itemID = -1;
         stackSize = -1;
     }
 
     //Update Inventory Slot
     public void UpdateInventorySlot(InventoryItemData data, int amount) {
         itemData = data;
+        _itemID = itemData.ID;
         stackSize = amount;
     }
 
@@ -54,11 +58,12 @@ public class InventorySlots
         else
         {
             itemData = invSlot.ItemData;
+            _itemID = itemData.ID;
             stackSize = 0;
             AddToStack(invSlot.stackSize);
         }
     }
-    
+
     //Split stack in half
     public bool SplitStack(out InventorySlots splitStack) {
         if (stackSize <= 1)
@@ -71,5 +76,15 @@ public class InventorySlots
 
         splitStack = new InventorySlots(itemData, halfStack);
         return true;
+    }
+
+    public void OnBeforeSerialize() { }
+
+    public void OnAfterDeserialize() {
+        if (_itemID == -1) return;
+
+        //Can load this on GameManager, so we don't have to always do this
+        var db = Resources.Load<ItemDb>("ItemDatabase");
+        itemData = db.GetItem(_itemID);
     }
 }

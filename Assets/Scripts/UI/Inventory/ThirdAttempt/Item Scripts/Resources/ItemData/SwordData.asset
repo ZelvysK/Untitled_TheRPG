@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0827052b8f2cb842bb31e0687cecedd, type: 3}
+  m_Name: SwordData
+  m_EditorClassIdentifier: 
+  ID: 2
+  DisplayName: Sword
+  Description: This is a Sword, it can keel.
+  Icon: {fileID: 21300000, guid: 996ac705eec8724469241ca9286e6931, type: 3}
+  MaxStackSize: 1
+  GoldValue: 100
+  ItemPrefab: {fileID: 221800043001222970, guid: 0c2137fe6652d444b912f37d27a42aa5,
+    type: 3}

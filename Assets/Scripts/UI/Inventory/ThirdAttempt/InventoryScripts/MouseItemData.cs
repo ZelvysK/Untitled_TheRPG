@@ -14,9 +14,19 @@ public class MouseItemData : MonoBehaviour
     public TextMeshProUGUI ItemCount;
     public InventorySlots AssignedInventorySlot;
 
+    private Transform _playerTransform;
+    [SerializeField] private float _dropOffset = 3f;
+
     private void Awake() {
         ItemSprite.color = Color.clear;
+        ItemSprite.preserveAspect = true;
         ItemCount.text = string.Empty;
+
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if (_playerTransform == null)
+        {
+            Debug.Log("No player found!");
+        }
     }
     //Make the Mouse Slot follow the Cursor
     private void Update() {
@@ -27,17 +37,28 @@ public class MouseItemData : MonoBehaviour
 
             if (Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUIObject())
             {
-                ClearSlot();
-                // TODO: Drop the Item on the ground
+                if (AssignedInventorySlot.ItemData.ItemPrefab != null)
+                    Instantiate(AssignedInventorySlot.ItemData.ItemPrefab, _playerTransform.position + _playerTransform.forward * _dropOffset, Quaternion.identity);
+
+                if (AssignedInventorySlot.StackSize > 1)
+                {
+                    AssignedInventorySlot.AddToStack(-1);
+                    UpdateMouseSlot();
+                }
+                else ClearSlot();
             }
         }
     }
 
     //Assign item to mouse slot
-    internal void UpdateMouseSlot(InventorySlots invSlot) {
+    public void UpdateMouseSlot(InventorySlots invSlot) {
         AssignedInventorySlot.AssignItem(invSlot);
-        ItemSprite.sprite = invSlot.ItemData.Icon;
-        ItemCount.text = invSlot.StackSize.ToString();
+        UpdateMouseSlot();
+    }
+
+    public void UpdateMouseSlot() {
+        ItemSprite.sprite = AssignedInventorySlot.ItemData.Icon;
+        ItemCount.text = AssignedInventorySlot.StackSize.ToString();
         ItemSprite.color = Color.white;
     }
     //Clear mouse slot
